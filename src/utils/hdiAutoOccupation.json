@@ -1,0 +1,1602 @@
+[
+  {
+    "value": 0,
+    "description": "Não informado"
+  },
+  {
+    "value": 1,
+    "description": "Administrador"
+  },
+  {
+    "value": 2,
+    "description": "Administrador de bancos de dados"
+  },
+  {
+    "value": 3,
+    "description": "Administrador de organização da sociedade civil sem fins lucrativos"
+  },
+  {
+    "value": 4,
+    "description": "Administrador de organização filantrópica"
+  },
+  {
+    "value": 5,
+    "description": "Administrador de organização patronal"
+  },
+  {
+    "value": 6,
+    "description": "Administrador de organização religiosa"
+  },
+  {
+    "value": 7,
+    "description": "Administrador de partido político"
+  },
+  {
+    "value": 8,
+    "description": "Administrador de redes"
+  },
+  {
+    "value": 9,
+    "description": "Administrador sindical"
+  },
+  {
+    "value": 10,
+    "description": "Advogado"
+  },
+  {
+    "value": 11,
+    "description": "Advogado do setor público"
+  },
+  {
+    "value": 12,
+    "description": "Agente comercial"
+  },
+  {
+    "value": 13,
+    "description": "Agente de Bolsa de Valores"
+  },
+  {
+    "value": 14,
+    "description": "Agente de câmbio"
+  },
+  {
+    "value": 15,
+    "description": "Agente de outros serviços financeiros"
+  },
+  {
+    "value": 16,
+    "description": "Agente de viagem"
+  },
+  {
+    "value": 17,
+    "description": "Agrônomo"
+  },
+  {
+    "value": 18,
+    "description": "Ambulante"
+  },
+  {
+    "value": 19,
+    "description": "Analista - Servidor das carreiras de gestão governamental"
+  },
+  {
+    "value": 20,
+    "description": "Analista de sistemas"
+  },
+  {
+    "value": 21,
+    "description": "Analista Judiciário - Servidor das carreiras do Poder Judiciário"
+  },
+  {
+    "value": 22,
+    "description": "Antropólogo"
+  },
+  {
+    "value": 23,
+    "description": "Aposentado"
+  },
+  {
+    "value": 24,
+    "description": "Apresentador"
+  },
+  {
+    "value": 25,
+    "description": "Arqueólogo"
+  },
+  {
+    "value": 26,
+    "description": "Arquiteto"
+  },
+  {
+    "value": 27,
+    "description": "Arquivólogo"
+  },
+  {
+    "value": 28,
+    "description": "Arranjador de orquestra ou coral"
+  },
+  {
+    "value": 29,
+    "description": "Artistas de artes populares"
+  },
+  {
+    "value": 30,
+    "description": "Assistente - Servidor das carreiras do Poder Judiciário"
+  },
+  {
+    "value": 31,
+    "description": "Assistente administrativo"
+  },
+  {
+    "value": 32,
+    "description": "Assistente social"
+  },
+  {
+    "value": 33,
+    "description": "Atleta"
+  },
+  {
+    "value": 34,
+    "description": "Ator"
+  },
+  {
+    "value": 35,
+    "description": "Atuário"
+  },
+  {
+    "value": 36,
+    "description": "Auditor"
+  },
+  {
+    "value": 37,
+    "description": "Auxiliar - Servidor das carreiras do Poder Judiciário"
+  },
+  {
+    "value": 38,
+    "description": "Auxiliar administrativo"
+  },
+  {
+    "value": 39,
+    "description": "Bancário"
+  },
+  {
+    "value": 40,
+    "description": "Bibliotecário"
+  },
+  {
+    "value": 41,
+    "description": "Biólogo"
+  },
+  {
+    "value": 42,
+    "description": "Biomédico"
+  },
+  {
+    "value": 43,
+    "description": "Bombeiro Militar"
+  },
+  {
+    "value": 44,
+    "description": "Caçador"
+  },
+  {
+    "value": 45,
+    "description": "Cacique"
+  },
+  {
+    "value": 46,
+    "description": "Caixa"
+  },
+  {
+    "value": 47,
+    "description": "Caixeiro-viajante"
+  },
+  {
+    "value": 48,
+    "description": "Camelô"
+  },
+  {
+    "value": 49,
+    "description": "Cantor"
+  },
+  {
+    "value": 50,
+    "description": "Carpinteiro"
+  },
+  {
+    "value": 51,
+    "description": "Cenógrafo"
+  },
+  {
+    "value": 52,
+    "description": "Ceramista"
+  },
+  {
+    "value": 53,
+    "description": "Cientista"
+  },
+  {
+    "value": 54,
+    "description": "Cientista político"
+  },
+  {
+    "value": 55,
+    "description": "Cinegrafista"
+  },
+  {
+    "value": 56,
+    "description": "Comandante"
+  },
+  {
+    "value": 57,
+    "description": "Comentarista"
+  },
+  {
+    "value": 58,
+    "description": "Comerciário"
+  },
+  {
+    "value": 59,
+    "description": "Comissário de bordo"
+  },
+  {
+    "value": 60,
+    "description": "Compositor"
+  },
+  {
+    "value": 61,
+    "description": "Condutor do transporte de passageiros (motorista de taxi, ônibus, pequena embarcação etc)"
+  },
+  {
+    "value": 62,
+    "description": "Condutor e operador de robôs"
+  },
+  {
+    "value": 63,
+    "description": "Condutor e operador de veículos de equipamentos de movimentação de carga"
+  },
+  {
+    "value": 64,
+    "description": "Conselheiro de Tribunal de Contas"
+  },
+  {
+    "value": 65,
+    "description": "Consultor Jurídico"
+  },
+  {
+    "value": 66,
+    "description": "Contador"
+  },
+  {
+    "value": 67,
+    "description": "Corretor"
+  },
+  {
+    "value": 68,
+    "description": "Crítico"
+  },
+  {
+    "value": 69,
+    "description": "Decorador"
+  },
+  {
+    "value": 70,
+    "description": "Decorador de interiores"
+  },
+  {
+    "value": 71,
+    "description": "Defensor Público"
+  },
+  {
+    "value": 72,
+    "description": "Delegado de Polícia"
+  },
+  {
+    "value": 73,
+    "description": "Dentista (Odontólogo)"
+  },
+  {
+    "value": 74,
+    "description": "Deputado Estadual"
+  },
+  {
+    "value": 75,
+    "description": "Deputado Federal"
+  },
+  {
+    "value": 76,
+    "description": "Desembargador"
+  },
+  {
+    "value": 77,
+    "description": "Desenhista industrial (designer)"
+  },
+  {
+    "value": 78,
+    "description": "Desenhista técnico"
+  },
+  {
+    "value": 79,
+    "description": "Desenvolvedor de software"
+  },
+  {
+    "value": 80,
+    "description": "Despachante"
+  },
+  {
+    "value": 81,
+    "description": "Desportista"
+  },
+  {
+    "value": 82,
+    "description": "Diplomata"
+  },
+  {
+    "value": 83,
+    "description": "Diretor de empresa comercial"
+  },
+  {
+    "value": 84,
+    "description": "Diretor de empresa industrial"
+  },
+  {
+    "value": 85,
+    "description": "Diretor de empresa prestadora de serviços"
+  },
+  {
+    "value": 86,
+    "description": "Diretor de empresa pública"
+  },
+  {
+    "value": 87,
+    "description": "Diretor de espetáculos"
+  },
+  {
+    "value": 88,
+    "description": "Diretor de organismo internacional"
+  },
+  {
+    "value": 89,
+    "description": "Diretor de organização não-governamental"
+  },
+  {
+    "value": 90,
+    "description": "Diretor de sociedade de economia mista"
+  },
+  {
+    "value": 91,
+    "description": "Dirigente de empresa comercial"
+  },
+  {
+    "value": 92,
+    "description": "Dirigente de empresa industrial"
+  },
+  {
+    "value": 93,
+    "description": "Dirigente de empresa prestadora de serviços"
+  },
+  {
+    "value": 94,
+    "description": "Dirigente de organização da sociedade civil sem fins lucrativos"
+  },
+  {
+    "value": 95,
+    "description": "Dirigente de organização filantrópica"
+  },
+  {
+    "value": 96,
+    "description": "Dirigente de organização patronal"
+  },
+  {
+    "value": 97,
+    "description": "Dirigente de organização religiosa"
+  },
+  {
+    "value": 98,
+    "description": "Dirigente de partido político"
+  },
+  {
+    "value": 99,
+    "description": "Dirigente sindical"
+  },
+  {
+    "value": 100,
+    "description": "Dirigente superior da administração pública (ocupante de cargo de direção, chefia, assessoria"
+  },
+  {
+    "value": 101,
+    "description": "Do lar"
+  },
+  {
+    "value": 102,
+    "description": "Documentalista"
+  },
+  {
+    "value": 103,
+    "description": "Economiário"
+  },
+  {
+    "value": 104,
+    "description": "Economista"
+  },
+  {
+    "value": 105,
+    "description": "Economista doméstico"
+  },
+  {
+    "value": 106,
+    "description": "Empresário de espetáculos"
+  },
+  {
+    "value": 107,
+    "description": "Enfermeiro de nível superior"
+  },
+  {
+    "value": 108,
+    "description": "Engenheiro"
+  },
+  {
+    "value": 109,
+    "description": "Escritor"
+  },
+  {
+    "value": 110,
+    "description": "Escriturário"
+  },
+  {
+    "value": 111,
+    "description": "Escultor"
+  },
+  {
+    "value": 112,
+    "description": "Estatístico"
+  },
+  {
+    "value": 113,
+    "description": "Estudante"
+  },
+  {
+    "value": 114,
+    "description": "Extrativista florestal"
+  },
+  {
+    "value": 115,
+    "description": "Farmacêutico"
+  },
+  {
+    "value": 116,
+    "description": "Filólogo"
+  },
+  {
+    "value": 117,
+    "description": "Filósofo"
+  },
+  {
+    "value": 118,
+    "description": "Físico"
+  },
+  {
+    "value": 119,
+    "description": "Fisioterapeuta"
+  },
+  {
+    "value": 120,
+    "description": "Fonoaudiólogo"
+  },
+  {
+    "value": 121,
+    "description": "Fotógrafo"
+  },
+  {
+    "value": 122,
+    "description": "Funcionário público"
+  },
+  {
+    "value": 123,
+    "description": "Geógrafo"
+  },
+  {
+    "value": 124,
+    "description": "Geólogo"
+  },
+  {
+    "value": 125,
+    "description": "Gerente de empresa comercial"
+  },
+  {
+    "value": 126,
+    "description": "Gerente de empresa industrial"
+  },
+  {
+    "value": 127,
+    "description": "Gerente de empresa prestadora de serviços"
+  },
+  {
+    "value": 128,
+    "description": "Gerente de empresa pública"
+  },
+  {
+    "value": 129,
+    "description": "Gerente de organismo internacional"
+  },
+  {
+    "value": 130,
+    "description": "Gerente de organização não-governamental"
+  },
+  {
+    "value": 131,
+    "description": "Gerente de sociedade de economia mista"
+  },
+  {
+    "value": 132,
+    "description": "Gestor - Servidor das carreiras de gestão governamental"
+  },
+  {
+    "value": 133,
+    "description": "Governador"
+  },
+  {
+    "value": 134,
+    "description": "Guia de turismo"
+  },
+  {
+    "value": 135,
+    "description": "Hidrogeólogo"
+  },
+  {
+    "value": 136,
+    "description": "Historiador"
+  },
+  {
+    "value": 137,
+    "description": "Industriário"
+  },
+  {
+    "value": 138,
+    "description": "Instrutor de escolas livres"
+  },
+  {
+    "value": 139,
+    "description": "Intérprete"
+  },
+  {
+    "value": 140,
+    "description": "Joalheiro"
+  },
+  {
+    "value": 141,
+    "description": "Jornalista"
+  },
+  {
+    "value": 142,
+    "description": "Juiz de direito"
+  },
+  {
+    "value": 143,
+    "description": "Juiz do trabalho"
+  },
+  {
+    "value": 144,
+    "description": "Juiz federal"
+  },
+  {
+    "value": 145,
+    "description": "Leiloeiro"
+  },
+  {
+    "value": 146,
+    "description": "Líder de comunidade indígena"
+  },
+  {
+    "value": 147,
+    "description": "Locutor"
+  },
+  {
+    "value": 148,
+    "description": "Matemático"
+  },
+  {
+    "value": 149,
+    "description": "Mecânico"
+  },
+  {
+    "value": 150,
+    "description": "Médico"
+  },
+  {
+    "value": 151,
+    "description": "Membro de ordens ou seitas religiosas"
+  },
+  {
+    "value": 152,
+    "description": "Meteorologista"
+  },
+  {
+    "value": 153,
+    "description": "Militar da Aeronáutica"
+  },
+  {
+    "value": 154,
+    "description": "Militar da Marinha"
+  },
+  {
+    "value": 155,
+    "description": "Militar do Exército"
+  },
+  {
+    "value": 156,
+    "description": "Ministro"
+  },
+  {
+    "value": 157,
+    "description": "Ministro de Estado"
+  },
+  {
+    "value": 158,
+    "description": "Ministro do Superior Tribunal do Trabalho"
+  },
+  {
+    "value": 159,
+    "description": "Ministro do Superior Tribunal Militar"
+  },
+  {
+    "value": 160,
+    "description": "Ministro do Superior Tribunal de Justiça"
+  },
+  {
+    "value": 161,
+    "description": "Ministro do Supremo Tribunal Federal"
+  },
+  {
+    "value": 162,
+    "description": "Modelista"
+  },
+  {
+    "value": 163,
+    "description": "Modelos"
+  },
+  {
+    "value": 164,
+    "description": "Montador de aparelhos e instrumentos de precisão"
+  },
+  {
+    "value": 165,
+    "description": "Montador de aparelhos e instrumentos musicais"
+  },
+  {
+    "value": 166,
+    "description": "Motorista do transporte de passageiros (motorista de taxi, ônibus, pequena embarcação etc)"
+  },
+  {
+    "value": 167,
+    "description": "Museólogo"
+  },
+  {
+    "value": 168,
+    "description": "Músico"
+  },
+  {
+    "value": 169,
+    "description": "Nutricionista"
+  },
+  {
+    "value": 170,
+    "description": "Oceanógrafo"
+  },
+  {
+    "value": 171,
+    "description": "Oficiais de máquinas"
+  },
+  {
+    "value": 172,
+    "description": "Oficial de Justiça - Servidor das carreiras do Poder Judiciário"
+  },
+  {
+    "value": 173,
+    "description": "Oficial do registro de títulos e documentos"
+  },
+  {
+    "value": 174,
+    "description": "Operador de instalações de produção e distribuição de energia"
+  },
+  {
+    "value": 175,
+    "description": "Operador de máquina agropecuária e florestal"
+  },
+  {
+    "value": 176,
+    "description": "Orientador educacional"
+  },
+  {
+    "value": 177,
+    "description": "Outros especialistas em informática (exceto técnicos)"
+  },
+  {
+    "value": 178,
+    "description": "Outros profissionais do espetáculo e das artes"
+  },
+  {
+    "value": 179,
+    "description": "Outros servidores das carreiras de polícia, exceto militar"
+  },
+  {
+    "value": 180,
+    "description": "Outros técnicos de nível médio"
+  },
+  {
+    "value": 181,
+    "description": "Outros técnicos de nível médio das ciências físicas, químicas, engenharia e afins"
+  },
+  {
+    "value": 182,
+    "description": "Outros técnicos em operação de máquinas de tratamento de dados"
+  },
+  {
+    "value": 183,
+    "description": "Paleontólogo"
+  },
+  {
+    "value": 184,
+    "description": "Pedagogo"
+  },
+  {
+    "value": 185,
+    "description": "Pedreiro"
+  },
+  {
+    "value": 186,
+    "description": "Perito criminal"
+  },
+  {
+    "value": 187,
+    "description": "Pescador"
+  },
+  {
+    "value": 188,
+    "description": "Pesquisador"
+  },
+  {
+    "value": 189,
+    "description": "Petrógrafo"
+  },
+  {
+    "value": 190,
+    "description": "Piloto de aeronaves"
+  },
+  {
+    "value": 191,
+    "description": "Pintor artístico"
+  },
+  {
+    "value": 192,
+    "description": "Policial Militar"
+  },
+  {
+    "value": 193,
+    "description": "Prefeito"
+  },
+  {
+    "value": 194,
+    "description": "Presidente de empresa prestadora de serviços"
+  },
+  {
+    "value": 195,
+    "description": "Presidente da República"
+  },
+  {
+    "value": 196,
+    "description": "Presidente de empresa comercial"
+  },
+  {
+    "value": 197,
+    "description": "Presidente de empresa industrial"
+  },
+  {
+    "value": 198,
+    "description": "Presidente de empresa pública"
+  },
+  {
+    "value": 199,
+    "description": "Presidente de organismo internacional"
+  },
+  {
+    "value": 200,
+    "description": "Presidente de organizaçãoo não-governamental"
+  },
+  {
+    "value": 201,
+    "description": "Presidente de sociedade de economia mista"
+  },
+  {
+    "value": 202,
+    "description": "Prestador de serviços do comércio"
+  },
+  {
+    "value": 203,
+    "description": "Procurador da Fazenda"
+  },
+  {
+    "value": 204,
+    "description": "Procurador de autarquias"
+  },
+  {
+    "value": 205,
+    "description": "Procurador de fundações públicas"
+  },
+  {
+    "value": 206,
+    "description": "Procurador do Ministério Público"
+  },
+  {
+    "value": 207,
+    "description": "Produtor de espetáculos"
+  },
+  {
+    "value": 208,
+    "description": "Produtor na exploração agropecuária"
+  },
+  {
+    "value": 209,
+    "description": "Professor de escolas livres"
+  },
+  {
+    "value": 210,
+    "description": "Professor do ensino fundamental"
+  },
+  {
+    "value": 211,
+    "description": "Professor do ensino médio"
+  },
+  {
+    "value": 212,
+    "description": "Professor do ensino profissional"
+  },
+  {
+    "value": 213,
+    "description": "Professor do ensino superior"
+  },
+  {
+    "value": 214,
+    "description": "Professor na educação infantil"
+  },
+  {
+    "value": 215,
+    "description": "Profissional da educação física (exceto professor)"
+  },
+  {
+    "value": 216,
+    "description": "Profissional de comercializaçãoo"
+  },
+  {
+    "value": 217,
+    "description": "Profissional de marketing"
+  },
+  {
+    "value": 218,
+    "description": "Profissional de publicidade"
+  },
+  {
+    "value": 219,
+    "description": "Promotor do Ministério Público"
+  },
+  {
+    "value": 220,
+    "description": "Psicanalista"
+  },
+  {
+    "value": 221,
+    "description": "Psicólogo"
+  },
+  {
+    "value": 222,
+    "description": "Químico"
+  },
+  {
+    "value": 223,
+    "description": "Recenseador"
+  },
+  {
+    "value": 224,
+    "description": "Redator"
+  },
+  {
+    "value": 225,
+    "description": "Regente de orquestra ou coral"
+  },
+  {
+    "value": 226,
+    "description": "Repórter"
+  },
+  {
+    "value": 227,
+    "description": "Representante comercial"
+  },
+  {
+    "value": 228,
+    "description": "Sacerdote de ordens ou seitas religiosas"
+  },
+  {
+    "value": 229,
+    "description": "Secretério administrativo"
+  },
+  {
+    "value": 230,
+    "description": "Securitério"
+  },
+  {
+    "value": 231,
+    "description": "Senador"
+  },
+  {
+    "value": 232,
+    "description": "Servidor das carreiras da CVM"
+  },
+  {
+    "value": 233,
+    "description": "Servidor das carreiras da Susep"
+  },
+  {
+    "value": 234,
+    "description": "Servidor das carreiras de auditoria fiscal e de fiscalização"
+  },
+  {
+    "value": 235,
+    "description": "Servidor das carreiras de ciência e tecnologia"
+  },
+  {
+    "value": 236,
+    "description": "Servidor das carreiras do Poder Judiciário"
+  },
+  {
+    "value": 237,
+    "description": "Servidor das carreiras do Banco Central"
+  },
+  {
+    "value": 238,
+    "description": "Servidor das carreiras do Ministério Público"
+  },
+  {
+    "value": 239,
+    "description": "Servidor das carreiras do Poder Legislativo"
+  },
+  {
+    "value": 240,
+    "description": "Servidor das demais carreiras da administração autérquica"
+  },
+  {
+    "value": 241,
+    "description": "Servidor das demais carreiras da administração fundacional"
+  },
+  {
+    "value": 242,
+    "description": "Servidor das demais carreiras da administração pública direta"
+  },
+  {
+    "value": 243,
+    "description": "Sociólogo"
+  },
+  {
+    "value": 244,
+    "description": "Supervisor de empresa comercial"
+  },
+  {
+    "value": 245,
+    "description": "Supervisor de empresa industrial"
+  },
+  {
+    "value": 246,
+    "description": "Supervisor de empresa prestadora de serviços"
+  },
+  {
+    "value": 247,
+    "description": "Supervisor de empresa pública"
+  },
+  {
+    "value": 248,
+    "description": "Supervisor de organismo internacional"
+  },
+  {
+    "value": 249,
+    "description": "Supervisor de organização não-governamental"
+  },
+  {
+    "value": 250,
+    "description": "Supervisor de sociedade de economia mista"
+  },
+  {
+    "value": 251,
+    "description": "Técnico da ciência da saúde animal"
+  },
+  {
+    "value": 252,
+    "description": "Técnico da ciência da saúde humana"
+  },
+  {
+    "value": 253,
+    "description": "Técnico da produção agropecuária"
+  },
+  {
+    "value": 254,
+    "description": "Técnico das ciências administrativas"
+  },
+  {
+    "value": 255,
+    "description": "Técnico das ciências contábeis"
+  },
+  {
+    "value": 256,
+    "description": "Técnico de bioquímica"
+  },
+  {
+    "value": 257,
+    "description": "Técnico de biotecnologia"
+  },
+  {
+    "value": 258,
+    "description": "Técnico de conservação, dissecação e empalhamento de corpos"
+  },
+  {
+    "value": 259,
+    "description": "Técnico de coordenação administrativa"
+  },
+  {
+    "value": 260,
+    "description": "Técnico de edificações"
+  },
+  {
+    "value": 261,
+    "description": "Técnico de fiscalização administrativa"
+  },
+  {
+    "value": 262,
+    "description": "Técnico de inspeção administrativa"
+  },
+  {
+    "value": 263,
+    "description": "Técnico de laboratório"
+  },
+  {
+    "value": 264,
+    "description": "Técnico de outros equipamentos e instrumentos de diagnóstico"
+  },
+  {
+    "value": 265,
+    "description": "Técnico de planejamento - Servidor das carreiras de gestão governamental"
+  },
+  {
+    "value": 266,
+    "description": "Técnico de Raios-X"
+  },
+  {
+    "value": 267,
+    "description": "Técnico de serviços culturais"
+  },
+  {
+    "value": 268,
+    "description": "Técnico em biologia"
+  },
+  {
+    "value": 269,
+    "description": "Técnico em ciências físicas"
+  },
+  {
+    "value": 270,
+    "description": "Técnico em ciências químicas"
+  },
+  {
+    "value": 271,
+    "description": "Técnico em construção civil"
+  },
+  {
+    "value": 272,
+    "description": "Técnico em eletro-eletrônica"
+  },
+  {
+    "value": 273,
+    "description": "Técnico em fotônica"
+  },
+  {
+    "value": 274,
+    "description": "Técnico em geologia"
+  },
+  {
+    "value": 275,
+    "description": "Técnico em informática"
+  },
+  {
+    "value": 276,
+    "description": "Técnico em metalmecânica"
+  },
+  {
+    "value": 277,
+    "description": "Técnico em mineralogia"
+  },
+  {
+    "value": 278,
+    "description": "Técnico em navegação aérea"
+  },
+  {
+    "value": 279,
+    "description": "Técnico em navegação fluvial"
+  },
+  {
+    "value": 280,
+    "description": "Técnico em navegação marítima"
+  },
+  {
+    "value": 281,
+    "description": "Técnico em navegação metroferroviária"
+  },
+  {
+    "value": 282,
+    "description": "Técnico em obras de infra-estrutura"
+  },
+  {
+    "value": 283,
+    "description": "Técnico em operação de aparelhos de cenografia"
+  },
+  {
+    "value": 284,
+    "description": "Técnico em operação de aparelhos de projeção"
+  },
+  {
+    "value": 285,
+    "description": "Técnico em operação de aparelhos de sonorização"
+  },
+  {
+    "value": 286,
+    "description": "Técnico em operação de estações de rádio"
+  },
+  {
+    "value": 287,
+    "description": "Técnico em operação de estações de televisão"
+  },
+  {
+    "value": 288,
+    "description": "Técnico em transportes (logística)"
+  },
+  {
+    "value": 289,
+    "description": "Telefonista"
+  },
+  {
+    "value": 290,
+    "description": "Terapeuta ocupacional"
+  },
+  {
+    "value": 291,
+    "description": "Titular de Cartório"
+  },
+  {
+    "value": 292,
+    "description": "Trabalhador da fabricação de agroindústrias"
+  },
+  {
+    "value": 293,
+    "description": "Trabalhador da fabricação de alimentos"
+  },
+  {
+    "value": 294,
+    "description": "Trabalhador da fabricação de bebidas"
+  },
+  {
+    "value": 295,
+    "description": "Trabalhador da fabricação de fumo"
+  },
+  {
+    "value": 296,
+    "description": "Trabalhador da fabricação eletro-eletrônica"
+  },
+  {
+    "value": 297,
+    "description": "Trabalhador da indústria da borracha"
+  },
+  {
+    "value": 298,
+    "description": "Trabalhador da indústria da construção civil"
+  },
+  {
+    "value": 299,
+    "description": "Trabalhador da indústria do plástico"
+  },
+  {
+    "value": 300,
+    "description": "Trabalhador da indústria extrativa"
+  },
+  {
+    "value": 301,
+    "description": "Trabalhador da indústria petroquímica"
+  },
+  {
+    "value": 302,
+    "description": "Trabalhador da indústria química"
+  },
+  {
+    "value": 303,
+    "description": "Trabalhador da instalação eletro-eletrônica"
+  },
+  {
+    "value": 304,
+    "description": "Trabalhador da Marinha Mercante"
+  },
+  {
+    "value": 305,
+    "description": "Trabalhador da transformação de metais e compôsitos"
+  },
+  {
+    "value": 306,
+    "description": "Trabalhador das indústrias das artes gráficas"
+  },
+  {
+    "value": 307,
+    "description": "Trabalhador das indústrias de madeira"
+  },
+  {
+    "value": 308,
+    "description": "Trabalhador das indústrias do curtimento"
+  },
+  {
+    "value": 309,
+    "description": "Trabalhador das indústrias do mobiliário"
+  },
+  {
+    "value": 310,
+    "description": "Trabalhador das indústrias do vestuário"
+  },
+  {
+    "value": 311,
+    "description": "Trabalhador das indústrias téxteis"
+  },
+  {
+    "value": 312,
+    "description": "Trabalhador de atendimento ao público"
+  },
+  {
+    "value": 313,
+    "description": "Trabalhador de empresa de prestação de serviços"
+  },
+  {
+    "value": 314,
+    "description": "Trabalhador de instalações de materiais de construção"
+  },
+  {
+    "value": 315,
+    "description": "Trabalhador de instalações e máquinas de fabricação de celulose"
+  },
+  {
+    "value": 316,
+    "description": "Trabalhador de instalações e máquinas de fabricação de papel"
+  },
+  {
+    "value": 317,
+    "description": "Trabalhador de instalações siderúrgicas"
+  },
+  {
+    "value": 318,
+    "description": "Trabalhador de organização da sociedade civil sem fins lucrativos"
+  },
+  {
+    "value": 319,
+    "description": "Trabalhador de organização filantrópica"
+  },
+  {
+    "value": 320,
+    "description": "Trabalhador de organização não-governamental"
+  },
+  {
+    "value": 321,
+    "description": "Trabalhador de organização patronal"
+  },
+  {
+    "value": 322,
+    "description": "Trabalhador de organização religiosa"
+  },
+  {
+    "value": 323,
+    "description": "Trabalhador de organização sindical"
+  },
+  {
+    "value": 324,
+    "description": "Trabalhador de outras instalações agroindustriais"
+  },
+  {
+    "value": 325,
+    "description": "Trabalhador de partido político"
+  },
+  {
+    "value": 326,
+    "description": "Trabalhador de reparação e manutenção"
+  },
+  {
+    "value": 327,
+    "description": "Trabalhador de sociedade de economia mista"
+  },
+  {
+    "value": 328,
+    "description": "Trabalhador do registro civil de pessoas juridicas"
+  },
+  {
+    "value": 329,
+    "description": "Trabalhador do registro civil de pessoas naturais"
+  },
+  {
+    "value": 330,
+    "description": "Trabalhador do registro de contratos marítimos"
+  },
+  {
+    "value": 331,
+    "description": "Trabalhador do registro de distribuições"
+  },
+  {
+    "value": 332,
+    "description": "Trabalhador do registro de imóveis"
+  },
+  {
+    "value": 333,
+    "description": "Trabalhador dos serviços de administração de edifícios"
+  },
+  {
+    "value": 334,
+    "description": "Trabalhador dos serviços de alimentação"
+  },
+  {
+    "value": 335,
+    "description": "Trabalhador dos serviços de conservação de edifícios"
+  },
+  {
+    "value": 336,
+    "description": "Trabalhador dos serviços de cuidados pessoais"
+  },
+  {
+    "value": 337,
+    "description": "Trabalhador dos serviços de embelezamento"
+  },
+  {
+    "value": 338,
+    "description": "Trabalhador dos serviços de hotelaria"
+  },
+  {
+    "value": 339,
+    "description": "Trabalhador dos serviços de manutenção de edifícios"
+  },
+  {
+    "value": 340,
+    "description": "Trabalhador dos serviços de proteção (exceto militar)"
+  },
+  {
+    "value": 341,
+    "description": "Trabalhador dos serviços de saúde"
+  },
+  {
+    "value": 342,
+    "description": "Trabalhador dos serviços de segurança (exceto militar)"
+  },
+  {
+    "value": 343,
+    "description": "Trabalhador dos serviços domésticos em geral"
+  },
+  {
+    "value": 344,
+    "description": "Trabalhador na exploração agropecuária"
+  },
+  {
+    "value": 345,
+    "description": "Tradutor"
+  },
+  {
+    "value": 346,
+    "description": "Vendedor do comércio"
+  },
+  {
+    "value": 347,
+    "description": "Vereador"
+  },
+  {
+    "value": 348,
+    "description": "Veterinário"
+  },
+  {
+    "value": 349,
+    "description": "Veterinário Patologista"
+  },
+  {
+    "value": 350,
+    "description": "Vice-Governador"
+  },
+  {
+    "value": 351,
+    "description": "Vice-Prefeito"
+  },
+  {
+    "value": 352,
+    "description": "Vice-Presidente da República"
+  },
+  {
+    "value": 353,
+    "description": "Vidreiro"
+  },
+  {
+    "value": 354,
+    "description": "Vitrinista"
+  },
+  {
+    "value": 355,
+    "description": "Zootecnista"
+  },
+  {
+    "value": 356,
+    "description": "Acupunturista"
+  },
+  {
+    "value": 357,
+    "description": "Agricultor"
+  },
+  {
+    "value": 358,
+    "description": "Apicultor"
+  },
+  {
+    "value": 359,
+    "description": "Árbitro desportivo"
+  },
+  {
+    "value": 360,
+    "description": "Astrólogo"
+  },
+  {
+    "value": 361,
+    "description": "Astrônomo"
+  },
+  {
+    "value": 362,
+    "description": "Autônomo"
+  },
+  {
+    "value": 363,
+    "description": "Avicultor"
+  },
+  {
+    "value": 364,
+    "description": "Cabeleireiro"
+  },
+  {
+    "value": 365,
+    "description": "Cafeicultor"
+  },
+  {
+    "value": 366,
+    "description": "Comprador"
+  },
+  {
+    "value": 367,
+    "description": "Eletricista"
+  },
+  {
+    "value": 368,
+    "description": "Eletrotécnico"
+  },
+  {
+    "value": 369,
+    "description": "Empresário"
+  },
+  {
+    "value": 370,
+    "description": "Enólogo"
+  },
+  {
+    "value": 371,
+    "description": "Esteticista"
+  },
+  {
+    "value": 372,
+    "description": "Guarda-civil municipal"
+  },
+  {
+    "value": 373,
+    "description": "Investigador de polícia"
+  },
+  {
+    "value": 374,
+    "description": "Líder de comunidade caiçara"
+  },
+  {
+    "value": 375,
+    "description": "Manicure"
+  },
+  {
+    "value": 376,
+    "description": "Maquiador"
+  },
+  {
+    "value": 377,
+    "description": "Marceneiro"
+  },
+  {
+    "value": 378,
+    "description": "Massagista"
+  },
+  {
+    "value": 379,
+    "description": "Mestre de Obra"
+  },
+  {
+    "value": 380,
+    "description": "Motorista / Caminhoneiro (motorista de cargas)"
+  },
+  {
+    "value": 381,
+    "description": "Operador de Máquinas"
+  },
+  {
+    "value": 382,
+    "description": "Podólogo"
+  },
+  {
+    "value": 383,
+    "description": "Policial rodoviário federal"
+  },
+  {
+    "value": 384,
+    "description": "Produtor agrícola polivalente"
+  },
+  {
+    "value": 385,
+    "description": "Produtor agropecuário, em geral"
+  },
+  {
+    "value": 386,
+    "description": "Produtor da cultura de soja"
+  },
+  {
+    "value": 387,
+    "description": "Produtor de algodão"
+  },
+  {
+    "value": 388,
+    "description": "Produtor de arroz"
+  },
+  {
+    "value": 389,
+    "description": "Produtor de cana-de-açúcar"
+  },
+  {
+    "value": 390,
+    "description": "Produtor de milho e sorgo"
+  },
+  {
+    "value": 391,
+    "description": "Produtor de rádio"
+  },
+  {
+    "value": 392,
+    "description": "Produtor de televisão"
+  },
+  {
+    "value": 393,
+    "description": "Produtor Rural"
+  },
+  {
+    "value": 394,
+    "description": "Profissional do sexo"
+  },
+  {
+    "value": 395,
+    "description": "Profissional Liberal"
+  },
+  {
+    "value": 396,
+    "description": "Sommelier"
+  },
+  {
+    "value": 397,
+    "description": "Técnico em Segurança do Trabalho"
+  },
+  {
+    "value": 398,
+    "description": "Teólogo"
+  },
+  {
+    "value": 399,
+    "description": "Topógrafo"
+  }
+]

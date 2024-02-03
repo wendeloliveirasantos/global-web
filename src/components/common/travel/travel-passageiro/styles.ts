@@ -1,0 +1,21 @@
+import styled from "styled-components";
+
+export const Wrapper = styled.div`
+  width: 500px;
+`
+
+export const Description = styled.p`
+  margin-bottom: 20px;
+  color: #334155;
+`
+
+export const Group = styled.div`
+  width: 100%;
+  padding: 0 10px;
+`
+
+export const Row = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 8px 0;;
+`

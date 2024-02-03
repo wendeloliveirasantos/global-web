@@ -1,0 +1,1 @@
+export { default as AboutUsHome } from './AboutUsHome'
