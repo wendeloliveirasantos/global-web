@@ -20,6 +20,15 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
   const [formData, setFormData] = useState(INITIAL_VALUE);
   const [formErrors, setFormErrors] = useState(INITIAL_VALUE);
 
+  const [numeroCartao, setNumeroCartao] = useState('');
+  const [numeroMask, setNumeroMask] = useState('9999 9999 9999 9999');
+
+  const handleMaskChange = (e: any) => {
+    const { value } = e.target;
+    setNumeroCartao(value);
+    atribuirMascaraNumeroCartao(value);
+  };
+
   function handleChange(e: any) {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -93,6 +102,14 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
     onSubmit(formData)
   }
 
+  const atribuirMascaraNumeroCartao = (numero: string) => {
+    if (parseInt(numero.substring(0, 2)) >= 30 && parseInt(numero.substring(0, 2)) <= 38) {
+      setNumeroMask('9999 999999 99999');
+    } else {
+      setNumeroMask('9999 9999 9999 9999');
+    }
+  };
+
   return (
     <S.Wrapper>
       <S.Header>
@@ -113,7 +130,7 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
         </S.Row>
         <S.Row>
           <S.Group>
-            <TextInputMask mask="999999999" onChange={handleChange} name="cpfTitular" label="CPF do Titular" />
+            <TextInputMask mask="999.999.999-99" onChange={handleChange} name="cpfTitular" label="CPF do Titular" />
             {formErrors.cpfTitular && (
               <span style={{ color: "red" }}>{formErrors.cpfTitular}</span>
             )}
@@ -121,7 +138,7 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
         </S.Row>
         <S.Row>
           <S.Group>
-            <TextInputMask mask="9999 9999 9999 9999" onChange={handleChange} name="numeroCartao" label="Número do cartão" />
+            <TextInputMask mask={numeroMask} value={numeroCartao} onChange={(e) => { handleChange(e); handleMaskChange(e) }} name="numeroCartao" label="Número do cartão" />
             {formErrors.numeroCartao && (
               <span style={{ color: "red" }}>{formErrors.numeroCartao}</span>
             )}

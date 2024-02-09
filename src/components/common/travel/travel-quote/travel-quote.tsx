@@ -15,8 +15,14 @@ type ValuesProps = {
 };
 
 const from = [
-  { value: "BR", label: "Brasil" },
-  { value: "AG", label: "Argentina" },
+  { value: "1;X4", label: "AMERICA DO NORTE" },
+  { value: "2;X6", label: "EUROPA" },
+  { value: "3;X2", label: "AMERICA CENTRAL" },
+  { value: "4;X9", label: "AMERICA DO SUL" },
+  { value: "5;X5", label: "AFRICA" },
+  { value: "6;X7", label: "ASIA" },
+  { value: "7;X8", label: "OCEANIA" },
+  { value: "9;BR", label: "BRASIL" },
 ];
 
 const quantPass = [
@@ -158,14 +164,19 @@ export default function TravelQuote() {
   return (
     <S.Card>
       <form onSubmit={handleSubmit}>
-        <Search
+        {/* <Search
           onSearch={(v: string) => setDestinationTerm(v)}
-          label="Procure por um país"
+          label="Destino"
           options={destinies.map((destiny) => ({
             value: destiny.siglaPais,
             label: `${destiny.pais}`,
           }))}
           onChange={(row: any) => handleChange("to", row.toString())}
+        /> */}
+        <Select
+          onChange={(v) => handleChange("to", v.toString())}
+          label="Qual seu próximo destino?"
+          options={from}
         />
         {destinationError && (
           <span style={{ color: "red" }}>{destinationError}</span>
