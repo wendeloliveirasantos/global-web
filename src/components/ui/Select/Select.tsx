@@ -1,5 +1,8 @@
 import React from 'react'
 import * as S from './Select.styles'
+import { useState } from 'react';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 type SelectProps = {
   className?: string
@@ -12,7 +15,7 @@ type SelectProps = {
   value?: string | number
 }
 
-export default function Select({
+export default function UiSelect({
   className,
   options,
   defaultValue,
@@ -22,24 +25,37 @@ export default function Select({
   ...rest
 }: SelectProps) {
   return (
-    <>
+    <div>
       {label && <S.Label>{label}</S.Label>}
-      <S.Wrapper
-        className={className}
+      <Select
+        value={defaultValue}
         onChange={(e) => onChange(e.target.value)}
         {...rest}
       >
-        <S.Option value={defaultValue}>{defaultValue}</S.Option>
-        {loading ? (
-          <S.Option>Carregando...</S.Option>
-        ) : (
-          options.map((option) => (
-            <S.Option key={option.value} value={option.value}>
-              {option.label}
-            </S.Option>
-          ))
-        )}
-      </S.Wrapper>
-    </>
+        <MenuItem value="">Selecione uma opção</MenuItem>
+        <MenuItem value="option1">Opção 1</MenuItem>
+        <MenuItem value="option2">Opção 2</MenuItem>
+        <MenuItem value="option3">Opção 3</MenuItem>
+      </Select>
+    </div>
+    // <>
+    //   {label && <S.Label>{label}</S.Label>}
+    //   <S.Wrapper
+    //     className={className}
+    //     onChange={(e) => onChange(e.target.value)}
+    //     {...rest}
+    //   >
+    //     <S.Option value={defaultValue}>{defaultValue}</S.Option>
+    //     {loading ? (
+    //       <S.Option>Carregando...</S.Option>
+    //     ) : (
+    //       options.map((option) => (
+    //         <S.Option key={option.value} value={option.value}>
+    //           {option.label}
+    //         </S.Option>
+    //       ))
+    //     )}
+    //   </S.Wrapper>
+    // </>
   )
 }

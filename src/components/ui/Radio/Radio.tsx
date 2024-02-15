@@ -1,5 +1,7 @@
 import React from 'react'
 import * as S from './Radio.styles'
+import { useState } from 'react';
+import Radio from '@mui/material/Radio'
 
 type Props = {
   answer: string
@@ -8,36 +10,54 @@ type Props = {
   className?: string
 }
 
-function Radio({ answer, change, label, ...rest }: Props) {
+function UiRadio({ answer, change, label, ...rest }: Props) {
   return (
-    <S.Wrapper>
+    <div>
       {label && <S.Label>{label}</S.Label>}
-      <div>
-        <label>
-          Sim
-          <input
-            type="radio"
-            value="yes"
-            checked={answer === 'yes'}
-            onChange={(e) => change(e.target.value)}
-            {...rest}
-          />
-          <span></span>
-        </label>
-        <label>
-          Não
-          <input
-            type="radio"
-            value="no"
-            checked={answer === 'no'}
-            onChange={(e) => change(e.target.value)}
-            {...rest}
-          />
-          <span></span>
-        </label>
-      </div>
-    </S.Wrapper>
+      <Radio
+        checked={answer === 'yes'}
+        onChange={(e) => change(e.target.value)}
+        value="yes"
+        {...rest}
+      />
+      
+      {label && <S.Label>{label}</S.Label>}
+      <Radio
+        checked={answer === 'no'}
+        onChange={(e) => change(e.target.value)}
+        value="no"
+        {...rest}
+      />
+      
+    </div>
+    // <S.Wrapper>
+    //   {label && <S.Label>{label}</S.Label>}
+    //   <div>
+    //     <label>
+    //       Sim
+    //       <input
+    //         type="radio"
+    //         value="yes"
+    //         checked={answer === 'yes'}
+    //         onChange={(e) => change(e.target.value)}
+    //         {...rest}
+    //       />
+    //       <span></span>
+    //     </label>
+    //     <label>
+    //       Não
+    //       <input
+    //         type="radio"
+    //         value="no"
+    //         checked={answer === 'no'}
+    //         onChange={(e) => change(e.target.value)}
+    //         {...rest}
+    //       />
+    //       <span></span>
+    //     </label>
+    //   </div>
+    // </S.Wrapper>
   )
 }
 
-export default Radio
+export default UiRadio

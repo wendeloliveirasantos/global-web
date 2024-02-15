@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import * as S from './Button.styles'
+import Button from '@mui/material/Button';
 
 type ButtonProps = {
   className?: string
@@ -8,12 +9,15 @@ type ButtonProps = {
   type?: any
 }
 
-function Button({ className, children, ...rest }: ButtonProps) {
+function UiButton({ className, children, ...rest }: ButtonProps) {
   return (
-    <S.Wrapper className={className} {...rest}>
+    <Button variant="contained" className={className} {...rest}>
       {children}
-    </S.Wrapper>
+    </Button>
+    // <S.Wrapper className={className} {...rest}>
+    //   {children}
+    // </S.Wrapper>
   )
 }
 
-export default Button
+export default UiButton

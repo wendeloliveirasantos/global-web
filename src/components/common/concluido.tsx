@@ -12,7 +12,8 @@ export default function ConcluidoComponent(props: Props) {
   const router = useRouter()
 
   const handleButtonClick = () => {
-    const url = compra.urlVoucher;
+    console.log(compra);
+    const url = compra.urlVoucher != null ? compra.urlVoucher : compra.result.EmissoesResponseAPI[0].UrlEvoucher;
     window.open(url, '_blank');
   };
 
