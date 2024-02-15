@@ -12,51 +12,33 @@ type Props = {
 
 function UiRadio({ answer, change, label, ...rest }: Props) {
   return (
-    <div>
+    <S.Wrapper>
       {label && <S.Label>{label}</S.Label>}
-      <Radio
-        checked={answer === 'yes'}
-        onChange={(e) => change(e.target.value)}
-        value="yes"
-        {...rest}
-      />
-      
-      {label && <S.Label>{label}</S.Label>}
-      <Radio
-        checked={answer === 'no'}
-        onChange={(e) => change(e.target.value)}
-        value="no"
-        {...rest}
-      />
-      
-    </div>
-    // <S.Wrapper>
-    //   {label && <S.Label>{label}</S.Label>}
-    //   <div>
-    //     <label>
-    //       Sim
-    //       <input
-    //         type="radio"
-    //         value="yes"
-    //         checked={answer === 'yes'}
-    //         onChange={(e) => change(e.target.value)}
-    //         {...rest}
-    //       />
-    //       <span></span>
-    //     </label>
-    //     <label>
-    //       Não
-    //       <input
-    //         type="radio"
-    //         value="no"
-    //         checked={answer === 'no'}
-    //         onChange={(e) => change(e.target.value)}
-    //         {...rest}
-    //       />
-    //       <span></span>
-    //     </label>
-    //   </div>
-    // </S.Wrapper>
+      <div>
+        <label>
+          Sim
+          <input
+            type="radio"
+            value="yes"
+            checked={answer === 'yes'}
+            onChange={(e) => change(e.target.value)}
+            {...rest}
+          />
+          <span></span>
+        </label>
+        <label>
+          Não
+          <input
+            type="radio"
+            value="no"
+            checked={answer === 'no'}
+            onChange={(e) => change(e.target.value)}
+            {...rest}
+          />
+          <span></span>
+        </label>
+      </div>
+    </S.Wrapper>
   )
 }
 
