@@ -1,14 +1,19 @@
 import React from 'react'
-import * as S from './TextInput.styles'
-import { FormControl, TextField } from '@mui/material'
+import * as S from './DatePicker.styles'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import 'dayjs/locale/pt-br';
+import { FormControl } from '@mui/material';
+import dayjs from 'dayjs';
 
-type TextInputProps = {
+type DatePickerProps = {
   name: string
   label?: string
   register?: any
   maxLength?: number
   required?: boolean
-  onChange?(e: any): void
+  onChange(date: string | number | null): void
   type?: string
   defaultValue?: string | number
   min?: any
@@ -17,7 +22,7 @@ type TextInputProps = {
   value?: string | number
 }
 
-export default function TextInput({
+export default function UiDatePicker({
   type = "text",
   name,
   label,
@@ -26,7 +31,7 @@ export default function TextInput({
   onChange,
   defaultValue,
   ...rest
-}: TextInputProps) {
+}: DatePickerProps) {
   return (
     // <>
     //   {label && <S.Label>{label}</S.Label>}
@@ -36,7 +41,9 @@ export default function TextInput({
     //   </S.Wrapper>
     // </>
     <FormControl fullWidth>
-      <TextField id={name} variant="outlined" label={label} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} {...rest}/>
+      <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
+        <DatePicker defaultValue={defaultValue} name={name} onChange={(date) => onChange(dayjs(date).format('YYYY-MM-DD'))} label={label} {...rest}/>
+      </LocalizationProvider>
     </FormControl>
   )
 }

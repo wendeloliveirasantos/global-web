@@ -7,6 +7,7 @@ import { STORAGE_VIAGEM_COTACAO } from "@/constants";
 import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import { ITravelDestiniesModel } from "@/types/travel-destinies";
+import { DatePicker } from "@/components/ui/DatePicker";
 type ValuesProps = {
   from: string;
   to: string;
@@ -93,7 +94,7 @@ export default function TravelQuote() {
     });
   }
 
-  function handleChange(name: string, value: string) {
+  function handleChange(name: string, value: string | number | null | undefined) {
     setValues((prevState) => ({ ...prevState, [name]: value }));
   }
 
@@ -164,28 +165,17 @@ export default function TravelQuote() {
   return (
     <S.Card>
       <form onSubmit={handleSubmit}>
-        {/* <Search
-          onSearch={(v: string) => setDestinationTerm(v)}
-          label="Destino"
-          options={destinies.map((destiny) => ({
-            value: destiny.siglaPais,
-            label: `${destiny.pais}`,
-          }))}
-          onChange={(row: any) => handleChange("to", row.toString())}
-        /> */}
         <Select
           onChange={(v) => handleChange("to", v.toString())}
           label="Qual seu próximo destino?"
           options={from}
+          destinationError={destinationError}
         />
-        {destinationError && (
-          <span style={{ color: "red" }}>{destinationError}</span>
-        )}
 
         <S.RowInputs>
-          <div style={{ marginRight: 10, width: "100%" }}>
-            <TextInput
-              onChange={(e) => handleChange("startDate", e.target.value)}
+          <div style={{ marginRight: 10, width: "100%", marginTop: 10 }}>
+            <DatePicker
+              onChange={(e) => handleChange("startDate", e)}
               label="Data de Saída"
               type="date"
               name="startDate"
@@ -195,9 +185,9 @@ export default function TravelQuote() {
               <span style={{ color: "red" }}>{startDateError}</span>
             )}
           </div>
-          <div style={{ width: "100%" }}>
-            <TextInput
-              onChange={(e) => handleChange("endDate", e.target.value)}
+          <div style={{ width: "100%", marginTop: 10 }}>
+            <DatePicker
+              onChange={(e) => handleChange("endDate", e)}
               label="Data de Retorno"
               type="date"
               name="endDate"
@@ -208,12 +198,15 @@ export default function TravelQuote() {
             )}
           </div>
         </S.RowInputs>
-
-        <Select
-          onChange={(v) => addPassengers(+v)}
-          label="Passageiros"
-          options={quantPass}
-        />
+        
+        <div style={{ marginTop: 10 }}>
+          <Select
+            onChange={(v) => addPassengers(+v)}
+            label="Passageiros"
+            options={quantPass}
+          />
+        </div>
+        
 
         <S.Passengers>
           {passengers.map((passenger, idx) => {
@@ -223,7 +216,7 @@ export default function TravelQuote() {
                   type="number"
                   onChange={(e) => handleAge(+e.target.value, idx)}
                   name="age"
-                  placeholder={`Idade do pass. ${idx + 1}`}
+                  label={`Idade do pass. ${idx + 1}`}
                 />
                 {passengerAgeErrors[idx] && (
                   <span style={{ color: "red" }}>

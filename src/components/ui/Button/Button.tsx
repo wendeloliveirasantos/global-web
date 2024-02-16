@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import * as S from './Button.styles'
-import Button from '@mui/material/Button';
+import { FormControl, Button } from '@mui/material';
 
 type ButtonProps = {
   className?: string
@@ -11,12 +11,11 @@ type ButtonProps = {
 
 function UiButton({ className, children, ...rest }: ButtonProps) {
   return (
-    <Button variant="contained" className={className} {...rest}>
-      {children}
-    </Button>
-    // <S.Wrapper className={className} {...rest}>
-    //   {children}
-    // </S.Wrapper>
+    <FormControl fullWidth>
+      <Button variant="contained" className={className} {...rest}>
+        {children}
+      </Button>
+    </FormControl>
   )
 }
 
