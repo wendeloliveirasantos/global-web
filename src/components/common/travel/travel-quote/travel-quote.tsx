@@ -8,11 +8,13 @@ import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import { ITravelDestiniesModel } from "@/types/travel-destinies";
 import { DatePicker } from "@/components/ui/DatePicker";
+import { Switch } from "@/components/ui/Switch";
 type ValuesProps = {
   from: string;
   to: string;
   startDate: Date | null;
   endDate: Date | null;
+  covid19: boolean;
 };
 
 const from = [
@@ -47,6 +49,7 @@ export default function TravelQuote() {
     to: "",
     startDate: null,
     endDate: null,
+    covid19: false
   });
   const [passengers, setPassengers] = useState<Array<{ age: number | null }>>(
     []
@@ -94,7 +97,7 @@ export default function TravelQuote() {
     });
   }
 
-  function handleChange(name: string, value: string | number | null | undefined) {
+  function handleChange(name: string, value: string | number | null | undefined | boolean) {
     setValues((prevState) => ({ ...prevState, [name]: value }));
   }
 
@@ -157,6 +160,7 @@ export default function TravelQuote() {
         from: values.from,
         to: values.to,
         passengers: passengers.map((r) => ({ age: r.age ?? 0 })),
+        covid19: values.covid19
       })
     );
     router.push("/seguros/viagem/coberturas");
@@ -169,7 +173,7 @@ export default function TravelQuote() {
           onChange={(v) => handleChange("to", v.toString())}
           label="Qual seu próximo destino?"
           options={from}
-          destinationError={destinationError}
+          helperText={destinationError}
         />
 
         <S.RowInputs>
@@ -180,10 +184,8 @@ export default function TravelQuote() {
               type="date"
               name="startDate"
               min={dayjs(new Date()).format("YYYY-MM-DD")}
+              helperText={startDateError}
             />
-            {startDateError && (
-              <span style={{ color: "red" }}>{startDateError}</span>
-            )}
           </div>
           <div style={{ width: "100%", marginTop: 10 }}>
             <DatePicker
@@ -192,22 +194,27 @@ export default function TravelQuote() {
               type="date"
               name="endDate"
               min={dayjs(new Date()).format("YYYY-MM-DD")}
-            />
-            {endDateError && (
-              <span style={{ color: "red" }}>{endDateError}</span>
-            )}
+              helperText={endDateError}
+            /> 
           </div>
         </S.RowInputs>
+        
+        <div style={{ marginTop: 10 }}>
+          <Switch 
+            label="Despesas médicas por covid-19"
+            onChange={(e) => handleChange("covid19", e)}
+          />
+        </div>
         
         <div style={{ marginTop: 10 }}>
           <Select
             onChange={(v) => addPassengers(+v)}
             label="Passageiros"
             options={quantPass}
+            helperText={destinationError}
           />
         </div>
         
-
         <S.Passengers>
           {passengers.map((passenger, idx) => {
             return (
@@ -217,12 +224,8 @@ export default function TravelQuote() {
                   onChange={(e) => handleAge(+e.target.value, idx)}
                   name="age"
                   label={`Idade do pass. ${idx + 1}`}
+                  helperText={passengerAgeErrors[idx]}
                 />
-                {passengerAgeErrors[idx] && (
-                  <span style={{ color: "red" }}>
-                    {passengerAgeErrors[idx]}
-                  </span>
-                )}
               </S.Row>
             );
           })}

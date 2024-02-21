@@ -14,4 +14,5 @@ export const Title = styled.h1`
 export const Coverages = styled.div`
   display: flex;
   align-items: center;
+  flex-flow: wrap;
 `

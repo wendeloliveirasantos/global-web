@@ -9,7 +9,7 @@ const INITIAL_VALUE = {
   mesValidade: "",
   anoValidade: "",
   cvv: "",
-  parcelas: "1"
+  parcelas: ""
 }
 
 function formatarValor(value: number) {
@@ -122,7 +122,7 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
       <form onSubmit={handleSubmit} style={{ marginTop: 40 }}>
         <S.Row>
           <S.Group>
-            <TextInput onChange={handleChange} name="nomeTitular" label="Nome do titular" />
+            <TextInput onChange={handleChange} name="nomeTitular" label="Nome do titular" helperText={formErrors.nomeTitular}/>
             {formErrors.nomeTitular && (
               <span style={{ color: "red" }}>{formErrors.nomeTitular}</span>
             )}
@@ -170,6 +170,7 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
           <S.Group>
             <Select
               value={formData.parcelas}
+              label="Parcelas"
               onChange={(value) => handleChange({ target: { name: "parcelas", value } })}
               options={[
                 { value: 1, label: "1x" },
@@ -179,6 +180,7 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
                 { value: 5, label: "5x" },
                 { value: 6, label: "6x" },
               ]}
+              helperText={formErrors.parcelas}
             />
           </S.Group>
         </S.Row>

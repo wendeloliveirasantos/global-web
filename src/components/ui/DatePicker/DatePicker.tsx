@@ -1,11 +1,13 @@
 import React from 'react'
 import * as S from './DatePicker.styles'
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import 'dayjs/locale/pt-br';
 import { FormControl } from '@mui/material';
 import dayjs from 'dayjs';
+import { DateValidationError } from '@mui/x-date-pickers';
 
 type DatePickerProps = {
   name: string
@@ -20,6 +22,7 @@ type DatePickerProps = {
   max?: any
   placeholder?: string
   value?: string | number
+  helperText?: string
 }
 
 export default function UiDatePicker({
@@ -30,19 +33,19 @@ export default function UiDatePicker({
   required = false,
   onChange,
   defaultValue,
+  helperText,
   ...rest
 }: DatePickerProps) {
+  
   return (
-    // <>
-    //   {label && <S.Label>{label}</S.Label>}
-    //   <S.Wrapper>
-    //     {register ? <input type={type} name={name} autoComplete="off" {...register(name, { required })} /> :
-    //     <input type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} {...rest} />}
-    //   </S.Wrapper>
-    // </>
     <FormControl fullWidth>
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
-        <DatePicker defaultValue={defaultValue} name={name} onChange={(date) => onChange(dayjs(date).format('YYYY-MM-DD'))} label={label} {...rest}/>
+        <DatePicker slotProps={{
+            textField: {
+              error: !!helperText,
+              helperText: helperText,
+            },
+          }} defaultValue={defaultValue} name={name} onChange={(date) => onChange(dayjs(date).format('YYYY-MM-DD'))} label={label} {...rest}/>
       </LocalizationProvider>
     </FormControl>
   )

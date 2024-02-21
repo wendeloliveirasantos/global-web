@@ -13,7 +13,7 @@ type SelectProps = {
   onChange(value: string | object | number): void
   disabled?: boolean
   value?: string | number
-  destinationError?: string
+  helperText?: string
 }
 
 export default function UiSelect({
@@ -23,11 +23,11 @@ export default function UiSelect({
   loading = false,
   onChange,
   label,
-  destinationError,
+  helperText,
   ...rest
 }: SelectProps) {
   return (
-    <FormControl fullWidth error={destinationError != ""}>
+    <FormControl fullWidth error={helperText != ""}>
       <InputLabel id="demo-simple-select-label">{label}</InputLabel>
       <Select
         className={className}
@@ -48,8 +48,8 @@ export default function UiSelect({
           ))
         )}
       </Select>
-      {destinationError != "" && (
-        <FormHelperText>{destinationError}</FormHelperText>
+      {helperText != "" && (
+        <FormHelperText>{helperText}</FormHelperText>
       )}
     </FormControl>
   )
