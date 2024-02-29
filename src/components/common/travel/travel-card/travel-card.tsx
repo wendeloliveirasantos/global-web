@@ -3,6 +3,9 @@
 import { Button } from "@/components/ui";
 import * as S from "./travel-card.styles";
 import { Product } from "@/types/viagem";
+import { Modal } from "@/components/ui/Modal";
+import React from "react";
+import { Link } from "@mui/material";
 
 type Props = {
   produto: Product;
@@ -34,7 +37,9 @@ function getSrcLogo(produto: Product) {
 
 export default function TravelCard(props: Props) {
   const { produto, handleSubmit } = props;
-
+  const [open, setOpen] = React.useState(false);
+  const onChange = () => setOpen(true);
+  const onClose = () => setOpen(false);
   return (
     <S.Wrapper>
       <img height={50} src={getSrcLogo(produto)} />
@@ -61,7 +66,8 @@ export default function TravelCard(props: Props) {
             );
           })}
       </div>
-      <S.Link>Veja o detalhe de sua cobertura</S.Link>
+      <S.Link underline="none" onClick={onChange} component="button" variant="body2">Veja o detalhe de sua cobertura</S.Link>
+      <Modal open={open} title="Coberturas" onClose={onClose} descriptions={produto.coverage}></Modal>
       <div style={{ marginTop: 20 }}>
         <Button onClick={() => handleSubmit(produto)}>Selecionar</Button>
       </div>

@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react'
-import * as S from './Button.styles'
 import { FormControl, Button } from '@mui/material';
 
 type ButtonProps = {
@@ -8,20 +7,21 @@ type ButtonProps = {
   onClick?(): void
   type?: any
   variant?: string
+  href?: string
 }
 
-function UiButton({ className, children, variant, ...rest }: ButtonProps) {
+function UiButton({ className, children, onClick, variant, href, ...rest }: ButtonProps) {
   return (
     <FormControl fullWidth>
       { variant == 'text' ?
-      <Button variant="text" className={className} {...rest}>
+      <Button onClick={onClick} href={href} variant="text" className={className} {...rest}>
         {children}
       </Button> :
       variant == 'outlined' ?
-      <Button variant="outlined" className={className} {...rest}>
+      <Button onClick={onClick} href={href} variant="outlined" className={className} {...rest}>
         {children}
       </Button> :
-      <Button variant="contained" className={className} {...rest}>
+      <Button onClick={onClick} href={href} variant="contained" className={className} {...rest}>
         {children}
       </Button>
       }

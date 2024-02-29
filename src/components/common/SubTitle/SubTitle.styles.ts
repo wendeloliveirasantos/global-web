@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
     font-size: 37px;
     margin: 30px 0;
     display: flex;
-    justify-content: center;
+
     strong {
         margin-right: 10px;
     }

@@ -56,7 +56,7 @@ export default function Pagamento() {
   return oferta && (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <Container>
+        <Container style={{ display: "flex" }}>
           <PageTitle bold='Dados para' regular='pagamento' />
           <PagamentoForm
             onSubmit={onSubmit}

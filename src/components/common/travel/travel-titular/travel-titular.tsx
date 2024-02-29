@@ -9,6 +9,7 @@ import { ufs } from "@/utils/ufs";
 import { consultCep } from "@/services/travelService";
 import { DatePicker } from "@/components/ui/DatePicker";
 import dayjs from "dayjs";
+import { TextMask } from "@/components/ui/TextMask";
 
 export default function TravelTitular() {
   const router = useRouter()
@@ -58,7 +59,6 @@ export default function TravelTitular() {
           // Adicione outros campos conforme necessário
         });
       } else if (result.error) {
-        console.error(result.error);
       }
     }
   };
@@ -208,7 +208,6 @@ export default function TravelTitular() {
 
   return (
     <S.Wrapper>
-      <PageTitle bold="Dados" regular="do Titular" />
       <form onSubmit={handleSubmit}>
         <S.Row>
           <S.Group>
@@ -352,6 +351,9 @@ export default function TravelTitular() {
 
         <div style={{ marginTop: 20 }}>
           <Button type="submit">Avançar</Button>
+        </div>
+        <div style={{ marginTop: 20 }}>
+          <Button href="/seguros/viagem/coberturas" variant="outlined">Voltar</Button>
         </div>
       </form>
     </S.Wrapper>

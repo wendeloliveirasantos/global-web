@@ -187,6 +187,9 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
         <S.Row>
           <S.Group>
             <Button type="submit">Finalizar</Button>
+            <div style={{ marginTop: 20 }}>
+              <Button href="/seguros/viagem/dados-titular" variant="outlined">Voltar</Button>
+            </div>
           </S.Group>
         </S.Row>
       </form>

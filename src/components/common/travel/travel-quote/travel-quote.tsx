@@ -9,12 +9,15 @@ import dayjs from "dayjs";
 import { ITravelDestiniesModel } from "@/types/travel-destinies";
 import { DatePicker } from "@/components/ui/DatePicker";
 import { Switch } from "@/components/ui/Switch";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Slider } from "@/components/ui/Slider";
 type ValuesProps = {
   from: string;
   to: string;
   startDate: Date | null;
   endDate: Date | null;
-  covid19: boolean;
+  termo: boolean;
+  rangePremio: number;
 };
 
 const from = [
@@ -41,6 +44,25 @@ const quantPass = [
   { value: 10, label: "10 Passageiro" },
 ];
 
+const marks = [
+  {
+    value: 0,
+    label: '0K',
+  },
+  {
+    value: 100,
+    label: '100K',
+  },
+  {
+    value: 500,
+    label: '500K',
+  },
+  {
+    value: 1000,
+    label: '1M',
+  },
+];
+
 export default function TravelQuote() {
   const router = useRouter();
   const [cotacao, setCotacao] = useLocalStorage(STORAGE_VIAGEM_COTACAO, "");
@@ -49,7 +71,8 @@ export default function TravelQuote() {
     to: "",
     startDate: null,
     endDate: null,
-    covid19: false
+    termo: false,
+    rangePremio: 50
   });
   const [passengers, setPassengers] = useState<Array<{ age: number | null }>>(
     []
@@ -62,6 +85,7 @@ export default function TravelQuote() {
   const [destinationError, setDestinationError] = useState("");
   const [startDateError, setStartDateError] = useState("");
   const [endDateError, setEndDateError] = useState("");
+  const [termoError, setTermoError] = useState("");
   const [passengerAgeErrors, setPassengerAgeErrors] = useState<Array<string>>(
     []
   );
@@ -97,7 +121,7 @@ export default function TravelQuote() {
     });
   }
 
-  function handleChange(name: string, value: string | number | null | undefined | boolean) {
+  function handleChange(name: string, value: string | number | null | undefined | boolean | number[]) {
     setValues((prevState) => ({ ...prevState, [name]: value }));
   }
 
@@ -107,6 +131,7 @@ export default function TravelQuote() {
     setDestinationError("");
     setStartDateError("");
     setEndDateError("");
+    setTermoError("");
     setPassengerAgeErrors([]);
 
     let hasError = false;
@@ -123,6 +148,11 @@ export default function TravelQuote() {
 
     if (!values.endDate) {
       setEndDateError("Por favor, selecione a data de retorno");
+      hasError = true;
+    }
+
+    if (!values.termo) {
+      setTermoError("Por favor, aceite o termo");
       hasError = true;
     }
 
@@ -160,7 +190,8 @@ export default function TravelQuote() {
         from: values.from,
         to: values.to,
         passengers: passengers.map((r) => ({ age: r.age ?? 0 })),
-        covid19: values.covid19
+        termo: values.termo,
+        rangePremio: values.rangePremio
       })
     );
     router.push("/seguros/viagem/coberturas");
@@ -200,13 +231,6 @@ export default function TravelQuote() {
         </S.RowInputs>
         
         <div style={{ marginTop: 10 }}>
-          <Switch 
-            label="Despesas médicas por covid-19"
-            onChange={(e) => handleChange("covid19", e)}
-          />
-        </div>
-        
-        <div style={{ marginTop: 10 }}>
           <Select
             onChange={(v) => addPassengers(+v)}
             label="Passageiros"
@@ -220,6 +244,7 @@ export default function TravelQuote() {
             return (
               <S.Row key={idx}>
                 <TextInput
+                  min={0}
                   type="number"
                   onChange={(e) => handleAge(+e.target.value, idx)}
                   name="age"
@@ -231,6 +256,25 @@ export default function TravelQuote() {
           })}
         </S.Passengers>
 
+        <div style={{ marginTop: 20 }}>
+          <Slider 
+            name="rangePremio"
+            marks={marks}
+            min={0}
+            max={1000}
+            label="Escola o valor máximo da cobertura."
+            onChange={(e, v) => handleChange("rangePremio", v)}
+          />
+        </div>
+        
+        <div style={{ marginTop: 20 }}>
+          <Checkbox 
+            label="Declaro que li e concordo com a Política de Privacidade."
+            onChange={(e) => handleChange("termo", e)}
+            helperText={termoError}
+          />
+        </div>
+        
         <div style={{ marginTop: 20 }}>
           <Button type="submit">Avançar</Button>
         </div>

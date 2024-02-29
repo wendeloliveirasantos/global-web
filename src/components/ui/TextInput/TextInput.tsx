@@ -31,11 +31,12 @@ export default function TextInput({
   defaultValue,
   helperText,
   mask,
+  min,
   ...rest
 }: TextInputProps) {
   return (
     <FormControl fullWidth>
-      <TextField id={name} error={helperText != ""} variant="outlined" label={label} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest}/>
+      <TextField id={name} error={helperText != ""} inputProps={{ min }} variant="outlined" label={label} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest}/>
     </FormControl>
   )
 }
