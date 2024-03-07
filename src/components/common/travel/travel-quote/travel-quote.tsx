@@ -7,11 +7,22 @@ import { STORAGE_VIAGEM_COTACAO } from "@/constants";
 import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import { ITravelDestiniesModel } from "@/types/travel-destinies";
+import { DatePicker } from "@/components/ui/DatePicker";
+import { Switch } from "@/components/ui/Switch";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Slider } from "@/components/ui/Slider";
+import { Grid } from "@mui/material";
 type ValuesProps = {
+  firstName: string,
+  lastName: string,
+  phone: string,
+  email: string,
   from: string;
   to: string;
   startDate: Date | null;
   endDate: Date | null;
+  termo: boolean;
+  rangePremio: number;
 };
 
 const from = [
@@ -38,14 +49,39 @@ const quantPass = [
   { value: 10, label: "10 Passageiro" },
 ];
 
+const marks = [
+  {
+    value: 30,
+    label: '30.000 €',
+  },
+  // {
+  //   value: 100,
+  //   label: '$100.000',
+  // },
+  // {
+  //   value: 500,
+  //   label: '$500.000',
+  // },
+  {
+    value: 1000,
+    label: '$1.000.000',
+  },
+];
+
 export default function TravelQuote() {
   const router = useRouter();
   const [cotacao, setCotacao] = useLocalStorage(STORAGE_VIAGEM_COTACAO, "");
   const [values, setValues] = useState<ValuesProps>({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
     from: "BR",
     to: "",
     startDate: null,
     endDate: null,
+    termo: false,
+    rangePremio: 30
   });
   const [passengers, setPassengers] = useState<Array<{ age: number | null }>>(
     []
@@ -55,9 +91,14 @@ export default function TravelQuote() {
   const [destinyModel, setDestinationModel] = useState<ITravelDestiniesModel | null>(
     null
   );
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [destinationError, setDestinationError] = useState("");
   const [startDateError, setStartDateError] = useState("");
   const [endDateError, setEndDateError] = useState("");
+  const [termoError, setTermoError] = useState("");
   const [passengerAgeErrors, setPassengerAgeErrors] = useState<Array<string>>(
     []
   );
@@ -93,19 +134,44 @@ export default function TravelQuote() {
     });
   }
 
-  function handleChange(name: string, value: string) {
+  function handleChange(name: string, value: string | number | null | undefined | boolean | number[]) {
     setValues((prevState) => ({ ...prevState, [name]: value }));
   }
 
   function handleSubmit(e: any) {
     e.preventDefault();
 
+    setFirstNameError("");
+    setLastNameError("");
+    setPhoneError("");
+    setEmailError("");
     setDestinationError("");
     setStartDateError("");
     setEndDateError("");
+    setTermoError("");
     setPassengerAgeErrors([]);
 
     let hasError = false;
+
+    if (!values.firstName) {
+      setFirstNameError("Por favor, insira o primeiro nome");
+      hasError = true;
+    }
+
+    if (!values.lastName) {
+      setLastNameError("Por favor, insira o sobrenome");
+      hasError = true;
+    }
+
+    if (!values.phone) {
+      setPhoneError("Por favor, insira o telefone");
+      hasError = true;
+    }
+
+    if (!values.email) {
+      setEmailError("Por favor, insira o telefone");
+      hasError = true;
+    }
 
     if (!values.to) {
       setDestinationError("Por favor, selecione o destino");
@@ -119,6 +185,11 @@ export default function TravelQuote() {
 
     if (!values.endDate) {
       setEndDateError("Por favor, selecione a data de retorno");
+      hasError = true;
+    }
+
+    if (!values.termo) {
+      setTermoError("Por favor, aceite o termo");
       hasError = true;
     }
 
@@ -149,13 +220,21 @@ export default function TravelQuote() {
       return;
     }
 
+    console.log(values);
+
     setCotacao(
       JSON.stringify({
+        firstName: values.firstName,
+        lastName: values.lastName,
+        phone: values.phone,
+        email: values.email,
         endDate: values.endDate?.toString(),
         startDate: values.startDate?.toString(),
         from: values.from,
         to: values.to,
         passengers: passengers.map((r) => ({ age: r.age ?? 0 })),
+        termo: values.termo,
+        rangePremio: values.rangePremio
       })
     );
     router.push("/seguros/viagem/coberturas");
@@ -164,77 +243,123 @@ export default function TravelQuote() {
   return (
     <S.Card>
       <form onSubmit={handleSubmit}>
-        {/* <Search
-          onSearch={(v: string) => setDestinationTerm(v)}
-          label="Destino"
-          options={destinies.map((destiny) => ({
-            value: destiny.siglaPais,
-            label: `${destiny.pais}`,
-          }))}
-          onChange={(row: any) => handleChange("to", row.toString())}
-        /> */}
-        <Select
-          onChange={(v) => handleChange("to", v.toString())}
-          label="Qual seu próximo destino?"
-          options={from}
-        />
-        {destinationError && (
-          <span style={{ color: "red" }}>{destinationError}</span>
-        )}
+
+        <Grid container spacing={1}>
+          <Grid item xs={6}>
+            <TextInput
+              name="firstName"
+              label="Nome"
+              onChange={(e) => handleChange("firstName", e.target.value)}
+              helperText={firstNameError}
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <TextInput
+              name="lastName"
+              label="Sobrenome"
+              onChange={(e) => handleChange("lastName", e.target.value)}
+              helperText={lastNameError}
+            />
+          </Grid>
+        </Grid>
+
+        <div style={{ width: "100%", marginTop: 10 }}>
+          <TextInput
+            mask="(99) 99999-9999"
+            name="phone"
+            label="Telefone"
+            onChange={(e) => handleChange("phone", e.target.value)}
+            helperText={phoneError}
+          />
+        </div>
+
+        <div style={{ width: "100%", marginTop: 10 }}>
+          <TextInput
+            name="email"
+            label="Email"
+            type="email"
+            onChange={(e) => handleChange("email", e.target.value)}
+            helperText={emailError}
+          />
+        </div>
+        
+        <div style={{ width: "100%", marginTop: 10 }}>
+          <Select
+            onChange={(v) => handleChange("to", v.toString())}
+            label="Qual seu próximo destino?"
+            options={from}
+            helperText={destinationError}
+          />
+        </div>
 
         <S.RowInputs>
-          <div style={{ marginRight: 10, width: "100%" }}>
-            <TextInput
-              onChange={(e) => handleChange("startDate", e.target.value)}
+          <div style={{ marginRight: 10, width: "100%", marginTop: 10 }}>
+            <DatePicker
+              onChange={(e) => handleChange("startDate", e)}
               label="Data de Saída"
               type="date"
               name="startDate"
               min={dayjs(new Date()).format("YYYY-MM-DD")}
+              helperText={startDateError}
             />
-            {startDateError && (
-              <span style={{ color: "red" }}>{startDateError}</span>
-            )}
           </div>
-          <div style={{ width: "100%" }}>
-            <TextInput
-              onChange={(e) => handleChange("endDate", e.target.value)}
+          <div style={{ width: "100%", marginTop: 10 }}>
+            <DatePicker
+              onChange={(e) => handleChange("endDate", e)}
               label="Data de Retorno"
               type="date"
               name="endDate"
               min={dayjs(new Date()).format("YYYY-MM-DD")}
-            />
-            {endDateError && (
-              <span style={{ color: "red" }}>{endDateError}</span>
-            )}
+              helperText={endDateError}
+            /> 
           </div>
         </S.RowInputs>
-
-        <Select
-          onChange={(v) => addPassengers(+v)}
-          label="Passageiros"
-          options={quantPass}
-        />
-
+        
+        <div style={{ marginTop: 10 }}>
+          <Select
+            onChange={(v) => addPassengers(+v)}
+            label="Passageiros"
+            options={quantPass}
+            helperText={destinationError}
+          />
+        </div>
+        
         <S.Passengers>
           {passengers.map((passenger, idx) => {
             return (
               <S.Row key={idx}>
                 <TextInput
+                  min={0}
                   type="number"
                   onChange={(e) => handleAge(+e.target.value, idx)}
                   name="age"
-                  placeholder={`Idade do pass. ${idx + 1}`}
+                  label={`Idade do pass. ${idx + 1}`}
+                  helperText={passengerAgeErrors[idx]}
                 />
-                {passengerAgeErrors[idx] && (
-                  <span style={{ color: "red" }}>
-                    {passengerAgeErrors[idx]}
-                  </span>
-                )}
               </S.Row>
             );
           })}
         </S.Passengers>
 
+        <div style={{ marginTop: 20 }}>
+          <Slider 
+            name="rangePremio"
+            marks={marks}
+            min={30}
+            max={1000}
+            label="Escolha o valor máximo da cobertura."
+            onChange={(e, v) => handleChange("rangePremio", v)}
+          />
+        </div>
+        
+        <div style={{ marginTop: 20 }}>
+          <Checkbox 
+            label="Declaro que li e concordo com a Política de Privacidade."
+            onChange={(e) => handleChange("termo", e)}
+            helperText={termoError}
+          />
+        </div>
+        
         <div style={{ marginTop: 20 }}>
           <Button type="submit">Avançar</Button>
         </div>

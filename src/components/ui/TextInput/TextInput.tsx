@@ -1,5 +1,7 @@
 import React from 'react'
 import * as S from './TextInput.styles'
+import { FilledTextFieldProps, FormControl, FormHelperText, OutlinedTextFieldProps, StandardTextFieldProps, TextField, TextFieldVariants } from '@mui/material'
+import InputMask from 'react-input-mask';
 
 type TextInputProps = {
   name: string
@@ -8,12 +10,15 @@ type TextInputProps = {
   maxLength?: number
   required?: boolean
   onChange?(e: any): void
+  onBlur?(e: any): void
   type?: string
   defaultValue?: string | number
   min?: any
   max?: any
   placeholder?: string
   value?: string | number
+  helperText?: string
+  mask?: string
 }
 
 export default function TextInput({
@@ -23,16 +28,26 @@ export default function TextInput({
   register,
   required = false,
   onChange,
+  onBlur,
   defaultValue,
+  helperText,
+  mask,
+  min,
+  value,
   ...rest
 }: TextInputProps) {
   return (
-    <>
-      {label && <S.Label>{label}</S.Label>}
-      <S.Wrapper>
-        {register ? <input type={type} name={name} autoComplete="off" {...register(name, { required })} /> :
-        <input type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} {...rest} />}
-      </S.Wrapper>
-    </>
+    <FormControl fullWidth>
+      { mask != null ?
+      <InputMask mask={mask} onChange={onChange} onBlur={onBlur} value={value} maskChar={null}>
+        {(inputProps: any) => 
+          {
+            return <TextField {...inputProps} id={name} error={helperText != ""} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest} />;
+          }
+        }
+      </InputMask> :
+      <TextField id={name} error={helperText != ""} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest}/>
+      }
+    </FormControl>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import * as S from './Select.styles'
 import { useState } from 'react';
 import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
+import { FormControl, FormHelperText, InputLabel, MenuItem } from '@mui/material';
 
 type SelectProps = {
   className?: string
@@ -13,6 +13,7 @@ type SelectProps = {
   onChange(value: string | object | number): void
   disabled?: boolean
   value?: string | number
+  helperText?: string
 }
 
 export default function UiSelect({
@@ -22,27 +23,34 @@ export default function UiSelect({
   loading = false,
   onChange,
   label,
+  helperText,
   ...rest
 }: SelectProps) {
   return (
-    <>
-      {label && <S.Label>{label}</S.Label>}
-      <S.Wrapper
+    <FormControl fullWidth error={helperText != ""}>
+      <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+      <Select
         className={className}
+        labelId="demo-simple-select-label"
+        value={defaultValue}
         onChange={(e) => onChange(e.target.value)}
+        label={label}
         {...rest}
       >
-        <S.Option value={defaultValue}>{defaultValue}</S.Option>
-        {loading ? (
-          <S.Option>Carregando...</S.Option>
-        ) : (
+        { loading ? 
+        ( 
+          <MenuItem>Carregando...</MenuItem> 
+        ) : (       
           options.map((option) => (
-            <S.Option key={option.value} value={option.value}>
+            <MenuItem key={option.value} value={option.value}>
               {option.label}
-            </S.Option>
+            </MenuItem>
           ))
         )}
-      </S.Wrapper>
-    </>
+      </Select>
+      {helperText != "" && (
+        <FormHelperText>{helperText}</FormHelperText>
+      )}
+    </FormControl>
   )
 }

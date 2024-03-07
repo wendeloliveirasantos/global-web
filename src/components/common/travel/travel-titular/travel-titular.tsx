@@ -1,5 +1,5 @@
 import { Button, TextInput, TextInputMask, Select } from "@/components/ui";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import { PageTitle } from "../../PageTitle";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
@@ -7,6 +7,9 @@ import { STORAGE_VIAGEM_COTACAO, STORAGE_VIAGEM_TITULAR } from "@/constants";
 import { useRouter } from "next/router";
 import { ufs } from "@/utils/ufs";
 import { consultCep } from "@/services/travelService";
+import { DatePicker } from "@/components/ui/DatePicker";
+import dayjs from "dayjs";
+import { TextMask } from "@/components/ui/TextMask";
 
 export default function TravelTitular() {
   const router = useRouter()
@@ -42,6 +45,19 @@ export default function TravelTitular() {
     state: "",
   });
 
+  useEffect(() => {
+    if (cotacao) {
+      const cotacaoObj = JSON.parse(cotacao);
+      setFormData(prevState => ({
+        ...prevState,
+        firstName: cotacaoObj.firstName,
+        lastName: cotacaoObj.lastName,
+        phone: cotacaoObj.phone,
+        email: cotacaoObj.email
+      }));
+    }
+  }, [cotacao]);
+
   const handleCepBlur = async () => {
     const cep = formData.postalCode.replace(/[^0-9]/g, ''); // Remover caracteres não numéricos
     if (cep.length === 8) {
@@ -56,7 +72,6 @@ export default function TravelTitular() {
           // Adicione outros campos conforme necessário
         });
       } else if (result.error) {
-        console.error(result.error);
       }
     }
   };
@@ -206,7 +221,6 @@ export default function TravelTitular() {
 
   return (
     <S.Wrapper>
-      <PageTitle bold="Dados" regular="do Titular" />
       <form onSubmit={handleSubmit}>
         <S.Row>
           <S.Group>
@@ -215,10 +229,8 @@ export default function TravelTitular() {
               label="Nome"
               value={formData.firstName}
               onChange={handleChange}
+              helperText={formErrors.firstName}
             />
-            {formErrors.firstName && (
-              <span style={{ color: "red" }}>{formErrors.firstName}</span>
-            )}
           </S.Group>
           <S.Group>
             <TextInput
@@ -226,40 +238,34 @@ export default function TravelTitular() {
               label="Sobrenome"
               value={formData.lastName}
               onChange={handleChange}
+              helperText={formErrors.lastName}
             />
-            {formErrors.lastName && (
-              <span style={{ color: "red" }}>{formErrors.lastName}</span>
-            )}
           </S.Group>
         </S.Row>
 
         <S.Row>
           <S.Group>
-            <TextInputMask
+            <TextInput
               mask="999.999.999-99"
               name="document"
               label="CPF"
               value={formData.document}
               onChange={handleChange}
+              helperText={formErrors.document}
             />
-            {formErrors.document && (
-              <span style={{ color: "red" }}>{formErrors.document}</span>
-            )}
           </S.Group>
         </S.Row>
 
         <S.Row>
           <S.Group>
-            <TextInputMask
+            <TextInput
               mask="(99) 99999-9999"
               name="phone"
               label="Telefone"
               value={formData.phone}
               onChange={handleChange}
+              helperText={formErrors.phone}
             />
-            {formErrors.phone && (
-              <span style={{ color: "red" }}>{formErrors.phone}</span>
-            )}
           </S.Group>
         </S.Row>
 
@@ -270,41 +276,36 @@ export default function TravelTitular() {
               label="Email"
               value={formData.email}
               onChange={handleChange}
+              helperText={formErrors.email}
             />
-            {formErrors.email && (
-              <span style={{ color: "red" }}>{formErrors.email}</span>
-            )}
+          </S.Group>
+        </S.Row>
+
+        <S.Row>
+          <S.Group>
+            <DatePicker
+              onChange={(value) => handleChange({ target: { value, name: "birthDate" } })}
+              label="Data de Nascimento"
+              type="date"
+              value={formData.birthDate}
+              name="birthDate"
+              min={dayjs(new Date()).format("YYYY-MM-DD")}
+              helperText={formErrors.birthDate}
+            />
           </S.Group>
         </S.Row>
 
         <S.Row>
           <S.Group>
             <TextInput
-              type="date"
-              name="birthDate"
-              label="Data de Nascimento"
-              value={formData.birthDate}
-              onChange={handleChange}
-            />
-            {formErrors.birthDate && (
-              <span style={{ color: "red" }}>{formErrors.birthDate}</span>
-            )}
-          </S.Group>
-        </S.Row>
-
-        <S.Row>
-          <S.Group>
-            <TextInputMask
               mask="99999-999"
               name="postalCode"
               label="CEP"
               value={formData.postalCode}
               onChange={handleChange}
               onBlur={handleCepBlur}
+              helperText={formErrors.postalCode}
             />
-            {formErrors.postalCode && (
-              <span style={{ color: "red" }}>{formErrors.postalCode}</span>
-            )}
           </S.Group>
           <S.Group>
             <TextInput
@@ -312,10 +313,8 @@ export default function TravelTitular() {
               label="Endereço"
               value={formData.address}
               onChange={handleChange}
+              helperText={formErrors.address}
             />
-            {formErrors.address && (
-              <span style={{ color: "red" }}>{formErrors.address}</span>
-            )}
           </S.Group>
         </S.Row>
 
@@ -326,10 +325,8 @@ export default function TravelTitular() {
               label="Numero"
               value={formData.number}
               onChange={handleChange}
+              helperText={formErrors.number}
             />
-            {formErrors.number && (
-              <span style={{ color: "red" }}>{formErrors.number}</span>
-            )}
           </S.Group>
           <S.Group>
             <TextInput
@@ -337,10 +334,8 @@ export default function TravelTitular() {
               label="Bairro"
               value={formData.neighborhood}
               onChange={handleChange}
+              helperText={formErrors.neighborhood}
             />
-            {formErrors.neighborhood && (
-              <span style={{ color: "red" }}>{formErrors.neighborhood}</span>
-            )}
           </S.Group>
         </S.Row>
 
@@ -351,10 +346,8 @@ export default function TravelTitular() {
               label="Cidade"
               value={formData.city}
               onChange={handleChange}
+              helperText={formErrors.city}
             />
-            {formErrors.city && (
-              <span style={{ color: "red" }}>{formErrors.city}</span>
-            )}
           </S.Group>
           <S.Group>
             <Select
@@ -365,16 +358,17 @@ export default function TravelTitular() {
               label="Estado"
               value={formData.state}
               onChange={(value) => handleChange({ target: { value, name: "state" } })}
+              helperText={formErrors.state}
             />
-            {formErrors.state && (
-              <span style={{ color: "red" }}>{formErrors.state}</span>
-            )}
           </S.Group>
         </S.Row>
 
-        <S.Row>
+        <div style={{ marginTop: 20 }}>
           <Button type="submit">Avançar</Button>
-        </S.Row>
+        </div>
+        <div style={{ marginTop: 20 }}>
+          <Button href="/seguros/viagem/coberturas" variant="outlined">Voltar</Button>
+        </div>
       </form>
     </S.Wrapper>
   );

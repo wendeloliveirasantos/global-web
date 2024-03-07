@@ -13,7 +13,6 @@ export const Container = styled.div<{ background?: string }>`
   height: 100%;
   background: ${(props) => `transparent url(${props.background}) no-repeat`};
   background-size: cover;
-  display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px;

@@ -14,7 +14,7 @@ export default function Pagamento() {
   const router = useRouter()
   const [loading, setLoading] = useState<boolean>(false)
   const [, setCompra] = useLocalStorage(STORAGE_VIAGEM_COMPRA, "");
-  const { oferta, titular } = useViagem()
+  const { oferta, titular, cotacao, passageiros } = useViagem()
 
   async function onSubmit(values: any) {
     try {
@@ -38,7 +38,7 @@ export default function Pagamento() {
           "country": "BR",
           "zipCode": titular.postalCode.replace(" ", "")
         },
-        "passengers": [""]
+        "passengers": passageiros
       }
       const response = await api.post("/travels/purchases", input);
       setCompra(JSON.stringify(response.data))
@@ -56,7 +56,7 @@ export default function Pagamento() {
   return oferta && (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <Container>
+        <Container style={{ display: "flex" }}>
           <PageTitle bold='Dados para' regular='pagamento' />
           <PagamentoForm
             onSubmit={onSubmit}

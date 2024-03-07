@@ -24,6 +24,7 @@ export default function useOfertasViagem(): HookReturn {
       passengers: cotacao.passengers.map((p: any) => ({
         birthDate: dayjs().subtract(p.age, "year").format("YYYY-MM-DD"),
       })),
+      range: cotacao.rangePremio
     };
     const response = await api.post("/travels/quotes", input);
     setProducts(response.data);
