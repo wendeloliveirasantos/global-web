@@ -268,7 +268,7 @@ export default function TravelQuote() {
             mask="(99) 99999-9999"
             name="phone"
             label="Telefone"
-            onChange={(e) => handleChange("phone", e.target.value)}
+            onChange={(e) => handleChange("phone", e.target.value.replace(/\D/g, ''))}
             helperText={phoneError}
           />
         </div>

@@ -38,7 +38,7 @@ export default function Pagamento() {
           "country": "BR",
           "zipCode": titular.postalCode.replace(" ", "")
         },
-        "passengers": passageiros
+        "passengers": []
       }
       const response = await api.post("/travels/purchases", input);
       setCompra(JSON.stringify(response.data))

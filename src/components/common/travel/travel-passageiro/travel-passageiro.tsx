@@ -74,8 +74,7 @@ export default function DadosPassageiro() {
     
   };
 
-  function handleChange(e: any) {
-    const { name, value } = e.target;
+  function handleChange(name: string, value: string | number | null | undefined | boolean | number[]) {
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
@@ -225,21 +224,21 @@ export default function DadosPassageiro() {
             <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
               <S.Row>
                 <S.Group>
-                  <TextInput name="firstName" label="Nome" defaultValue={passageiros[0].firstName} value={formData.firstName} onChange={handleChange} helperText={formErrors.firstName}/>
+                  <TextInput name="firstName" label="Nome" defaultValue={passageiros[0].firstName} value={formData.firstName} onChange={(e) => handleChange("firstName", e.target.value)} helperText={formErrors.firstName}/>
                 </S.Group>
                 <S.Group>
                   <TextInput
                     name="lastName"
                     label="Sobrenome"
                     value={formData.lastName}
-                    onChange={handleChange}
+                    onChange={(e) => handleChange("lastName", e.target.value)}
                     helperText={formErrors.lastName}
                   />
                 </S.Group>
               </S.Row>
               <S.Row>
                 <S.Group>
-                  <TextInput name="document" label="CPF" mask="999.999.999-99" value={formData.document} onChange={handleChange} helperText={formErrors.document}/>
+                  <TextInput name="document" label="CPF" mask="999.999.999-99" value={formData.document} onChange={(e) => handleChange("document", e.target.value.replace(/\D/g, ''))} helperText={formErrors.document}/>
                 </S.Group>
               </S.Row>
               <S.Row>
@@ -251,15 +250,13 @@ export default function DadosPassageiro() {
                     ]}
                     label="Sexo"
                     value={formData.gender}
-                    onChange={(row) =>
-                      handleChange({ target: { name: "gender", value: row } })
-                    }
+                    onChange={(v) => handleChange("gender", v.toString())}
                     helperText={formErrors.gender}
                   />
                 </S.Group>
                 <S.Group>
                   <DatePicker
-                    onChange={(value) => handleChange({ target: { value, name: "birthDate" } })}
+                    onChange={(e) => handleChange("birthDate", e)}
                     label="Data de Nascimento"
                     type="date"
                     name="birthDate"

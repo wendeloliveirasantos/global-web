@@ -76,8 +76,7 @@ export default function TravelTitular() {
     }
   };
 
-  function handleChange(e: any) {
-    const { name, value } = e.target;
+  function handleChange(name: string, value: string | number | null | undefined | boolean | number[]) {
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
@@ -228,7 +227,7 @@ export default function TravelTitular() {
               name="firstName"
               label="Nome"
               value={formData.firstName}
-              onChange={handleChange}
+              onChange={(e) => handleChange("firstName", e.target.value)}
               helperText={formErrors.firstName}
             />
           </S.Group>
@@ -237,7 +236,7 @@ export default function TravelTitular() {
               name="lastName"
               label="Sobrenome"
               value={formData.lastName}
-              onChange={handleChange}
+              onChange={(e) => handleChange("document", e.target.value)}
               helperText={formErrors.lastName}
             />
           </S.Group>
@@ -250,7 +249,7 @@ export default function TravelTitular() {
               name="document"
               label="CPF"
               value={formData.document}
-              onChange={handleChange}
+              onChange={(e) => handleChange("document", e.target.value.replace(/\D/g, ''))}
               helperText={formErrors.document}
             />
           </S.Group>
@@ -263,7 +262,7 @@ export default function TravelTitular() {
               name="phone"
               label="Telefone"
               value={formData.phone}
-              onChange={handleChange}
+              onChange={(e) => handleChange("phone", e.target.value.replace(/\D/g, ''))}
               helperText={formErrors.phone}
             />
           </S.Group>
@@ -275,7 +274,7 @@ export default function TravelTitular() {
               name="email"
               label="Email"
               value={formData.email}
-              onChange={handleChange}
+              onChange={(e) => handleChange("email", e.target.value)}
               helperText={formErrors.email}
             />
           </S.Group>
@@ -284,7 +283,7 @@ export default function TravelTitular() {
         <S.Row>
           <S.Group>
             <DatePicker
-              onChange={(value) => handleChange({ target: { value, name: "birthDate" } })}
+              onChange={(e) => handleChange("birthDate", e)}
               label="Data de Nascimento"
               type="date"
               value={formData.birthDate}
@@ -302,7 +301,7 @@ export default function TravelTitular() {
               name="postalCode"
               label="CEP"
               value={formData.postalCode}
-              onChange={handleChange}
+              onChange={(e) => handleChange("postalCode", e.target.value.replace(/\D/g, ''))}
               onBlur={handleCepBlur}
               helperText={formErrors.postalCode}
             />
@@ -312,7 +311,7 @@ export default function TravelTitular() {
               name="address"
               label="Endereço"
               value={formData.address}
-              onChange={handleChange}
+              onChange={(e) => handleChange("address", e.target.value)}
               helperText={formErrors.address}
             />
           </S.Group>
@@ -324,7 +323,7 @@ export default function TravelTitular() {
               name="number"
               label="Numero"
               value={formData.number}
-              onChange={handleChange}
+              onChange={(e) => handleChange("number", e.target.value)}
               helperText={formErrors.number}
             />
           </S.Group>
@@ -333,7 +332,7 @@ export default function TravelTitular() {
               name="neighborhood"
               label="Bairro"
               value={formData.neighborhood}
-              onChange={handleChange}
+              onChange={(e) => handleChange("neighborhood", e.target.value)}
               helperText={formErrors.neighborhood}
             />
           </S.Group>
@@ -345,7 +344,7 @@ export default function TravelTitular() {
               name="city"
               label="Cidade"
               value={formData.city}
-              onChange={handleChange}
+              onChange={(e) => handleChange("city", e.target.value)}
               helperText={formErrors.city}
             />
           </S.Group>
@@ -357,7 +356,7 @@ export default function TravelTitular() {
               }))}
               label="Estado"
               value={formData.state}
-              onChange={(value) => handleChange({ target: { value, name: "state" } })}
+              onChange={(v) => handleChange("state", v.toString())}
               helperText={formErrors.state}
             />
           </S.Group>
