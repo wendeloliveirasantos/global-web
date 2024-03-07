@@ -15,13 +15,11 @@ function SubTitle({ bold, regular, className }: SubTitleProps) {
     <Div>
       <Grid container spacing={2}>
         <Grid xs={3}>
-          <Item></Item>
         </Grid>
         <Grid xs={6}>
           <Item><p>{regular}</p></Item>
         </Grid>
         <Grid xs={3}>
-          <Item></Item>
         </Grid>
       </Grid>
     </Div>

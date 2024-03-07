@@ -1,6 +1,7 @@
 import React from 'react'
 import * as S from './TextInput.styles'
-import { FormControl, FormHelperText, TextField } from '@mui/material'
+import { FilledTextFieldProps, FormControl, FormHelperText, OutlinedTextFieldProps, StandardTextFieldProps, TextField, TextFieldVariants } from '@mui/material'
+import InputMask from 'react-input-mask';
 
 type TextInputProps = {
   name: string
@@ -32,11 +33,21 @@ export default function TextInput({
   helperText,
   mask,
   min,
+  value,
   ...rest
 }: TextInputProps) {
   return (
     <FormControl fullWidth>
-      <TextField id={name} error={helperText != ""} inputProps={{ min }} variant="outlined" label={label} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest}/>
+      { mask != null ?
+      <InputMask mask={mask} onChange={onChange} onBlur={onBlur} value={value} maskChar={null}>
+        {(inputProps: any) => 
+          {
+            return <TextField {...inputProps} id={name} error={helperText != ""} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest} />;
+          }
+        }
+      </InputMask> :
+      <TextField id={name} error={helperText != ""} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest}/>
+      }
     </FormControl>
   )
 }

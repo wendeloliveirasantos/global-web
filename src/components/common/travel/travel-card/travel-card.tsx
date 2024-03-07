@@ -57,11 +57,12 @@ export default function TravelCard(props: Props) {
           .map((beneficio) => {
             return (
               <div
-                style={{ textAlign: "center", fontSize: 12 }}
+                style={{ textAlign: "center", fontSize: '1.1rem' }}
                 key={beneficio.description}
               >
                 <p>{beneficio.description}</p>
-                <p>{beneficio.amount}</p>
+                <p style={{ fontWeight: 600, color: '#1976d2' }}>{beneficio.amount}</p>
+                <hr style={{ margin: '10px 0' }}></hr>
               </div>
             );
           })}

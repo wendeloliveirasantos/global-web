@@ -1,5 +1,5 @@
 import { Button, TextInput, TextInputMask, Select } from "@/components/ui";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import { PageTitle } from "../../PageTitle";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
@@ -44,6 +44,19 @@ export default function TravelTitular() {
     city: "",
     state: "",
   });
+
+  useEffect(() => {
+    if (cotacao) {
+      const cotacaoObj = JSON.parse(cotacao);
+      setFormData(prevState => ({
+        ...prevState,
+        firstName: cotacaoObj.firstName,
+        lastName: cotacaoObj.lastName,
+        phone: cotacaoObj.phone,
+        email: cotacaoObj.email
+      }));
+    }
+  }, [cotacao]);
 
   const handleCepBlur = async () => {
     const cep = formData.postalCode.replace(/[^0-9]/g, ''); // Remover caracteres não numéricos
@@ -270,11 +283,12 @@ export default function TravelTitular() {
 
         <S.Row>
           <S.Group>
-            <TextInput
-              onChange={handleChange}
-              type="date"
-              name="birthDate"
+            <DatePicker
+              onChange={(value) => handleChange({ target: { value, name: "birthDate" } })}
               label="Data de Nascimento"
+              type="date"
+              value={formData.birthDate}
+              name="birthDate"
               min={dayjs(new Date()).format("YYYY-MM-DD")}
               helperText={formErrors.birthDate}
             />
