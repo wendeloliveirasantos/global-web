@@ -3,6 +3,7 @@ import Loading from '@/components/common/Loading/Loading'
 import { PagamentoForm } from '@/components/common/PagamentoForm'
 import { PageTitle } from '@/components/common/PageTitle'
 import { MainLayout } from '@/components/common/layouts'
+import { Dialog } from '@/components/ui/Dialog'
 import { STORAGE_VIAGEM_COMPRA, STORAGE_VIAGEM_COTACAO } from '@/constants'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import useViagem from '@/hooks/useViagem'
@@ -16,9 +17,24 @@ export default function Pagamento() {
   const [, setCompra] = useLocalStorage(STORAGE_VIAGEM_COMPRA, "");
   const { oferta, titular, cotacao, passageiros } = useViagem()
 
-  async function onSubmit(values: any) {
+  const [open, setOpen] = React.useState(false);
+  const onClose = () => setOpen(false);
+
+  const [error, setError] = useState<string>("")
+
+  async function onSubmit(values: {
+    nomeTitular: "",
+    cpfTitular: "",
+    numeroCartao: "",
+    mesValidade: "",
+    anoValidade: "",
+    cvv: "",
+    parcelas: "",
+    nomeEmergencial: "",
+    contatoEmergencial: ""
+  }) {
     try {
-      setLoading(true)
+      //setLoading(true)
       const input = {
         "quoteId": oferta.id,
         "productReferenceId": JSON.stringify(oferta.productReferenceId),
@@ -30,6 +46,7 @@ export default function Pagamento() {
           "cpfNumber": titular.document,
           "cellPhone": titular.phone.replace(" ", ""),
           "birthDate": titular.birthDate,
+          "email": titular.email,
           "address": titular.address,
           "number": titular.number,
           "city": titular.city,
@@ -38,16 +55,39 @@ export default function Pagamento() {
           "country": "BR",
           "zipCode": titular.postalCode.replace(" ", "")
         },
-        "passengers": []
+        "passengers": [],
+        "payment": {
+          "cardholderName": values.nomeTitular,
+          "cardholderCPF": values.cpfTitular,
+          "cardNumber": values.numeroCartao,
+          "securityCode": values.cvv,
+          "expiryMonth": values.mesValidade,
+          "expiryYear": values.anoValidade,
+          "installments": values.parcelas,
+          "operator": 'mastercard',
+        },
+        "emergencyContact": {
+          "name": values.nomeEmergencial,
+          "cellPhone": values.contatoEmergencial
+        }
       }
+      console.log(input);
       const response = await api.post("/travels/purchases", input);
-      setCompra(JSON.stringify(response.data))
-      router.push("/seguros/viagem/concluido")
-      setLoading(false)
+      console.log(response);
+      if (response.status == 201) {
+        setCompra(JSON.stringify(response.data))
+        router.push("/seguros/viagem/concluido")
+        setLoading(false)
+      }
+      else {
+        setLoading(false)
+        setOpen(true)
+        setError(response.data.message)
+      }
+      
     } catch (error) {
       setLoading(false)
       throw new Error()
-
     }
   }
 
@@ -62,6 +102,7 @@ export default function Pagamento() {
             onSubmit={onSubmit}
             amount={oferta.amount ?? 0}
           />
+          <Dialog title='ERRO AO PROCESSAR PAGAMENTO' text={error} open={open} onClose={onClose}></Dialog>
         </Container>
       </Wrapper>
     </MainLayout>

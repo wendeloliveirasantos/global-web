@@ -314,10 +314,10 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
       <form style={{ marginTop: 15 }}>
         <S.Row>
           <S.Group>
-            <TextInput onChange={(e) => handleChange("nomeEmergencial", e.target.value)} name="nomeEmergencial" label="Nome Emergencial" helperText={formErrors.nomeEmergencial}/>
+            <TextInput value={formData.nomeEmergencial} onChange={(e) => handleChange("nomeEmergencial", e.target.value)} name="nomeEmergencial" label="Nome Emergencial" helperText={formErrors.nomeEmergencial}/>
           </S.Group>
           <S.Group>
-            <TextInput onChange={(e) => handleChange("contatoEmergencial", e.target.value.replace(/\D/g, ''))} mask="(99) 99999-9999" name="contatoEmergencial" label="Telefone Emergencial" helperText={formErrors.contatoEmergencial}/>
+            <TextInput value={formData.contatoEmergencial} onChange={(e) => handleChange("contatoEmergencial", e.target.value.replace(/\D/g, ''))} mask="(99) 99999-9999" name="contatoEmergencial" label="Telefone Emergencial" helperText={formErrors.contatoEmergencial}/>
           </S.Group>
         </S.Row>
       </form>

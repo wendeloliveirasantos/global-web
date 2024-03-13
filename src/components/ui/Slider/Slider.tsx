@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import * as S from './Slider.styles'
-import { FormControl, Button, FormControlLabel, FormGroup, Switch, FormHelperText, FormLabel, Checkbox, Slider, Typography, Box, styled } from '@mui/material';
+import { FormControl, Button, FormControlLabel, FormGroup, Switch, FormHelperText, FormLabel, Checkbox, Slider, Typography, Box, styled, Tooltip, TooltipProps, tooltipClasses } from '@mui/material';
 
 type SliderProps = {
   name: string
@@ -52,6 +52,19 @@ const PrettoSlider = styled(Slider)({
   }
 });
 
+const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    alignItems: 'center',
+    backgroundColor: '#f5f5f9',
+    color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: '1px solid #dadde9',
+  },
+}));
+
 function UiSlider({ name, label, children, onChange, type, variant, marks, min, max, ...rest }: SliderProps) {
   return (
     <FormControl
@@ -60,16 +73,26 @@ function UiSlider({ name, label, children, onChange, type, variant, marks, min, 
       <Typography id={name} gutterBottom>
         {label}
       </Typography>
-      <PrettoSlider
-        defaultValue={min}
-        aria-labelledby={name}
-        valueLabelDisplay="auto"
-        step={35}
-        marks={marks}
-        min={min}
-        max={max}
-        onChange={onChange}
-      />
+      <HtmlTooltip
+        placement='bottom'
+        title={
+          <React.Fragment>
+            <Typography color="inherit">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at maximus leo, sit amet bibendum orci.</Typography>
+          </React.Fragment>
+        }
+      >
+        <PrettoSlider
+          defaultValue={min}
+          aria-labelledby={name}
+          valueLabelDisplay="on"
+          step={35}
+          marks={marks}
+          min={min}
+          max={max}
+          onChange={onChange}
+        />
+      </HtmlTooltip>
+      
       {/* <Slider
         defaultValue={min}
         aria-labelledby={name}

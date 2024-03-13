@@ -54,14 +54,18 @@ const marks = [
     value: 30,
     label: '30.000 €',
   },
-  // {
-  //   value: 100,
-  //   label: '$100.000',
-  // },
-  // {
-  //   value: 500,
-  //   label: '$500.000',
-  // },
+  {
+    value: 250,
+    label: '$250.000',
+  },
+  {
+    value: 500,
+    label: '$500.000',
+  },
+  {
+    value: 750,
+    label: '$750.000',
+  },
   {
     value: 1000,
     label: '$1.000.000',
@@ -234,7 +238,7 @@ export default function TravelQuote() {
         to: values.to,
         passengers: passengers.map((r) => ({ age: r.age ?? 0 })),
         termo: values.termo,
-        rangePremio: values.rangePremio
+        rangePremio: values.to == "9;BR" ? 500000 : values.rangePremio
       })
     );
     router.push("/seguros/viagem/coberturas");
@@ -340,18 +344,20 @@ export default function TravelQuote() {
             );
           })}
         </S.Passengers>
-
-        <div style={{ marginTop: 20 }}>
-          <Slider 
-            name="rangePremio"
-            marks={marks}
-            min={30}
-            max={1000}
-            label="Escolha o valor máximo da cobertura."
-            onChange={(e, v) => handleChange("rangePremio", v)}
-          />
-        </div>
-        
+        {
+          values.to != "9;BR" ?
+          
+          <div style={{ marginTop: 20 }}>
+            <Slider 
+              name="rangePremio"
+              marks={marks}
+              min={30}
+              max={1000}
+              label="Escolha o valor máximo da cobertura."
+              onChange={(e, v) => handleChange("rangePremio", v)}
+            />
+          </div> : null
+        }
         <div style={{ marginTop: 20 }}>
           <Checkbox 
             label="Declaro que li e concordo com a Política de Privacidade."
