@@ -33,6 +33,11 @@ export default function Header() {
               <span>Seguro Viagem</span>
             </Link>
           </S.Link>
+          <S.Link>
+            <Link href="/seguros/residencial/detalhes">
+              <span>Seguro Residencial</span>
+            </Link>
+          </S.Link>
         </S.Links>
         <S.MenuIcon onClick={handleMenuToggle}>
           <FaBars size={20} />

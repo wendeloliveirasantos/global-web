@@ -1,0 +1,1 @@
+export { default as HybridQuote } from './hybrid-quote'
