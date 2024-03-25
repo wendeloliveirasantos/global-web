@@ -34,6 +34,7 @@ export default function Pagamento() {
     contatoEmergencial: ""
   }) {
     try {
+      console.log(passageiros);
       //setLoading(true)
       const input = {
         "quoteId": oferta.id,
@@ -55,7 +56,7 @@ export default function Pagamento() {
           "country": "BR",
           "zipCode": titular.postalCode.replace(" ", "")
         },
-        "passengers": [passageiros],
+        "passengers": passageiros != null ? passageiros : [],
         "payment": {
           "cardholderName": values.nomeTitular,
           "cardholderCPF": values.cpfTitular,
