@@ -34,6 +34,7 @@ export default function UiDatePicker({
   onChange,
   defaultValue,
   helperText,
+  min,
   ...rest
 }: DatePickerProps) {
   

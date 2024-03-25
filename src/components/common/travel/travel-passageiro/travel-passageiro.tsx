@@ -3,7 +3,7 @@ import * as S from "./styles";
 import { PageTitle } from "../../PageTitle";
 import { Button, Select, TextInput } from "@/components/ui";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { STORAGE_VIAGEM_COTACAO } from "@/constants";
+import { STORAGE_VIAGEM_COTACAO, STORAGE_VIAGEM_PASSAGEIROS } from "@/constants";
 import { useRouter } from "next/router";
 import { DatePicker } from "@/components/ui/DatePicker";
 import dayjs from "dayjs";
@@ -16,10 +16,12 @@ const INITIAL_VALUE = {
   document: "",
   gender: "",
   birthDate: "",
+  age: ""
 };
 
 export default function DadosPassageiro() {
   const router = useRouter();
+  const [, setPassageirosStorage] = useLocalStorage(STORAGE_VIAGEM_PASSAGEIROS, "");
   const [passageiros, setPassageiros] = useState([INITIAL_VALUE]);
   const [passageiroSelecionado, setPassageiroSelecionado] = useState(0);
   const [existCotacao] = useLocalStorage(STORAGE_VIAGEM_COTACAO, "");
@@ -27,13 +29,13 @@ export default function DadosPassageiro() {
   const [formErrors, setFormErrors] = useState(INITIAL_VALUE);
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set<number>());
-  const steps = Array.from({ length: passageiros.length }, (_, index) => `Passageiro ${index + 1}`);
+  const steps = Array.from({ length: passageiros.length-1 }, (_, index) => `Passageiro ${index + 1}`);
 
   useEffect(() => {
     if (existCotacao) {
       const cotacao = JSON.parse(existCotacao);
       setPassageiros(
-        cotacao.passengers?.map((r: any) => ({
+        cotacao.passengers?.slice(1).map((r: any) => ({
           firstName: "",
           lastName: "",
           document: "",
@@ -43,7 +45,6 @@ export default function DadosPassageiro() {
         }))
       );
     }
-    console.log(passageiros);
   }, [existCotacao]);
 
   if (!existCotacao) return <>Carregando...</>;
@@ -65,21 +66,23 @@ export default function DadosPassageiro() {
     //activeStep === steps.length - 1
   };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    console.log(activeStep);
-    if (activeStep === 0) {
-      router.push(`/seguros/viagem/dados-titular`);
-    }
-    
-  };
-
   function handleChange(name: string, value: string | number | null | undefined | boolean | number[]) {
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
   }
+
+  const handleBack = () => {
+    if (passageiroSelecionado == 0) {
+      router.push(`/seguros/viagem/dados-titular`);
+    }
+    else if (passageiroSelecionado - 1 < passageiros.length) {
+      setFormData(INITIAL_VALUE);
+      setPassageiroSelecionado(passageiroSelecionado - 1);
+      return;
+    }
+  };
 
   function handleSubmit(e: any) {
     e.preventDefault();
@@ -127,159 +130,163 @@ export default function DadosPassageiro() {
       return;
     }
 
-    handleNext();
+    //handleNext();
+
+    setFormData(INITIAL_VALUE);
+    formData.age = passageiros[passageiroSelecionado].age;
+    passageiros[passageiroSelecionado] = formData;
+    setPassageiroSelecionado(passageiroSelecionado + 1);
 
     if (passageiroSelecionado + 1 < passageiros.length) {
-      setFormData(INITIAL_VALUE);
-      const arr = [...passageiros] as any;
-      arr[passageiroSelecionado] = formData;
-      setPassageiroSelecionado(passageiroSelecionado + 1);
       return;
     }
 
+    setPassageirosStorage(JSON.stringify(passageiros))
+    
     router.push(`/seguros/viagem/pagamento`);
   }
 
   return (
-    // <S.Wrapper>
-    //   <S.Description>{`Passageiro ${passageiroSelecionado + 1}`}</S.Description>
-    //   <form onSubmit={handleSubmit}>
-    //     <S.Row>
-    //       <S.Group>
-    //         <TextInput name="firstName" label="Nome" onChange={handleChange} helperText={formErrors.firstName}/>
-    //       </S.Group>
-    //       <S.Group>
-    //         <TextInput
-    //           name="lastName"
-    //           label="Sobrenome"
-    //           onChange={handleChange}
-    //           helperText={formErrors.lastName}
-    //         />
-    //       </S.Group>
-    //     </S.Row>
-    //     <S.Row>
-    //       <S.Group>
-    //         <TextInput name="document" label="CPF" mask="999.999.999-99" onChange={handleChange} helperText={formErrors.document}/>
-    //       </S.Group>
-    //     </S.Row>
-    //     <S.Row>
-    //       <S.Group>
-    //         <Select
-    //           options={[
-    //             { value: "female", label: "Feminino" },
-    //             { value: "male", label: "Masculino" },
-    //           ]}
-    //           label="Sexo"
-    //           onChange={(row) =>
-    //             handleChange({ target: { name: "gender", value: row } })
-    //           }
-    //           helperText={formErrors.gender}
-    //         />
-    //       </S.Group>
-    //       <S.Group>
-    //         <DatePicker
-    //           onChange={(value) => handleChange({ target: { value, name: "birthDate" } })}
-    //           label="Data de Nascimento"
-    //           type="date"
-    //           name="birthDate"
-    //           min={dayjs(new Date()).format("YYYY-MM-DD")}
-    //           helperText={formErrors.birthDate}
-    //         />
-    //       </S.Group>
-    //     </S.Row>
-    //     <S.Row>
-    //       <S.Group>
-    //         <div style={{ marginTop: 20 }}>
-    //           <Button type="submit">Avançar</Button>
-    //         </div>
-    //         <div style={{ marginTop: 20 }}>
-    //           <Button href="/seguros/viagem/dados-titular" variant="outlined">Voltar</Button>
-    //         </div>
-    //       </S.Group>
-    //     </S.Row>
-    //   </form>
-    // </S.Wrapper>
+    <S.Wrapper>
+      <S.Description>{`Passageiro ${passageiroSelecionado + 1 + 1}`}</S.Description>
+      <form onSubmit={handleSubmit}>
+        <S.Row>
+          <S.Group>
+          <TextInput name="firstName" label="Nome" defaultValue={passageiros[0].firstName} value={formData.firstName} onChange={(e) => handleChange("firstName", e.target.value)} helperText={formErrors.firstName}/>
+          </S.Group>
+          <S.Group>
+            <TextInput
+              name="lastName"
+              label="Sobrenome"
+              value={formData.lastName}
+              onChange={(e) => handleChange("lastName", e.target.value)}
+              helperText={formErrors.lastName}
+            />
+          </S.Group>
+        </S.Row>
+        <S.Row>
+          <S.Group>
+          <TextInput name="document" label="CPF" mask="999.999.999-99" value={formData.document} onChange={(e) => handleChange("document", e.target.value.replace(/\D/g, ''))} helperText={formErrors.document}/>
+          </S.Group>
+        </S.Row>
+        <S.Row>
+          <S.Group>
+            <Select
+              options={[
+                { value: "female", label: "Feminino" },
+                { value: "male", label: "Masculino" },
+              ]}
+              label="Sexo"
+              value={formData.gender}
+              onChange={(v) => handleChange("gender", v.toString())}
+              helperText={formErrors.gender}
+            />
+          </S.Group>
+          <S.Group>
+            <DatePicker
+              onChange={(e) => handleChange("birthDate", e)}
+              label="Data de Nascimento"
+              type="date"
+              name="birthDate"
+              value={formData.birthDate}
+              min={dayjs(new Date()).format("YYYY-MM-DD")}
+              helperText={formErrors.birthDate}
+            />
+          </S.Group>
+        </S.Row>
+        <S.Row>
+          <S.Group>
+            <div style={{ marginTop: 20 }}>
+              <Button type="submit">Avançar</Button>
+            </div>
+            <div style={{ marginTop: 20 }}>
+              <Button onClick={handleBack} variant="outlined">Voltar</Button>
+            </div>
+          </S.Group>
+        </S.Row>
+      </form>
+    </S.Wrapper>
 
-    <S.WrapperStep>
-      <Box sx={{ width: '100%' }}>
-        <Stepper activeStep={activeStep}>
-          {steps.map((label, index) => {
-            const stepProps: { completed?: boolean } = {};
-            const labelProps: {
-              optional?: React.ReactNode;
-            } = {};
-            if (isStepSkipped(index)) {
-              stepProps.completed = false;
-            }
-            return (
-              <Step key={label} {...stepProps}>
-                <StepLabel {...labelProps}>{label}</StepLabel>
-              </Step>
-            );
-          })}
-        </Stepper>
+    // <S.WrapperStep>
+    //   <Box sx={{ width: '100%' }}>
+    //     <Stepper activeStep={activeStep}>
+    //       {steps.map((label, index) => {
+    //         const stepProps: { completed?: boolean } = {};
+    //         const labelProps: {
+    //           optional?: React.ReactNode;
+    //         } = {};
+    //         if (isStepSkipped(index)) {
+    //           stepProps.completed = false;
+    //         }
+    //         return (
+    //           <Step key={label} {...stepProps}>
+    //             <StepLabel {...labelProps}>{label}</StepLabel>
+    //           </Step>
+    //         );
+    //       })}
+    //     </Stepper>
         
-        <React.Fragment>
-          <S.Wrapper>
-            <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
-              <S.Row>
-                <S.Group>
-                  <TextInput name="firstName" label="Nome" defaultValue={passageiros[0].firstName} value={formData.firstName} onChange={(e) => handleChange("firstName", e.target.value)} helperText={formErrors.firstName}/>
-                </S.Group>
-                <S.Group>
-                  <TextInput
-                    name="lastName"
-                    label="Sobrenome"
-                    value={formData.lastName}
-                    onChange={(e) => handleChange("lastName", e.target.value)}
-                    helperText={formErrors.lastName}
-                  />
-                </S.Group>
-              </S.Row>
-              <S.Row>
-                <S.Group>
-                  <TextInput name="document" label="CPF" mask="999.999.999-99" value={formData.document} onChange={(e) => handleChange("document", e.target.value.replace(/\D/g, ''))} helperText={formErrors.document}/>
-                </S.Group>
-              </S.Row>
-              <S.Row>
-                <S.Group>
-                  <Select
-                    options={[
-                      { value: "female", label: "Feminino" },
-                      { value: "male", label: "Masculino" },
-                    ]}
-                    label="Sexo"
-                    value={formData.gender}
-                    onChange={(v) => handleChange("gender", v.toString())}
-                    helperText={formErrors.gender}
-                  />
-                </S.Group>
-                <S.Group>
-                  <DatePicker
-                    onChange={(e) => handleChange("birthDate", e)}
-                    label="Data de Nascimento"
-                    type="date"
-                    name="birthDate"
-                    value={formData.birthDate}
-                    min={dayjs(new Date()).format("YYYY-MM-DD")}
-                    helperText={formErrors.birthDate}
-                  />
-                </S.Group>
-              </S.Row>
-              <S.Row>
-                <S.Group>
-                  <div style={{ marginTop: 20 }}>
-                    <Button type="submit">Avançar</Button>
-                  </div>
-                  <div style={{ marginTop: 20 }}>
-                    <Button onClick={handleBack} variant="outlined">Voltar</Button>
-                  </div>
-                </S.Group>
-              </S.Row>
-            </form>
-          </S.Wrapper>
-        </React.Fragment>
-      </Box>
-    </S.WrapperStep>
+    //     <React.Fragment>
+    //       <S.Wrapper>
+    //         <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
+    //           <S.Row>
+    //             <S.Group>
+    //               <TextInput name="firstName" label="Nome" defaultValue={passageiros[0].firstName} value={formData.firstName} onChange={(e) => handleChange("firstName", e.target.value)} helperText={formErrors.firstName}/>
+    //             </S.Group>
+    //             <S.Group>
+    //               <TextInput
+    //                 name="lastName"
+    //                 label="Sobrenome"
+    //                 value={formData.lastName}
+    //                 onChange={(e) => handleChange("lastName", e.target.value)}
+    //                 helperText={formErrors.lastName}
+    //               />
+    //             </S.Group>
+    //           </S.Row>
+    //           <S.Row>
+    //             <S.Group>
+    //               <TextInput name="document" label="CPF" mask="999.999.999-99" value={formData.document} onChange={(e) => handleChange("document", e.target.value.replace(/\D/g, ''))} helperText={formErrors.document}/>
+    //             </S.Group>
+    //           </S.Row>
+    //           <S.Row>
+    //             <S.Group>
+    //               <Select
+    //                 options={[
+    //                   { value: "female", label: "Feminino" },
+    //                   { value: "male", label: "Masculino" },
+    //                 ]}
+    //                 label="Sexo"
+    //                 value={formData.gender}
+    //                 onChange={(v) => handleChange("gender", v.toString())}
+    //                 helperText={formErrors.gender}
+    //               />
+    //             </S.Group>
+    //             <S.Group>
+    //               <DatePicker
+    //                 onChange={(e) => handleChange("birthDate", e)}
+    //                 label="Data de Nascimento"
+    //                 type="date"
+    //                 name="birthDate"
+    //                 value={formData.birthDate}
+    //                 min={dayjs(new Date()).format("YYYY-MM-DD")}
+    //                 helperText={formErrors.birthDate}
+    //               />
+    //             </S.Group>
+    //           </S.Row>
+    //           <S.Row>
+    //             <S.Group>
+    //               <div style={{ marginTop: 20 }}>
+    //                 <Button type="submit">Avançar</Button>
+    //               </div>
+    //               <div style={{ marginTop: 20 }}>
+    //                 <Button onClick={handleBack} variant="outlined">Voltar</Button>
+    //               </div>
+    //             </S.Group>
+    //           </S.Row>
+    //         </form>
+    //       </S.Wrapper>
+    //     </React.Fragment>
+    //   </Box>
+    // </S.WrapperStep>
   );
 }

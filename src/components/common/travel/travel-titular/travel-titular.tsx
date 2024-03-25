@@ -220,6 +220,7 @@ export default function TravelTitular() {
 
   return (
     <S.Wrapper>
+      <S.Description>{`Passageiro 1`}</S.Description>
       <form onSubmit={handleSubmit}>
         <S.Row>
           <S.Group>

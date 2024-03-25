@@ -55,7 +55,7 @@ export default function Pagamento() {
           "country": "BR",
           "zipCode": titular.postalCode.replace(" ", "")
         },
-        "passengers": [],
+        "passengers": [passageiros],
         "payment": {
           "cardholderName": values.nomeTitular,
           "cardholderCPF": values.cpfTitular,
@@ -71,9 +71,7 @@ export default function Pagamento() {
           "cellPhone": values.contatoEmergencial
         }
       }
-      console.log(input);
       const response = await api.post("/travels/purchases", input);
-      console.log(response);
       if (response.status == 201) {
         setCompra(JSON.stringify(response.data))
         router.push("/seguros/viagem/concluido")

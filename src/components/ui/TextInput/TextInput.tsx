@@ -46,7 +46,7 @@ export default function TextInput({
           }
         }
       </InputMask> :
-      <TextField id={name} error={helperText != ""} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest}/>
+      <TextField id={name} error={helperText != "" && helperText != undefined} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest}/>
       }
     </FormControl>
   )

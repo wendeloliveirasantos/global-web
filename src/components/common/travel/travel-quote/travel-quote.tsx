@@ -224,8 +224,6 @@ export default function TravelQuote() {
       return;
     }
 
-    console.log(values);
-
     setCotacao(
       JSON.stringify({
         firstName: values.firstName,

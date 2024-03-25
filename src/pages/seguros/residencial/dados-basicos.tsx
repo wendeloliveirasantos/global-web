@@ -1,4 +1,4 @@
-import { Container, TravelQuote, Wrapper } from "@/components/common";
+import { Container, Wrapper } from "@/components/common";
 import { PageTitle } from "@/components/common/PageTitle";
 import { Item } from "@/components/common/auto/AnswerQuestion/AnswerQuestion.styles";
 import { MainLayout } from "@/components/common/layouts";

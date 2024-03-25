@@ -84,7 +84,6 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
       const cotacaoObj = JSON.parse(cotacao);
       const titularObj = JSON.parse(titular);
       const produtoObj = JSON.parse(produto);
-      console.log(produtoObj);
       setFormDataResumo(prevState => ({
         ...prevState,
         cotacao: {
@@ -206,7 +205,6 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
     if (hasError) {
       return;
     }
-    console.log(formData);
     onSubmit(formData)
   }
 

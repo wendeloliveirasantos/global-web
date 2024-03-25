@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
 `
 
 export const Description = styled.p`
+  font-size: 20px;
   margin-bottom: 20px;
   color: #334155;
   text-align: center;
