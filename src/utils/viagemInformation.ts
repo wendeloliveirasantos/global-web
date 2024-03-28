@@ -12,7 +12,7 @@ export const insuranceInformation = {
         `Despesas Odontológicas em Viagem ao Exterior`,
         `E muito mais.`,
       ],
-      more: `Mais informações você encontra nas Condições Gerais do seguro auto.`
+      more: `Mais informações você encontra nas Condições Gerais do seguro viagem.`
     }
   ],
   // services: {

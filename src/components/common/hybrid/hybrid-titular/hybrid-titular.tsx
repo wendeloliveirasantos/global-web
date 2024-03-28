@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import { PageTitle } from "../../PageTitle";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { STORAGE_VIAGEM_COTACAO, STORAGE_VIAGEM_TITULAR } from "@/constants";
+import { STORAGE_RESIDENCIAL_COTACAO, STORAGE_RESIDENCIAL_TITULAR } from "@/constants";
 import { useRouter } from "next/router";
 import { ufs } from "@/utils/ufs";
 import { consultCep } from "@/services/travelService";
@@ -11,13 +11,14 @@ import { DatePicker } from "@/components/ui/DatePicker";
 import dayjs from "dayjs";
 import { TextMask } from "@/components/ui/TextMask";
 
-export default function TravelTitular() {
+export default function HybridTitular({ business }: any) {
   const router = useRouter()
-  const [cotacao] = useLocalStorage(STORAGE_VIAGEM_COTACAO, "")
-  const [, setTitular] = useLocalStorage(STORAGE_VIAGEM_TITULAR, "");
+  const [cotacao] = useLocalStorage(STORAGE_RESIDENCIAL_COTACAO, "")
+  const [, setTitular] = useLocalStorage(STORAGE_RESIDENCIAL_TITULAR, "");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
+    razaoSocial: "",
     document: "",
     phone: "",
     email: "",
@@ -33,6 +34,7 @@ export default function TravelTitular() {
   const [formErrors, setFormErrors] = useState({
     firstName: "",
     lastName: "",
+    razaoSocial: "",
     document: "",
     phone: "",
     email: "",
@@ -52,6 +54,7 @@ export default function TravelTitular() {
         ...prevState,
         firstName: cotacaoObj.firstName,
         lastName: cotacaoObj.lastName,
+        razaoSocial: cotacaoObj.razaoSocial,
         phone: cotacaoObj.phone,
         email: cotacaoObj.email
       }));
@@ -91,6 +94,7 @@ export default function TravelTitular() {
     setFormErrors({
       firstName: "",
       lastName: "",
+      razaoSocial: "",
       document: "",
       phone: "",
       email: "",
@@ -106,7 +110,7 @@ export default function TravelTitular() {
     // Perform validation
     let hasError = false;
 
-    if (!formData.firstName) {
+    if (business != "empresarial" && !formData.firstName) {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
         firstName: "Por favor, insira o primeiro nome",
@@ -114,10 +118,18 @@ export default function TravelTitular() {
       hasError = true;
     }
 
-    if (!formData.lastName) {
+    if (business != "empresarial" && !formData.lastName) {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
         lastName: "Por favor, insira o sobrenome",
+      }));
+      hasError = true;
+    }
+
+    if (business == "empresarial" && !formData.razaoSocial) {
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        razaoSocial: "Por favor, insira a razão social",
       }));
       hasError = true;
     }
@@ -220,8 +232,8 @@ export default function TravelTitular() {
 
   return (
     <S.Wrapper>
-      <S.Description>{`Passageiro 1`}</S.Description>
       <form onSubmit={handleSubmit}>
+        { business != "empresarial" ?
         <S.Row>
           <S.Group>
             <TextInput
@@ -241,14 +253,26 @@ export default function TravelTitular() {
               helperText={formErrors.lastName}
             />
           </S.Group>
+        </S.Row> :
+        <S.Row>
+          <S.Group>
+            <TextInput
+              name="razaoSocial"
+              label="Razão Social"
+              value={formData.razaoSocial}
+              onChange={(e) => handleChange("razaoSocial", e.target.value)}
+              helperText={formErrors.razaoSocial}
+            />
+          </S.Group>
         </S.Row>
+        }
 
         <S.Row>
           <S.Group>
             <TextInput
-              mask="999.999.999-99"
+              mask={business == "empresarial" ? "99.999.999/9999-99" : "999.999.999-99"}
               name="document"
-              label="CPF"
+              label={business == "empresarial" ? "CNPJ" : "CPF"}
               value={formData.document}
               onChange={(e) => handleChange("document", e.target.value.replace(/\D/g, ''))}
               helperText={formErrors.document}
