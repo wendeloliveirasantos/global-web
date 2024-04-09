@@ -33,6 +33,10 @@ export const Header = styled.div`
     font-size: 16px;
     text-decoration: line-through;
   }
+
+  label {
+    font-size: large;
+  }
 `;
 
 export const Link = styled.p`

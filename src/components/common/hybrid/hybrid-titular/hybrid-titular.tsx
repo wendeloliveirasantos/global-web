@@ -11,7 +11,7 @@ import { DatePicker } from "@/components/ui/DatePicker";
 import dayjs from "dayjs";
 import { TextMask } from "@/components/ui/TextMask";
 
-export default function HybridTitular({ business }: any) {
+export default function HybridTitular({ onSubmit, business }: any) {
   const router = useRouter()
   const [cotacao] = useLocalStorage(STORAGE_RESIDENCIAL_COTACAO, "")
   const [, setTitular] = useLocalStorage(STORAGE_RESIDENCIAL_TITULAR, "");
@@ -221,13 +221,9 @@ export default function HybridTitular({ business }: any) {
 
     setTitular(JSON.stringify(formData))
 
-    const cotacaoParsed = JSON.parse(cotacao)
-    if (cotacaoParsed.passengers.length > 1) {
-      router.push("/seguros/viagem/dados-passageiros")
-    } else {
-      router.push("/seguros/viagem/pagamento")
-    }
+    const cotacaoParsed = JSON.parse(cotacao);
 
+    onSubmit(formData);
   }
 
   return (
@@ -391,7 +387,7 @@ export default function HybridTitular({ business }: any) {
           <Button type="submit">Avançar</Button>
         </div>
         <div style={{ marginTop: 20 }}>
-          <Button href="/seguros/viagem/coberturas" variant="outlined">Voltar</Button>
+          <Button href={"/seguros/" + business + "/coberturas"} variant="outlined">Voltar</Button>
         </div>
       </form>
     </S.Wrapper>

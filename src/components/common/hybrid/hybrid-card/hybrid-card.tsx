@@ -38,8 +38,8 @@ export default function HybridCard(props: Props) {
         {resumirTexto(produto.description)}
       </S.Title>
       <S.Header>
-        <h2>{formatCurrency(+produto.amount * 1.3)}</h2>
-        <h1>{formatCurrency(+produto.amount)}</h1>
+        <h2>{formatCurrency(+produto.amount * 1.3)}/mês</h2>
+        <h1>{formatCurrency(+produto.amount)}<label>/mês</label></h1>
       </S.Header>
       <div style={{ marginTop: 20 }}>
         {produto.coverage
