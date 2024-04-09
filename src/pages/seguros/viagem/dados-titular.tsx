@@ -9,7 +9,7 @@ export default function DadosTitular() {
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
         <Container style={{ display: "flex" }}>
           <PageTitle bold="Dados" regular="do Titular" />
-          <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at maximus leo, sit amet bibendum orci. Nam vel scelerisque est. Mauris luctus nisl ut molestie malesuada." />
+          <SubTitle regular="Por favor informe seus dados para podermos prosseguir com o seu seguro." />
           <TravelTitular />
         </Container>
       </Wrapper>

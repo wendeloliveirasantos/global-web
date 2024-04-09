@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 export default function DadosBasicos() {
   const router = useRouter();
   async function onSubmit(){
-    router.push("/seguros/hibrido/coberturas");
+    router.push("/seguros/vida/coberturas");
   }
   return (
     <MainLayout>
@@ -20,7 +20,7 @@ export default function DadosBasicos() {
         <Container style={{ display: "flex" }}>
           <PageTitle bold="Faça uma" regular="cotação" />
           <SubTitle regular="Por favor informe seus dados para podermos calcular o seu seguro." />
-          <HybridQuote onSubmit={onSubmit} business="hibrido"/>
+          <HybridQuote onSubmit={onSubmit} business="vida"/>
         </Container>
       </Wrapper>
     </MainLayout>

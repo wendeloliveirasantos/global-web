@@ -19,7 +19,7 @@ export default function DadosBasicos() {
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
         <Container style={{ display: "flex" }}>
           <PageTitle bold="Faça uma" regular="cotação" />
-          <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at maximus leo, sit amet bibendum orci. Nam vel scelerisque est. Mauris luctus nisl ut molestie malesuada." />
+          <SubTitle regular="Por favor informe seus dados para podermos calcular o seu seguro." />
           <HybridQuote onSubmit={onSubmit} business="empresarial"/>
         </Container>
       </Wrapper>

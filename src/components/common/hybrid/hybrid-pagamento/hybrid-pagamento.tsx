@@ -17,7 +17,7 @@ const INITIAL_VALUE = {
 }
 
 function formatarValor(value: number) {
-  return `R$ ${value.toFixed(2).replace(".", ",")}`
+  return `R$ ${value.toFixed(2).replace(".", ",")}/mês`
 }
 
 function formatarData(data: string) {
@@ -194,6 +194,18 @@ export default function PagamentoForm({ onSubmit, amount, business, isLoading }:
               <Grid item xs={8}>
                 <Typography sx={{ fontSize: 15 }} color="text.secondary" gutterBottom>
                   {formatarValor(amount)}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+              <Grid item xs={4}>
+                <Typography sx={{ fontSize: 15 }} color="text.secondary" gutterBottom>
+                  Pagamento:
+                </Typography>
+              </Grid>
+              <Grid item xs={8}>
+                <Typography sx={{ fontSize: 15 }} color="text.secondary" gutterBottom>
+                  Assinatura mensal
                 </Typography>
               </Grid>
             </Grid>

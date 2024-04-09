@@ -13,6 +13,8 @@ export default function Header() {
     { nome: "Residencial", href: "/seguros/residencial/detalhes" },
     { nome: "Empresarial", href: "/seguros/empresarial/detalhes" },
     { nome: "Híbrido", href: "/seguros/hibrido/detalhes" },
+    { nome: "Vida", href: "/seguros/vida/detalhes" },
+    { nome: "Acidentes Pessoais", href: "/seguros/acidentes-pessoais/detalhes" },
   ];
 
   const [isMenuOpen, setMenuOpen] = useState(false);

@@ -22,7 +22,7 @@ export default function Coberturas() {
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
         <Container>
           <PageTitle bold="Escolha a" regular="sua cobertura" />
-          <SubTitle regular="Temos a melhor opção do Seguro Residencial para você." />
+          <SubTitle regular="Temos a melhor opção do Seguro Acidentes para você." />
           <HybridCoverage onSubmit={onSubmit} products={products} />
         </Container>
         <Container style={{ display: "flex" }}>
