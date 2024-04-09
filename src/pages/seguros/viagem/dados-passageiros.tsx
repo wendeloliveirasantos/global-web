@@ -11,7 +11,7 @@ export default function DadosPassageiros() {
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
         <Container style={{ display: "flex" }}>
           <PageTitle bold="Dados" regular="dos Passageiros" />
-          <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at maximus leo, sit amet bibendum orci. Nam vel scelerisque est. Mauris luctus nisl ut molestie malesuada." />
+          <SubTitle regular="Por favor informe os dados dos demais passageiros para podermos prosseguir com o seu seguro." />
           <DadosPassageiro />
         </Container>
       </Wrapper>

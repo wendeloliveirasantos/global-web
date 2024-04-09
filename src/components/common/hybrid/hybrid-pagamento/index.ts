@@ -1,0 +1,1 @@
+export { default as HybridPagamento } from './hybrid-pagamento'

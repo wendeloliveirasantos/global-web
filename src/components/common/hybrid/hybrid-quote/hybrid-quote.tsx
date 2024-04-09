@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import * as S from "./hybrid-quote.styles";
 import { Button, Select, TextInput, Search } from "@/components/ui";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { STORAGE_VIAGEM_COTACAO } from "@/constants";
+import { STORAGE_RESIDENCIAL_COTACAO } from "@/constants";
 import { useRouter } from "next/router";
 import dayjs from "dayjs";
 import { ITravelDestiniesModel } from "@/types/travel-destinies";
@@ -15,6 +15,7 @@ import { Grid } from "@mui/material";
 type ValuesProps = {
   firstName: string,
   lastName: string,
+  razaoSocial: string,
   phone: string,
   email: string,
   termo: boolean,
@@ -44,12 +45,13 @@ const marks = [
   },
 ];
 
-export default function HybridQuote() {
+export default function HybridQuote({ onSubmit, business }: any) {
   const router = useRouter();
-  const [cotacao, setCotacao] = useLocalStorage(STORAGE_VIAGEM_COTACAO, "");
+  const [cotacao, setCotacao] = useLocalStorage(STORAGE_RESIDENCIAL_COTACAO, "");
   const [values, setValues] = useState<ValuesProps>({
     firstName: "",
     lastName: "",
+    razaoSocial: "",
     phone: "",
     email: "",
     termo: false,
@@ -57,6 +59,7 @@ export default function HybridQuote() {
   });
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
+  const [razaoSocialError, setRazaoSocialError] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [termoError, setTermoError] = useState("");
@@ -78,19 +81,25 @@ export default function HybridQuote() {
 
     setFirstNameError("");
     setLastNameError("");
+    setRazaoSocialError("");
     setPhoneError("");
     setEmailError("");
     setTermoError("");
 
     let hasError = false;
 
-    if (!values.firstName) {
+    if (business != "empresarial" && !values.firstName) {
       setFirstNameError("Por favor, insira o primeiro nome");
       hasError = true;
     }
 
-    if (!values.lastName) {
+    if (business != "empresarial" && !values.lastName) {
       setLastNameError("Por favor, insira o sobrenome");
+      hasError = true;
+    }
+
+    if (business == "empresarial" && !values.razaoSocial) {
+      setRazaoSocialError("Por favor, insira a razão social");
       hasError = true;
     }
 
@@ -119,37 +128,51 @@ export default function HybridQuote() {
       JSON.stringify({
         firstName: values.firstName,
         lastName: values.lastName,
+        razaoSocial: values.razaoSocial,
         phone: values.phone,
         email: values.email,
         termo: values.termo,
         //rangePremio: values.rangePremio
       })
     );
-    router.push("/seguros/residencial/coberturas");
+
+    onSubmit(values);
   }
 
   return (
     <S.Card>
       <form onSubmit={handleSubmit}>
 
-        <Grid container spacing={1}>
-          <Grid item xs={6}>
-            <TextInput
-              name="firstName"
-              label="Nome"
-              onChange={(e) => handleChange("firstName", e.target.value)}
-              helperText={firstNameError}
-            />
+        { business != "empresarial" ? 
+          <Grid container spacing={1}>
+            <Grid item xs={6}>
+              <TextInput
+                name="firstName"
+                label="Nome"
+                onChange={(e) => handleChange("firstName", e.target.value)}
+                helperText={firstNameError}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextInput
+                name="lastName"
+                label="Sobrenome"
+                onChange={(e) => handleChange("lastName", e.target.value)}
+                helperText={lastNameError}
+              />
+            </Grid>
+          </Grid> : 
+          <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <TextInput
+                name="razaoSocial"
+                label="Razão Social"
+                onChange={(e) => handleChange("razaoSocial", e.target.value)}
+                helperText={razaoSocialError}
+              />
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <TextInput
-              name="lastName"
-              label="Sobrenome"
-              onChange={(e) => handleChange("lastName", e.target.value)}
-              helperText={lastNameError}
-            />
-          </Grid>
-        </Grid>
+        }
 
         <div style={{ width: "100%", marginTop: 10 }}>
           <TextInput

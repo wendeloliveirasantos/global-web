@@ -1,8 +1,11 @@
 export const insuranceInformation = {
-  description: `Oferece proteção aos imóveis, estrutura física e conteúdo, destinados à moradia.`,
+  description: `Oferece proteção ao imóvel, estrutura
+                física e conteúdo, de pequenos e médios
+                estabelecimentos empresariais nas
+                diversas atividades.`,
   advantages: [
     {
-      title: `Seguro Residencial`,
+      title: `Seguro Empresarial`,
       description: `Coberturas`,
       items: [
         `Incêndio e Explosão`,
@@ -15,7 +18,7 @@ export const insuranceInformation = {
         `Vendaval, Furacão, Ciclone, Tornado e Granizo`,
         `Assistência Emergencial 24h`
       ],
-      more: `Mais informações você encontra nas Condições Gerais do seguro residencial.`
+      more: `Mais informações você encontra nas Condições Gerais do seguro empresarial.`
     },
     // {
     //   title: `Colisão`,

@@ -1,21 +1,15 @@
 export const insuranceInformation = {
-  description: `Oferece proteção aos imóveis, estrutura física e conteúdo, destinados à moradia.`,
+  description: `Oferece indenização financeira ao segurado ou ao seu beneficiário caso ele sofra um acidente e fique inválido ou venha a falecer.`,
   advantages: [
     {
-      title: `Seguro Residencial`,
+      title: `Seguro Acidentes Pessoais`,
       description: `Coberturas`,
       items: [
-        `Incêndio e Explosão`,
-        `Queda de Raio`,
-        `Danos Elétricos`,
-        `Roubo e Furto Mediante Arrombamento`,
-        `Queda de Aeronave e Impacto de Veículos`,
-        `Implosão`,
-        `Fumaça`,
-        `Vendaval, Furacão, Ciclone, Tornado e Granizo`,
-        `Assistência Emergencial 24h`
+        `Morte Acidental`,
+        `Invalidez Permanente Total ou Parcial por Acidente`,
+        `Assistência Funeral Familiar`
       ],
-      more: `Mais informações você encontra nas Condições Gerais do seguro residencial.`
+      more: `Mais informações você encontra nas Condições Gerais do seguro de vida.`
     },
     // {
     //   title: `Colisão`,

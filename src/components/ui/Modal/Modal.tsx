@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import CloseIcon from '@mui/icons-material/Close';
 import { FormControl, Button, FormControlLabel, FormGroup, Switch, FormHelperText, FormLabel, Checkbox, Modal, Box, Typography, Backdrop, Fade, Card, CardMedia, CardContent, CardActions, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, styled, tableCellClasses, IconButton, Grid } from '@mui/material';
+import { formatCurrency } from '@/utils/string';
 
 type ModalProps = {
   label?: string
@@ -99,7 +100,7 @@ function UiModal({ label, children, onChange, onClose, type, open, title, varian
                             <StyledTableCell component="th" scope="row">
                               {row.description}
                             </StyledTableCell>
-                            <StyledTableCell align="right">{row.amount}</StyledTableCell>
+                            <StyledTableCell align="right">{formatCurrency(+row.amount)}</StyledTableCell>
                           </StyledTableRow>
                         ))}
                       </TableBody>

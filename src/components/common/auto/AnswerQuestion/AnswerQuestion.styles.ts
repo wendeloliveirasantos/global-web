@@ -20,6 +20,7 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
+  justify-content: center;
 `
 
 export const Check = styled.div<{ checked: boolean }>`
