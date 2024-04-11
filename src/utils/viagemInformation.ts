@@ -15,6 +15,9 @@ export const insuranceInformation = {
       more: `Mais informações você encontra nas Condições Gerais do seguro viagem.`
     }
   ],
+  services: {
+    
+  },
   // services: {
   //   description: `Confira as assistências para deixar o seu seguro auto ainda mais personalizado. 
   //     São os serviços que você contrata na hora de fechar o seguro para veículos e pode usar quando precisar. Eles são 

@@ -42,7 +42,9 @@ export default function TravelCard(props: Props) {
   const onClose = () => setOpen(false);
   return (
     <S.Wrapper>
-      <img height={50} src={getSrcLogo(produto)} />
+      <S.Logo>
+        <img height={50} src={getSrcLogo(produto)} />
+      </S.Logo>
       <S.Title style={{ fontSize: 20 }}>
         {resumirTexto(produto.description)}
       </S.Title>
@@ -67,7 +69,7 @@ export default function TravelCard(props: Props) {
             );
           })}
       </div>
-      <S.Link underline="none" onClick={onChange} component="button" variant="body2">Veja o detalhe de sua cobertura</S.Link>
+      <S.Link onClick={onChange}>Veja o detalhe de sua cobertura</S.Link>
       <Modal open={open} title="Coberturas" onClose={onClose} descriptions={produto.coverage}></Modal>
       <div style={{ marginTop: 20 }}>
         <Button onClick={() => handleSubmit(produto)}>Selecionar</Button>

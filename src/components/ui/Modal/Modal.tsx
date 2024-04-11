@@ -100,7 +100,7 @@ function UiModal({ label, children, onChange, onClose, type, open, title, varian
                             <StyledTableCell component="th" scope="row">
                               {row.description}
                             </StyledTableCell>
-                            <StyledTableCell align="right">{formatCurrency(+row.amount)}</StyledTableCell>
+                            <StyledTableCell align="right">{row.amount}</StyledTableCell>
                           </StyledTableRow>
                         ))}
                       </TableBody>

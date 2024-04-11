@@ -7,7 +7,7 @@ import { FormControl, FormHelperText, InputLabel, MenuItem } from '@mui/material
 type SelectProps = {
   className?: string
   options: { label: string; value: any }[]
-  defaultValue?: string
+  defaultValue?: any
   loading?: boolean
   label?: string
   onChange(value: string | object | number): void

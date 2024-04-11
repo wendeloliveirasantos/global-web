@@ -35,7 +35,7 @@ export default function Insurance({
         </div>
         <S.Text>{insuranceInformation.description}</S.Text>
         <S.Heading>Vantagens de contratar aqui</S.Heading>
-        {insuranceInformation.advantages.map((advantage, index) => (
+        {insuranceInformation.advantages && insuranceInformation.advantages.map((advantage, index) => (
           <Fragment key={index}>
             {advantage.title && <h2>{advantage.title}</h2>}
             <S.Text>{advantage.description}</S.Text>
@@ -57,7 +57,7 @@ export default function Insurance({
             <h2>Serviços e Assistência</h2>
             <p>{insuranceInformation.services.description}</p>
             <ul>
-              {insuranceInformation.services.items.map((item: any, index: number) => (
+              {insuranceInformation.services.items && insuranceInformation.services.items.map((item: any, index: number) => (
                 <li key={index}>&#10003; {item}</li>
               ))}
             </ul>

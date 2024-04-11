@@ -66,7 +66,7 @@ export const Links = styled.ul`
   }
 `;
 
-export const Link = styled.li`
+export const Link = styled.li<{ onClick?: any }>`
   margin-right: 30px;
 
   a:link,

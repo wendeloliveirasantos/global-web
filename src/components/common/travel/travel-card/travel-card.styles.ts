@@ -18,6 +18,10 @@ export const Title = styled.h1`
   font-size: 18px;
 `;
 
+export const Logo = styled.div`
+  text-align: -webkit-center;
+`;
+
 export const Header = styled.div`
   margin-top: 20px;
   h1 {
