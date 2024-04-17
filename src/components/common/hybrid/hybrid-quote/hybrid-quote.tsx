@@ -16,6 +16,7 @@ type ValuesProps = {
   firstName: string,
   lastName: string,
   razaoSocial: string,
+  birthDate: string,
   phone: string,
   email: string,
   termo: boolean,
@@ -52,6 +53,7 @@ export default function HybridQuote({ onSubmit, business }: any) {
     firstName: "",
     lastName: "",
     razaoSocial: "",
+    birthDate: "",
     phone: "",
     email: "",
     termo: false,
@@ -61,6 +63,7 @@ export default function HybridQuote({ onSubmit, business }: any) {
   const [lastNameError, setLastNameError] = useState("");
   const [razaoSocialError, setRazaoSocialError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [birthDateError, setBirthDateError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [termoError, setTermoError] = useState("");
 
@@ -83,6 +86,7 @@ export default function HybridQuote({ onSubmit, business }: any) {
     setLastNameError("");
     setRazaoSocialError("");
     setPhoneError("");
+    setBirthDateError("");
     setEmailError("");
     setTermoError("");
 
@@ -113,6 +117,11 @@ export default function HybridQuote({ onSubmit, business }: any) {
       hasError = true;
     }
 
+    if ((business == "vida" || business == "acidentesPessoais") && !values.birthDate) {
+      setBirthDateError("Por favor, insira a data de nascimento");
+      hasError = true;
+    }
+
     if (!values.termo) {
       setTermoError("Por favor, aceite o termo");
       hasError = true;
@@ -129,6 +138,7 @@ export default function HybridQuote({ onSubmit, business }: any) {
         firstName: values.firstName,
         lastName: values.lastName,
         razaoSocial: values.razaoSocial,
+        birthDate: values.birthDate,
         phone: values.phone,
         email: values.email,
         termo: values.termo,
@@ -184,6 +194,19 @@ export default function HybridQuote({ onSubmit, business }: any) {
           />
         </div>
 
+        { business == "vida" || business == "acidentesPessoais" ?
+          <div style={{ marginRight: 10, width: "100%", marginTop: 10 }}>
+            <DatePicker
+              onChange={(e) => handleChange("birthDate", e)}
+              label="Data de Nascimento"
+              type="date"
+              name="birthDate"
+              min={dayjs(new Date()).format("YYYY-MM-DD")}
+              helperText={birthDateError}
+            />
+          </div> : null
+        }
+        
         <div style={{ width: "100%", marginTop: 10 }}>
           <TextInput
             name="email"

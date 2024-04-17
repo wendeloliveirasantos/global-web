@@ -14,20 +14,20 @@ import React from "react";
 export default function Coberturas() {
   const router = useRouter();
   async function onSubmit(value: Product){
-    router.push("/seguros/residencial/dados-titular");
+    router.push("/seguros/acidentes-pessoais/dados-titular");
   }
-  const { products } = useOfertasResidencial("Residencial");
+  const { products } = useOfertasResidencial("AP");
   return products.length > 0 ? (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
         <Container>
           <PageTitle bold="Escolha a" regular="sua cobertura" />
-          <SubTitle regular="Temos a melhor opção do Seguro Acidentes para você." />
+          <SubTitle regular="Temos a melhor opção do Seguro Acidentes Pessoais para você." />
           <HybridCoverage onSubmit={onSubmit} products={products} />
         </Container>
         <Container style={{ display: "flex" }}>
           <Stack spacing={2} direction="row">
-            <Button href="/seguros/residencial/dados-basicos" variant="outlined">Refazer Busca</Button>
+            <Button href="/seguros/acidentes-pessoais/dados-basicos" variant="outlined">Refazer Busca</Button>
           </Stack>
         </Container>
       </Wrapper>

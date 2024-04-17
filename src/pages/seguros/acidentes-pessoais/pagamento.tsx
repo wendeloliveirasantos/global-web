@@ -65,10 +65,10 @@ export default function Pagamento() {
           "operator": 'mastercard',
         }
       }
-      const response = await api.post("/hybrid/purchases", input);
+      const response = await api.post("/hybrids/purchases", input);
       if (response.status == 201) {
         setCompra(JSON.stringify(response.data))
-        router.push("/seguros/residencial/concluido")
+        router.push("/seguros/acidentes-pessoais/concluido")
         setLoading(false)
       }
       else {
@@ -93,7 +93,7 @@ export default function Pagamento() {
           <HybridPagamento
             onSubmit={onSubmit}
             amount={oferta.amount ?? 0}
-            business="residencial"
+            business="acidentesPessoais"
           />
           <Dialog title='ERRO AO PROCESSAR PAGAMENTO' text={error} open={open} onClose={onClose}></Dialog>
         </Container>

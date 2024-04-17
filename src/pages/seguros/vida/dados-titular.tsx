@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 export default function DadosTitular() {
   const router = useRouter();
   async function onSubmit(){
-    router.push("/seguros/residencial/pagamento");
+    router.push("/seguros/vida/pagamento");
   }
   return (
     <MainLayout>
@@ -16,7 +16,7 @@ export default function DadosTitular() {
         <Container style={{ display: "flex" }}>
           <PageTitle bold="Dados" regular="do Titular" />
           <SubTitle regular="Por favor informe seus dados para podermos prosseguir com o seu seguro." />
-          <HybridTitular onSubmit={onSubmit} business="residencial"/>
+          <HybridTitular onSubmit={onSubmit} business="vida"/>
         </Container>
       </Wrapper>
     </MainLayout>

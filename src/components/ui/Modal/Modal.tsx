@@ -20,6 +20,7 @@ type ModalProps = {
     coverageReferenceId: string | number
   }>
   helperText?: string
+  businessName?: string
 }
 
 const style = {
@@ -49,7 +50,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function UiModal({ label, children, onChange, onClose, type, open, title, variant, descriptions, helperText, ...rest }: ModalProps) {
+function UiModal({ label, children, onChange, onClose, type, open, title, variant, descriptions, helperText, businessName, ...rest }: ModalProps) {
   return (
     <div>
       <Modal
@@ -100,7 +101,7 @@ function UiModal({ label, children, onChange, onClose, type, open, title, varian
                             <StyledTableCell component="th" scope="row">
                               {row.description}
                             </StyledTableCell>
-                            <StyledTableCell align="right">{row.amount}</StyledTableCell>
+                            {businessName == 'viagem' ? <StyledTableCell align="right">{row.amount}</StyledTableCell> : <StyledTableCell align="right">{formatCurrency(+row.amount)}</StyledTableCell>} 
                           </StyledTableRow>
                         ))}
                       </TableBody>

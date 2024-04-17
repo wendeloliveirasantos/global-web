@@ -4,7 +4,7 @@ import { Button } from "@/components/ui";
 import * as S from "./hybrid-card.styles";
 import { Product } from "@/types/viagem";
 import { Modal } from "@/components/ui/Modal";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "@mui/material";
 import { formatCurrency } from "@/utils/string";
 
@@ -29,6 +29,7 @@ export default function HybridCard(props: Props) {
   const [open, setOpen] = React.useState(false);
   const onChange = () => setOpen(true);
   const onClose = () => setOpen(false);
+  
   return (
     <S.Wrapper>
       <S.Logo>
@@ -59,7 +60,7 @@ export default function HybridCard(props: Props) {
           })}
       </div>
       <S.Link onClick={onChange}>Veja o detalhe de sua cobertura</S.Link>
-      <Modal open={open} title="Coberturas" onClose={onClose} descriptions={produto.coverage}></Modal>
+      <Modal open={open} title="Coberturas" onClose={onClose} descriptions={produto.coverage} businessName="hibrido"></Modal>
       <div style={{ marginTop: 20 }}>
         <Button onClick={() => handleSubmit(produto)}>Selecionar</Button>
       </div>

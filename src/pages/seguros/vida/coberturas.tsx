@@ -14,9 +14,9 @@ import React from "react";
 export default function Coberturas() {
   const router = useRouter();
   async function onSubmit(value: Product){
-    router.push("/seguros/residencial/dados-titular");
+    router.push("/seguros/vida/dados-titular");
   }
-  const { products } = useOfertasResidencial("Residencial");
+  const { products } = useOfertasResidencial("VIDA");
   return products.length > 0 ? (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
@@ -27,7 +27,7 @@ export default function Coberturas() {
         </Container>
         <Container style={{ display: "flex" }}>
           <Stack spacing={2} direction="row">
-            <Button href="/seguros/residencial/dados-basicos" variant="outlined">Refazer Busca</Button>
+            <Button href="/seguros/vida/dados-basicos" variant="outlined">Refazer Busca</Button>
           </Stack>
         </Container>
       </Wrapper>

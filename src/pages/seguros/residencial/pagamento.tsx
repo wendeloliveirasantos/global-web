@@ -65,7 +65,7 @@ export default function Pagamento() {
           "operator": 'mastercard',
         }
       }
-      const response = await api.post("/hybrid/purchases", input);
+      const response = await api.post("/hybrids/purchases", input);
       if (response.status == 201) {
         setCompra(JSON.stringify(response.data))
         router.push("/seguros/residencial/concluido")

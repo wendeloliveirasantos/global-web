@@ -70,7 +70,7 @@ export default function TravelCard(props: Props) {
           })}
       </div>
       <S.Link onClick={onChange}>Veja o detalhe de sua cobertura</S.Link>
-      <Modal open={open} title="Coberturas" onClose={onClose} descriptions={produto.coverage}></Modal>
+      <Modal open={open} title="Coberturas" onClose={onClose} descriptions={produto.coverage} businessName="viagem"></Modal>
       <div style={{ marginTop: 20 }}>
         <Button onClick={() => handleSubmit(produto)}>Selecionar</Button>
       </div>

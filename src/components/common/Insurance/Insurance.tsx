@@ -52,7 +52,7 @@ export default function Insurance({
             )}
           </Fragment>
         ))}
-        {insuranceInformation.services && (
+        {/* {insuranceInformation.services && (
           <S.Card>
             <h2>Serviços e Assistência</h2>
             <p>{insuranceInformation.services.description}</p>
@@ -62,7 +62,7 @@ export default function Insurance({
               ))}
             </ul>
           </S.Card>
-        )}
+        )} */}
         <a href={href} onClick={handleClick}>
           <Button>Orçar agora</Button>
         </a>

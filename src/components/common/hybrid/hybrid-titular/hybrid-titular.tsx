@@ -383,10 +383,10 @@ export default function HybridTitular({ onSubmit, business }: any) {
           </S.Group>
         </S.Row>
 
-        <div style={{ marginTop: 20 }}>
+        <div style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
           <Button type="submit">Avançar</Button>
         </div>
-        <div style={{ marginTop: 20 }}>
+        <div style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
           <Button href={"/seguros/" + business + "/coberturas"} variant="outlined">Voltar</Button>
         </div>
       </form>
