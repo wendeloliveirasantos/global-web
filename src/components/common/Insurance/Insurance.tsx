@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui'
 import React, { Fragment } from 'react'
 import * as S from './Insurance.styles'
+import removeViagem from '@/hooks/removeViagem'
+import removeResidencial from '@/hooks/removeResidencial'
 
 type InsuranceInformation = {
   description: string
@@ -21,9 +23,11 @@ export default function Insurance({
   icon,
   title,
   href,
-  insuranceInformation,
+  insuranceInformation
 }: InsuranceProps) {
   function handleClick() {
+    removeResidencial();
+    removeViagem();
   }
 
   return (

@@ -18,7 +18,8 @@ export default function useOfertasResidencial(business: string): HookReturn {
     const cotacao = JSON.parse(cotacaoInput) as any;
     const input = {
       business: business,
-      range: 100
+      range: 100,
+      birthDate: cotacao.birthDate
     };
     const response = await api.post("/hybrids/quotes", input);
     setProducts(response.data);

@@ -306,7 +306,7 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
             </Grid>
           </CardContent>
         </Card>
-        <Modal open={open} title="Coberturas" onClose={onClose} descriptions={formDataResumo.produto.coverage}></Modal>
+        <Modal open={open} title="Coberturas" onClose={onClose} descriptions={formDataResumo.produto.coverage} businessName="viagem"></Modal>
       </div>
       <S.Title>Contato emergencial</S.Title>
       <form style={{ marginTop: 15 }}>
