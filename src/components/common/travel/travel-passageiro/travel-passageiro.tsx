@@ -73,6 +73,15 @@ export default function DadosPassageiro() {
     }));
   }
 
+  function validateAge(birthDate: string, age: number): boolean {
+    const cotacaoObj = JSON.parse(existCotacao);
+    const currentDate = dayjs();
+    const parsedBirthDate = dayjs(birthDate, 'YYYY-MM-DD');
+    const calculatedAge = currentDate.diff(parsedBirthDate, 'years');
+    console.log(age);
+    return calculatedAge == age;
+  }
+
   const handleBack = () => {
     if (passageiroSelecionado == 0) {
       router.push(`/seguros/viagem/dados-titular`);
@@ -122,6 +131,15 @@ export default function DadosPassageiro() {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
         birthDate: "Por favor, insira a data de nascimento",
+      }));
+      hasError = true;
+    }
+    formData.age = passageiros[passageiroSelecionado].age;
+    console.log(formData);
+    if (formData.birthDate && !validateAge(formData.birthDate, parseInt(formData.age))) {
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        birthDate: "Data de nascimento não corresponde a sua idade",
       }));
       hasError = true;
     }
@@ -206,87 +224,5 @@ export default function DadosPassageiro() {
         </S.Row>
       </form>
     </S.Wrapper>
-
-    // <S.WrapperStep>
-    //   <Box sx={{ width: '100%' }}>
-    //     <Stepper activeStep={activeStep}>
-    //       {steps.map((label, index) => {
-    //         const stepProps: { completed?: boolean } = {};
-    //         const labelProps: {
-    //           optional?: React.ReactNode;
-    //         } = {};
-    //         if (isStepSkipped(index)) {
-    //           stepProps.completed = false;
-    //         }
-    //         return (
-    //           <Step key={label} {...stepProps}>
-    //             <StepLabel {...labelProps}>{label}</StepLabel>
-    //           </Step>
-    //         );
-    //       })}
-    //     </Stepper>
-        
-    //     <React.Fragment>
-    //       <S.Wrapper>
-    //         <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
-    //           <S.Row>
-    //             <S.Group>
-    //               <TextInput name="firstName" label="Nome" defaultValue={passageiros[0].firstName} value={formData.firstName} onChange={(e) => handleChange("firstName", e.target.value)} helperText={formErrors.firstName}/>
-    //             </S.Group>
-    //             <S.Group>
-    //               <TextInput
-    //                 name="lastName"
-    //                 label="Sobrenome"
-    //                 value={formData.lastName}
-    //                 onChange={(e) => handleChange("lastName", e.target.value)}
-    //                 helperText={formErrors.lastName}
-    //               />
-    //             </S.Group>
-    //           </S.Row>
-    //           <S.Row>
-    //             <S.Group>
-    //               <TextInput name="document" label="CPF" mask="999.999.999-99" value={formData.document} onChange={(e) => handleChange("document", e.target.value.replace(/\D/g, ''))} helperText={formErrors.document}/>
-    //             </S.Group>
-    //           </S.Row>
-    //           <S.Row>
-    //             <S.Group>
-    //               <Select
-    //                 options={[
-    //                   { value: "female", label: "Feminino" },
-    //                   { value: "male", label: "Masculino" },
-    //                 ]}
-    //                 label="Sexo"
-    //                 value={formData.gender}
-    //                 onChange={(v) => handleChange("gender", v.toString())}
-    //                 helperText={formErrors.gender}
-    //               />
-    //             </S.Group>
-    //             <S.Group>
-    //               <DatePicker
-    //                 onChange={(e) => handleChange("birthDate", e)}
-    //                 label="Data de Nascimento"
-    //                 type="date"
-    //                 name="birthDate"
-    //                 value={formData.birthDate}
-    //                 min={dayjs(new Date()).format("YYYY-MM-DD")}
-    //                 helperText={formErrors.birthDate}
-    //               />
-    //             </S.Group>
-    //           </S.Row>
-    //           <S.Row>
-    //             <S.Group>
-    //               <div style={{ marginTop: 20 }}>
-    //                 <Button type="submit">Avançar</Button>
-    //               </div>
-    //               <div style={{ marginTop: 20 }}>
-    //                 <Button onClick={handleBack} variant="outlined">Voltar</Button>
-    //               </div>
-    //             </S.Group>
-    //           </S.Row>
-    //         </form>
-    //       </S.Wrapper>
-    //     </React.Fragment>
-    //   </Box>
-    // </S.WrapperStep>
   );
 }

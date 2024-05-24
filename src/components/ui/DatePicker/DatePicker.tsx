@@ -21,8 +21,9 @@ type DatePickerProps = {
   min?: any
   max?: any
   placeholder?: string
-  value?: string | number
+  value?: any
   helperText?: string
+  disabled?: boolean
 }
 
 export default function UiDatePicker({
@@ -35,6 +36,8 @@ export default function UiDatePicker({
   defaultValue,
   helperText,
   min,
+  value,
+  disabled,
   ...rest
 }: DatePickerProps) {
   
@@ -46,7 +49,7 @@ export default function UiDatePicker({
               error: !!helperText,
               helperText: helperText,
             },
-          }} defaultValue={defaultValue} name={name} onChange={(date) => onChange(dayjs(date).format('YYYY-MM-DD'))} label={label} {...rest}/>
+          }} defaultValue={defaultValue} value={value} name={name} onChange={(date) => onChange(dayjs(date).format('YYYY-MM-DD'))} label={label} {...rest} disabled={disabled} />
       </LocalizationProvider>
     </FormControl>
   )

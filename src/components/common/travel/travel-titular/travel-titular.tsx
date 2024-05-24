@@ -83,6 +83,15 @@ export default function TravelTitular() {
     }));
   }
 
+  function validateAge(birthDate: string): boolean {
+    const cotacaoObj = JSON.parse(cotacao);
+    const currentDate = dayjs();
+    const parsedBirthDate = dayjs(birthDate, 'YYYY-MM-DD');
+    const calculatedAge = currentDate.diff(parsedBirthDate, 'years');
+    console.log(calculatedAge);
+    return calculatedAge == cotacaoObj.passengers[0].age;
+  }
+
   function handleSubmit(e: any) {
     e.preventDefault();
     if (!cotacao) return
@@ -150,6 +159,14 @@ export default function TravelTitular() {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
         birthDate: "Por favor, insira a data de nascimento",
+      }));
+      hasError = true;
+    }
+
+    if (formData.birthDate && !validateAge(formData.birthDate)) {
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        birthDate: "Data de nascimento não corresponde a sua idade",
       }));
       hasError = true;
     }
@@ -284,7 +301,7 @@ export default function TravelTitular() {
         <S.Row>
           <S.Group>
             <DatePicker
-              onChange={(e) => handleChange("birthDate", e)}
+              onChange={(e) => {handleChange("birthDate", e)}}
               label="Data de Nascimento"
               type="date"
               value={formData.birthDate}

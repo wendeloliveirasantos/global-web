@@ -56,7 +56,8 @@ export default function HybridTitular({ onSubmit, business }: any) {
         lastName: cotacaoObj.lastName,
         razaoSocial: cotacaoObj.razaoSocial,
         phone: cotacaoObj.phone,
-        email: cotacaoObj.email
+        email: cotacaoObj.email,
+        birthDate: cotacaoObj.birthDate
       }));
     }
   }, [cotacao]);
@@ -307,9 +308,10 @@ export default function HybridTitular({ onSubmit, business }: any) {
               onChange={(e) => handleChange("birthDate", e)}
               label="Data de Nascimento"
               type="date"
-              value={formData.birthDate}
+              value={dayjs(formData.birthDate)}
               name="birthDate"
               min={dayjs(new Date()).format("YYYY-MM-DD")}
+              disabled={formData.birthDate != "" ? true : false}
               helperText={formErrors.birthDate}
             />
           </S.Group>
