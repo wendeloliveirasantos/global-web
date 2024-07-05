@@ -49,8 +49,17 @@ export default function Header() {
         </Link>
         <S.Links>
           <S.Link onClick={handleClick}>
+            <Link href="#" style={{ marginRight: '35px' }}>
+              <S.Span>Quem Somos</S.Span>
+            </Link>
+            <Link href="#" style={{ marginRight: '35px' }}>
+              <S.Span>Nossos Seguros</S.Span>
+            </Link>
+            <Link href="#" style={{ marginRight: '35px' }}>
+              <S.Span>Dúvidas Frequentes</S.Span>
+            </Link>
             <Link href="#">
-              <span>Seguros</span>
+              <img src="/images/icon-user.png" alt="User Icon" style={{ width: '25px', height: '25px' }} />
             </Link>
           </S.Link>
           <UiDropdown anchorEl={anchorEl} open={open} onClose={handleClose} itens={seguros}></UiDropdown>

@@ -1,64 +1,32 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 100%;
-  height: 120px;
-  background: ${({ theme }) => theme.colors.white};
-  display: flex;
-  justify-content: center;
-  padding: 0 15px;
-  box-shadow: 1px 3px 5px 0px ${(props) => props.theme.colors.lineColor};
-
-  @media (max-width: 800px) {
-    height: 96px;
-    padding: 0 20px;
-  }
+  background: ${({ theme }) => theme.colors.default};
+  width: 100%; 
+  height: 100%; 
+  padding-left: 4px; 
+  padding-right: 4px; 
+  padding-top: 8px; 
+  padding-bottom: 8px; 
+  justify-content: flex-start; 
+  align-items: center; 
+  gap: 6px;
 `;
 
 export const Container = styled.div`
-  width: 100%;
-  max-width: 1171px;
-  height: 120px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-
-  div {
-    display: flex;
-    align-items: center;
-  }
-
-  @media (max-width: 800px) {
-    height: 96px;
-    padding: 0;
-    justify-content: space-between;
-    max-width: 750px;
-  }
-
-  @media (max-width: 450px) {
-    max-width: 400px;
-  }
+  padding: 8px 32px; /* Adicione padding conforme necessário */
 `;
 
 export const Logo = styled.img`
-  width: 238px;
-  height: 91px;
-  margin-right: 60px;
-
-  @media (max-width: 800px) {
-    width: 197px;
-    height: 73px;
-  }
-
-  @media (max-width: 400px) {
-    width: 150px;
-    height: 50px;
-  }
+  height: 40px; /* Ajuste conforme necessário */
 `;
 
 export const Links = styled.ul`
   display: flex;
-  align-items: center;
+  align-items: center;  /* Centraliza os itens verticalmente */
   justify-content: center;
 
   @media (max-width: 800px) {
@@ -67,13 +35,21 @@ export const Links = styled.ul`
 `;
 
 export const Link = styled.li<{ onClick?: any }>`
-  margin-right: 30px;
-
+  display: flex;
+  align-items: center;  /* Centraliza os itens verticalmente */
   a:link,
   a:visited {
-    color: ${(props) => props.theme.colors.darkBlue};
+    color: ${(props) => props.theme.colors.white};
     text-decoration: none;
   }
+`;
+
+export const Span = styled.span`
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.5px;
 `;
 
 export const User = styled.div`

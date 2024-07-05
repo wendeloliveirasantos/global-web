@@ -9,7 +9,8 @@ const theme = {
     mediumGray: '#707070',
     darkGray: '#4C4C4C',
     textColor: 'rgba(34, 34, 34, 0.5)',
-    lineColor: 'rgba(94, 127, 177, 0.35)'
+    lineColor: 'rgba(94, 127, 177, 0.35)',
+    default: '#FF5A62'
   },
 }
 
