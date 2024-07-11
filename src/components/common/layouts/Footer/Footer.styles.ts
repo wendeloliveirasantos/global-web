@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
   height: 100%; 
   padding-left: 4px; 
   padding-right: 4px; 
-  padding-top: 8px; 
-  padding-bottom: 8px; 
+  padding-top: 16px;
+  padding-bottom: 24px;
   justify-content: flex-start; 
   align-items: center; 
   gap: 6px;
@@ -21,7 +21,7 @@ export const Container = styled.div`
 `;
 
 export const Logo = styled.img`
-  height: 31px; /* Ajuste conforme necessário */
+  height: 46px; /* Ajuste conforme necessário */
 `;
 
 export const Links = styled.ul`

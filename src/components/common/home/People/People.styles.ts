@@ -7,7 +7,7 @@ export const InsuranceContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 35px 35px 35px 35px;
-
+    background: none;
     @media (max-width: 1400px) {
         max-width: 1100px;
     }
@@ -18,7 +18,7 @@ export const InsuranceContainer = styled.div`
 `;
 
 export const StyledTitleTypography = styled(Typography)`
-    color: #333333;
+    color: ${props => props.theme.colors.white};
     font-size: 32px;
     font-weight: 700;
     line-height: 30px;

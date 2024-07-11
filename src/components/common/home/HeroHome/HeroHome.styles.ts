@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+    width: 100%;
+    height: 100%;
+    padding: 5px 35px 35px 35px;
+    background-color: ${props => props.theme.colors.default};
+`;
+
 export const WelcomeContainer = styled.div`
     position: relative;
     width: 100%;

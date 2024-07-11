@@ -1,1 +1,1 @@
-export { default as InsurancesHome } from './Insurances'
+export { default as Insurances } from './Insurances'

@@ -1,22 +1,18 @@
 import styled from 'styled-components';
+import { Box, Button, ButtonProps } from '@mui/material';
 
-export const Wrapper = styled.button`
-    border: none;
-    width: 100%;
-    height: 60px;
-    background: ${props => props.theme.colors.darkBlue};
-    color: ${props => props.theme.colors.white};
-    font-weight: 700;
-    font-size: 20px;
-    padding: 10px;
-    cursor: pointer;
-
-    &:disabled {
-        opacity: 0.4;
-    }
-
-    @media (max-width: 700px) {
-        height: 47px;
-        font-size: 16px;
-    }
+export const StyledButton = styled(Button)<ButtonProps>`
+  text-transform: math-auto;
+  font-size: 18px;
+  font-weight: 500;
+  word-wrap: break-word;
+  border-radius: 50px;
+  padding: 10px 24px;
+  background-color: ${props => props.theme.colors.default} !important;
+  &:hover: {
+    background-color: ${props => props.theme.colors.default} !important;
+  },
+  &:active: {
+    background-color: ${props => props.theme.colors.default} !important;
+  };
 `;
