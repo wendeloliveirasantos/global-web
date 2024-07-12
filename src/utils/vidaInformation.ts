@@ -1,4 +1,5 @@
 export const insuranceInformation = {
+  title: `Seguro de Vida`,
   description: `Seguro que visa proteger financeiramente aqueles que são mais importantes você, no caso de sua ausência.`,
   advantages: [
     {

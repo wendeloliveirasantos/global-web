@@ -41,10 +41,28 @@ export default function TextInput({
     <FormControl fullWidth>
       { mask != null ? (
         <InputMask mask={mask} onChange={onChange} onBlur={onBlur} value={value} maskPlaceholder={null}>
-          <TextField id={name} error={helperText !== ""} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText}/>
+          <TextField 
+            sx={{
+              borderRadius: '35px',
+              '& fieldset': {
+                borderRadius: '35px',
+              },
+              '& .Mui-focused fieldset': {
+              },
+            }}
+            id={name} error={helperText !== ""} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText}/>
         </InputMask>
       ) : (
-        <TextField id={name} error={helperText !== "" && helperText !== undefined} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest}/>
+        <TextField 
+          sx={{
+            borderRadius: '35px',
+            '& fieldset': {
+              borderRadius: '35px',
+            },
+            '& .Mui-focused fieldset': {
+            },
+          }}
+          id={name} error={helperText !== "" && helperText !== undefined} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest}/>
       )}
     </FormControl>
   )

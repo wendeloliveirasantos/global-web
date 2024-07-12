@@ -10,20 +10,21 @@ type ButtonProps = {
   variant?: string
   href?: string
   color?: string
+  textColor?: string
 }
 
-function UiButton({ className, children, onClick, variant, href, color, ...rest }: ButtonProps) {
+function UiButton({ className, children, onClick, variant, href, color, textColor, ...rest }: ButtonProps) {
   return (
     <FormControl fullWidth>
       { variant == 'text' ?
-      <S.StyledButton onClick={onClick} href={href} variant="text" className={className} {...rest}>
+      <S.StyledButton onClick={onClick} href={href} variant="text" className={className} buttonColor={color} textColor={textColor} {...rest}>
         {children}
       </S.StyledButton> :
       variant == 'outlined' ?
-      <S.StyledButton onClick={onClick} href={href} variant="outlined" className={className} {...rest}>
+      <S.StyledButton onClick={onClick} href={href} variant="outlined" className={className} buttonColor={color} textColor={textColor} {...rest}>
         {children}
       </S.StyledButton> :
-      <S.StyledButton onClick={onClick} href={href} variant="contained" className={className} {...rest}>
+      <S.StyledButton onClick={onClick} href={href} variant="contained" className={className} buttonColor={color} textColor={textColor} {...rest}>
         {children}
       </S.StyledButton>
       }

@@ -8,9 +8,6 @@ export default function AutoDetalhes() {
     return (
         <MainLayout>
             <Insurance
-                image="/images/city.png"
-                icon="/viagem.svg"
-                title="Seguro Híbrido"
                 href="/seguros/hibrido/dados-basicos"
                 insuranceInformation={insuranceInformation}
             />

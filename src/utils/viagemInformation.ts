@@ -1,16 +1,53 @@
 export const insuranceInformation = {
-  description: `Uma Assistência Integral em Viagem, muito mais do que um seguro-viagem com coberturas básicas. O seguro-viagem te protege com coberturas médicas e de medicamentos, assistência e rastreio de bagagem extraviada, despesas por atraso de embarque, reembolso em caso de cancelamento de viagem, cobertura para compra de eletrônicos em viagem, assistência em caso de roubo ou perda de documentos e muito mais. Viaje com a tranquilidade de estar coberto para qualquer eventualidade!`,
+  title: `A Sua Jornada Segura começa aqui:`,
+  description: `Com a Dobyseg, você explora o mundo com a certeza de estar sempre protegido. Conheça nossas opções de seguros-viagem.`,
   advantages: [
     {
-      title: `Seguro Viagem`,
+      title: `Opção 1`,
       description: `Coberturas`,
       items: [
         `Despesas médicas e hospitalares`,
-        `Despesas médicas por covid-19`,
-        `Perda de Bagagem`,
-        `Despesas Farmacêuticas`,
-        `Despesas Odontológicas em Viagem ao Exterior`,
-        `E muito mais.`,
+        `Traslado médico`,
+        `Morte ou Invalidez`,
+        `Perda ou Atraso de Bagagem`,
+        `Atraso de Voo`,
+        `Assistência 24h em Português`,
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro viagem.`
+    },
+    {
+      title: `Opção 2`,
+      description: `Coberturas`,
+      items: [
+        `Perda ou Atraso de Bagagem`,
+        `Atraso de Voo`,
+        `Assistência 24h em Português`,
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro viagem.`
+    },
+    {
+      title: `Opção 3`,
+      description: `Coberturas`,
+      items: [
+        `Despesas médicas e hospitalares`,
+        `Traslado médico`,
+        `Morte ou Invalidez`,
+        `Assistência 24h em Português`,
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro viagem.`
+    },
+    {
+      title: `Opção 4`,
+      description: `Coberturas`,
+      items: [
+        `Despesas médicas e hospitalares`,
+        `Traslado médico`,
+        `Morte ou Invalidez`,
+        `Perda ou Atraso de Bagagem`,
+        `Atraso de Voo`,
+        `Assistência 24h em Português`,
+        `Repatriação de Menor`,
+        `Hospedagem para acompanhante`,
       ],
       more: `Mais informações você encontra nas Condições Gerais do seguro viagem.`
     }

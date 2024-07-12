@@ -11,14 +11,10 @@ type CarouselProps = {
   type?: any;
   variant?: string;
   href?: string;
+  items: { src: string, alt: string }[];
 };
 
-function UiCarousel({ className, children, onClick, variant, href, ...rest }: CarouselProps) {
-  const items = [
-    { src: '/images/carousel-item-1.png', alt: 'Image 1' },
-    { src: '/images/carousel-item-1.png', alt: 'Image 2' }
-  ];
-
+function UiCarousel({ className, children, onClick, variant, href, items, ...rest }: CarouselProps) {
   return (
     <Carousel autoPlay infiniteLoop showThumbs={false} showArrows={false} showStatus={false}>
       {items.map((item, index) => (

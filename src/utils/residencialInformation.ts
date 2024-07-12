@@ -1,4 +1,5 @@
 export const insuranceInformation = {
+  title: `Seguro Residencial`,
   description: `Oferece proteção aos imóveis, estrutura física e conteúdo, destinados à moradia.`,
   advantages: [
     {

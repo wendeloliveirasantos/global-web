@@ -1,4 +1,5 @@
 export const insuranceInformation = {
+  title: `Seguro Acidentes Pessoais`,
   description: `Oferece indenização financeira ao segurado ou ao seu beneficiário caso ele sofra um acidente e fique inválido ou venha a falecer.`,
   advantages: [
     {

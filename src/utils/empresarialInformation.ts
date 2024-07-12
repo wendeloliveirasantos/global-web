@@ -1,4 +1,5 @@
 export const insuranceInformation = {
+  title: `Seguro Empresarial`,
   description: `Oferece proteção ao imóvel, estrutura
                 física e conteúdo, de pequenos e médios
                 estabelecimentos empresariais nas

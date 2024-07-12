@@ -1,4 +1,5 @@
 export const insuranceInformation = {
+  title: `Roubo e furto`,
   description: `Contrate seu seguro com os itens que são essenciais para você e para o seu carro.Veja os detalhes da cobertura 
       e monte o seguro do seu auto de acordo com o seu perfil e com o seu bolso.`,
   advantages: [

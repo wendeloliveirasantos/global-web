@@ -1,4 +1,5 @@
 export const insuranceInformation = {
+  title: `Seguro Híbrido`,
   description: `Oferece proteção aos imóveis destinados à
                 moradia e que também abrigam pequenos e
                 médios estabelecimentos empresariais,
