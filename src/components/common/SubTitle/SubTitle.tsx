@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './SubTitle.styles'
-import { Grid } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
 import { Item } from '../auto/AnswerQuestion/AnswerQuestion.styles'
 import { Div } from '.'
 
@@ -13,11 +13,13 @@ type SubTitleProps = {
 function SubTitle({ bold, regular, className }: SubTitleProps) {
   return (
     <Div>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Item><p>{regular}</p></Item>
-        </Grid>
-      </Grid>
+     <Box
+        sx={S.boxStyle}
+      >
+        <Typography component="div">
+          {regular}
+        </Typography>
+      </Box>
     </Div>
   )
 }

@@ -11,7 +11,7 @@ import { DatePicker } from "@/components/ui/DatePicker";
 import { Switch } from "@/components/ui/Switch";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Slider } from "@/components/ui/Slider";
-import { Grid } from "@mui/material";
+import { Box, Grid, Icon, Typography } from "@mui/material";
 type ValuesProps = {
   firstName: string,
   lastName: string,
@@ -26,30 +26,34 @@ type ValuesProps = {
 };
 
 const from = [
-  { value: "1;X4", label: "AMERICA DO NORTE" },
-  { value: "2;X6", label: "EUROPA" },
-  { value: "3;X2", label: "AMERICA CENTRAL" },
-  { value: "4;X9", label: "AMERICA DO SUL" },
-  { value: "5;X5", label: "AFRICA" },
-  { value: "6;X7", label: "ASIA" },
-  { value: "7;X8", label: "OCEANIA" },
-  { value: "9;BR", label: "BRASIL" },
+  { value: "1;X4", label: "América do Norte" },
+  { value: "2;X6", label: "Europa" },
+  { value: "3;X2", label: "América Central" },
+  { value: "4;X9", label: "América do Sul" },
+  { value: "5;X5", label: "África" },
+  { value: "6;X7", label: "Ásia" },
+  { value: "7;X8", label: "Oceania" },
+  { value: "9;BR", label: "Brasil" },
 ];
 
 const quantPass = [
-  { value: 1, label: "1 Passageiro" },
-  { value: 2, label: "2 Passageiro" },
-  { value: 3, label: "3 Passageiro" },
-  { value: 4, label: "4 Passageiro" },
-  { value: 5, label: "5 Passageiro" },
-  { value: 6, label: "6 Passageiro" },
-  { value: 7, label: "7 Passageiro" },
-  { value: 8, label: "8 Passageiro" },
-  { value: 9, label: "9 Passageiro" },
-  { value: 10, label: "10 Passageiro" },
+  { value: 1, label: "1" },
+  { value: 2, label: "2" },
+  { value: 3, label: "3" },
+  { value: 4, label: "4" },
+  { value: 5, label: "5" },
+  { value: 6, label: "6" },
+  { value: 7, label: "7" },
+  { value: 8, label: "8" },
+  { value: 9, label: "9" },
+  { value: 10, label: "10" },
 ];
 
 const marks = [
+  {
+    value: 0,
+    label: '0.000 €',
+  },
   {
     value: 30,
     label: '30.000 €',
@@ -85,7 +89,7 @@ export default function TravelQuote() {
     startDate: null,
     endDate: null,
     termo: false,
-    rangePremio: 30
+    rangePremio: 0
   });
   const [passengers, setPassengers] = useState<Array<{ age: number | null }>>(
     []
@@ -246,7 +250,7 @@ export default function TravelQuote() {
     <S.Card>
       <form onSubmit={handleSubmit}>
 
-        <Grid container spacing={1}>
+        <Grid container spacing={1.5}>
           <Grid item xs={6}>
             <TextInput
               name="firstName"
@@ -265,67 +269,44 @@ export default function TravelQuote() {
           </Grid>
         </Grid>
 
-        <div style={{ width: "100%", marginTop: 10 }}>
+        <div style={{ width: "100%", marginTop: 15 }}>
           <TextInput
             mask="(99) 99999-9999"
             name="phone"
-            label="Telefone"
+            label="Celular"
             onChange={(e) => handleChange("phone", e.target.value.replace(/\D/g, ''))}
             helperText={phoneError}
           />
         </div>
 
-        <div style={{ width: "100%", marginTop: 10 }}>
+        <div style={{ width: "100%", marginTop: 15 }}>
           <TextInput
             name="email"
-            label="Email"
+            label="E-mail"
             type="email"
             onChange={(e) => handleChange("email", e.target.value)}
             helperText={emailError}
           />
         </div>
         
-        <div style={{ width: "100%", marginTop: 10 }}>
+        <div style={{ width: "100%", marginTop: 15 }}>
           <Select
             onChange={(v) => handleChange("to", v.toString())}
-            label="Qual seu próximo destino?"
+            label="Para qual continente você vai viajar?"
             options={from}
             helperText={destinationError}
           />
         </div>
 
-        <S.RowInputs>
-          <div style={{ marginRight: 10, width: "100%", marginTop: 10 }}>
-            <DatePicker
-              onChange={(e) => handleChange("startDate", e)}
-              label="Data de Saída"
-              type="date"
-              name="startDate"
-              min={dayjs(new Date()).format("YYYY-MM-DD")}
-              helperText={startDateError}
-            />
-          </div>
-          <div style={{ width: "100%", marginTop: 10 }}>
-            <DatePicker
-              onChange={(e) => handleChange("endDate", e)}
-              label="Data de Retorno"
-              type="date"
-              name="endDate"
-              min={dayjs(new Date()).format("YYYY-MM-DD")}
-              helperText={endDateError}
-            /> 
-          </div>
-        </S.RowInputs>
-        
-        <div style={{ marginTop: 10 }}>
+        <div style={{ marginTop: 15, marginBottom: 15 }}>
           <Select
             onChange={(v) => addPassengers(+v)}
-            label="Passageiros"
+            label="Número de passageiros"
             options={quantPass}
             helperText={destinationError}
           />
         </div>
-        
+
         <S.Passengers>
           {passengers.map((passenger, idx) => {
             return (
@@ -342,29 +323,86 @@ export default function TravelQuote() {
             );
           })}
         </S.Passengers>
+
+        <div style={{background: 'white', borderRadius: 28, overflow: 'hidden', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', display: 'inline-flex'}}>
+            <div style={{alignSelf: 'stretch', height: 72, paddingTop: 16, paddingBottom: 8, paddingLeft: 24, paddingRight: 12, borderBottom: '1px #CAC4D0 solid', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+                <Box sx={{alignSelf: 'stretch', justifyContent: 'center', alignItems: 'flex-start', gap: 1, display: 'inline-flex'}}>
+                    <Box sx={{ flex: '1 1 0', alignSelf: 'stretch', color: '#333333', fontSize: 24, fontWeight: '400', lineHeight: 2, wordWrap: 'break-word' }}>Selecione as Datas</Box>
+                    <Box sx={{ width: 48, height: 48, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 10, display: 'inline-flex' }}>
+                      <Icon sx={{ padding: 8, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex', borderRadius: 100, overflow: 'hidden' }}>
+                        <img src='/images/today-24px.svg' alt="Custom Icon" style={{ }}/>
+                      </Icon>
+                    </Box>
+                </Box>
+            </div>
+            <div style={{alignSelf: 'stretch', paddingTop: 18, paddingBottom: 16, paddingLeft: 24, paddingRight: 24, justifyContent: 'flex-start', alignItems: 'flex-start', gap: 12, display: 'inline-flex'}}>
+              <div style={{ width: "100%" }}>
+                <DatePicker
+                  onChange={(e) => handleChange("startDate", e)}
+                  label="Ida"
+                  type="date"
+                  name="startDate"
+                  min={dayjs(new Date()).format("YYYY-MM-DD")}
+                  helperText={startDateError}
+                />
+              </div>
+              <div style={{ width: "100%" }}>
+                <DatePicker
+                  onChange={(e) => handleChange("endDate", e)}
+                  label="Retorno"
+                  type="date"
+                  name="endDate"
+                  min={dayjs(new Date()).format("YYYY-MM-DD")}
+                  helperText={endDateError}
+                /> 
+              </div>
+            </div>
+            <div style={{alignSelf: 'stretch', paddingTop: 8, paddingBottom: 12, paddingLeft: 12, paddingRight: 12, justifyContent: 'space-between', alignItems: 'flex-start', display: 'inline-flex'}}>
+                <div style={{flex: '1 1 0', height: 40, justifyContent: 'flex-end', alignItems: 'flex-end', gap: 8, display: 'flex'}}>
+                    <div style={{height: 40, borderRadius: 100, overflow: 'hidden', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex'}}>
+                        <div style={{alignSelf: 'stretch', flex: '1 1 0', paddingLeft: 12, paddingRight: 12, paddingTop: 10, paddingBottom: 10, justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex'}}>
+                            <div style={{textAlign: 'center', color: '#FF5A62', fontSize: 14, fontWeight: '500', lineHeight: 20, letterSpacing: 0.10, wordWrap: 'break-word'}}>Cancelar</div>
+                        </div>
+                    </div>
+                    <div style={{height: 40, borderRadius: 100, overflow: 'hidden', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex'}}>
+                        <div style={{alignSelf: 'stretch', flex: '1 1 0', paddingLeft: 12, paddingRight: 12, paddingTop: 10, paddingBottom: 10, justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex'}}>
+                            <div style={{textAlign: 'center', color: '#FF5A62', fontSize: 14, fontWeight: '500', lineHeight: 20, letterSpacing: 0.10, wordWrap: 'break-word'}}>OK</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         {
           values.to != "9;BR" ?
           
-          <div style={{ marginTop: 20 }}>
+          <div style={{ marginTop: 35 }}>
             <Slider 
               name="rangePremio"
               marks={marks}
-              min={30}
+              min={0}
               max={1000}
-              label="Escolha o valor máximo da cobertura."
+              label="Selecione o valor da cobertura:"
               onChange={(e, v) => handleChange("rangePremio", v)}
             />
           </div> : null
         }
-        <div style={{ marginTop: 20 }}>
-          <Checkbox 
-            label="Declaro que li e concordo com a Política de Privacidade."
+
+        <S.Container>
+          <S.Background>
+            <S.Text>${values.rangePremio}</S.Text>
+          </S.Background>
+        </S.Container>
+          
+        <div style={{ marginTop: 30 }}>
+          <Switch
+            label="Declaro que li e concordo com a Política de Privacidade"
             onChange={(e) => handleChange("termo", e)}
             helperText={termoError}
           />
         </div>
         
-        <div style={{ marginTop: 20 }}>
+        <div style={{ marginTop: 30 }}>
           <Button type="submit">Avançar</Button>
         </div>
       </form>

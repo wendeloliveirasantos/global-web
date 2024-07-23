@@ -2,15 +2,17 @@ import { Container, TravelTitular, Wrapper } from "@/components/common";
 import { PageTitle } from "@/components/common/PageTitle";
 import SubTitle from "@/components/common/SubTitle/SubTitle";
 import { MainLayout } from "@/components/common/layouts";
+import { Bar } from "@/components/ui/Bar";
 
 export default function DadosTitular() {
   return (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
         <Container style={{ display: "flex" }}>
-          <PageTitle bold="Dados" regular="do Titular" />
-          <SubTitle regular="Por favor informe seus dados para podermos prosseguir com o seu seguro." />
+          <PageTitle bold="Dados do" regular="Titular" />
+          <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
           <TravelTitular />
+          <Bar step={50}/>
         </Container>
       </Wrapper>
     </MainLayout>

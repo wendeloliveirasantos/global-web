@@ -236,11 +236,11 @@ export default function TravelTitular() {
   }
 
   return (
-    <S.Wrapper>
+    <S.Card>
       <S.Description>{`Passageiro 1`}</S.Description>
       <form onSubmit={handleSubmit}>
         <S.Row>
-          <S.Group>
+          <S.Group style={{ paddingRight: "8px" }}>
             <TextInput
               name="firstName"
               label="Nome"
@@ -249,7 +249,7 @@ export default function TravelTitular() {
               helperText={formErrors.firstName}
             />
           </S.Group>
-          <S.Group>
+          <S.Group style={{ paddingLeft: "8px" }}>
             <TextInput
               name="lastName"
               label="Sobrenome"
@@ -308,12 +308,13 @@ export default function TravelTitular() {
               name="birthDate"
               min={dayjs(new Date()).format("YYYY-MM-DD")}
               helperText={formErrors.birthDate}
+              border={true}
             />
           </S.Group>
         </S.Row>
 
         <S.Row>
-          <S.Group>
+          <S.Group style={{ paddingRight: "8px" }}>
             <TextInput
               mask="99999-999"
               name="postalCode"
@@ -324,7 +325,7 @@ export default function TravelTitular() {
               helperText={formErrors.postalCode}
             />
           </S.Group>
-          <S.Group>
+          <S.Group style={{ paddingLeft: "8px" }}>
             <TextInput
               name="address"
               label="Endereço"
@@ -336,7 +337,7 @@ export default function TravelTitular() {
         </S.Row>
 
         <S.Row>
-          <S.Group>
+          <S.Group style={{ paddingRight: "8px" }}>
             <TextInput
               name="number"
               label="Numero"
@@ -345,7 +346,7 @@ export default function TravelTitular() {
               helperText={formErrors.number}
             />
           </S.Group>
-          <S.Group>
+          <S.Group style={{ paddingLeft: "8px" }}>
             <TextInput
               name="neighborhood"
               label="Bairro"
@@ -357,7 +358,7 @@ export default function TravelTitular() {
         </S.Row>
 
         <S.Row>
-          <S.Group>
+          <S.Group style={{ paddingRight: "8px" }}>
             <TextInput
               name="city"
               label="Cidade"
@@ -366,7 +367,7 @@ export default function TravelTitular() {
               helperText={formErrors.city}
             />
           </S.Group>
-          <S.Group>
+          <S.Group style={{ paddingLeft: "8px" }}>
             <Select
               options={ufs.map((row) => ({
                 label: row.nome,
@@ -380,13 +381,13 @@ export default function TravelTitular() {
           </S.Group>
         </S.Row>
 
-        <div style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
+        <div style={{ marginTop: 20 }}>
           <Button type="submit">Avançar</Button>
         </div>
-        <div style={{ marginTop: 20, marginLeft: 10, marginRight: 10 }}>
+        <div style={{ marginTop: 15 }}>
           <Button href="/seguros/viagem/coberturas" variant="outlined">Voltar</Button>
         </div>
       </form>
-    </S.Wrapper>
+    </S.Card>
   );
 }

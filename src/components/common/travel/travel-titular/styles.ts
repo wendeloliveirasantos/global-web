@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  width: 500px;
+export const Card = styled.div`
+  width: 400px;
 `
 
 export const Group = styled.div`
   width: 100%;
-  padding: 0 10px;
+  padding: 0 0px;
 `
 
 export const Row = styled.div`
   display: flex;
   align-items: center;
-  padding: 8px 0;;
+  padding: 8px 0;
 `
 
 export const Description = styled.p`

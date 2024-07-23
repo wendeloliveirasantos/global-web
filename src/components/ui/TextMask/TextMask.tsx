@@ -41,6 +41,25 @@ export default function FormattedInputs() {
   return (
     <Stack direction="row" spacing={2}>
       <TextField
+        sx={{
+          borderRadius: '35px',
+          '& fieldset': {
+            borderRadius: '35px',
+          },
+          '& .Mui-focused fieldset': {
+            borderColor: '#FF5A62 !important',
+            '& legend': {
+              visibility: 'visible',
+              backgroundColor: '#FF5A62'
+            },
+          },
+          '& .MuiInputLabel-root.Mui-focused': {
+            color: '#D9D9D9',
+            backgroundColor: '#FF5A62',
+            padding: '1px 8px',
+            marginLeft: '-5px',
+          },
+        }}
         label="react-number-format"
         value={values.numberformat}
         onChange={handleChange}

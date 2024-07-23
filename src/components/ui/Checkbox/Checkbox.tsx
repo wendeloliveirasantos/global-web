@@ -18,7 +18,7 @@ function UiCheckbox({ label, children, onChange, type, variant, helperText, ...r
       fullWidth
     >
       <FormGroup>
-        <FormControlLabel
+        <FormControlLabel sx={{ width: '100%', height: '100%', color: '#333333', fontSize: 14, fontWeight: '400', wordWrap: 'break-word' }}
           control={
             <Checkbox onChange={(e) => onChange(e.target.checked)} />
           }

@@ -21,9 +21,9 @@ function UiButton({ className, children, onClick, variant, href, color, textColo
         {children}
       </S.StyledButton> :
       variant == 'outlined' ?
-      <S.StyledButton onClick={onClick} href={href} variant="outlined" className={className} buttonColor={color} textColor={textColor} {...rest}>
+      <S.StyledButtonOut onClick={onClick} href={href} variant="outlined" className={className} buttonColor={color} textColor={textColor} {...rest}>
         {children}
-      </S.StyledButton> :
+      </S.StyledButtonOut> :
       <S.StyledButton onClick={onClick} href={href} variant="contained" className={className} buttonColor={color} textColor={textColor} {...rest}>
         {children}
       </S.StyledButton>

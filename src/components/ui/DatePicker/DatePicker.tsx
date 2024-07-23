@@ -24,6 +24,7 @@ type DatePickerProps = {
   value?: any
   helperText?: string
   disabled?: boolean
+  border?: boolean
 }
 
 export default function UiDatePicker({
@@ -38,16 +39,72 @@ export default function UiDatePicker({
   min,
   value,
   disabled,
+  border,
   ...rest
 }: DatePickerProps) {
   
   return (
     <FormControl fullWidth>
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
-        <DatePicker slotProps={{
+        <DatePicker
+          sx={ border ? {
+            borderRadius: '35px',
+            '& fieldset': {
+              borderRadius: '35px',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#FF5A62 !important',
+              '& legend': {
+                visibility: 'visible',
+                backgroundColor: '#FF5A62',
+              },
+            },
+            '& .MuiInputBase-root': {
+              '&.Mui-focused fieldset': {
+                borderColor: '#FF5A62',
+                '& legend': {
+                  visibility: 'visible',
+                  backgroundColor: '#FF5A62',
+                },
+              },
+            },
+            '& .MuiInputLabel-root.Mui-focused': {
+              color: '#D9D9D9',
+              backgroundColor: '#FF5A62',
+              padding: '1px 8px',
+              marginLeft: '-5px',
+            },
+          } : {
+            '&.Mui-focused fieldset': {
+              borderColor: '#FF5A62 !important',
+              '& legend': {
+                visibility: 'visible',
+                backgroundColor: '#FF5A62',
+              },
+            },
+            '& .MuiInputBase-root': {
+              '&.Mui-focused fieldset': {
+                borderColor: '#FF5A62',
+                '& legend': {
+                  visibility: 'visible',
+                  backgroundColor: '#FF5A62',
+                },
+              },
+            },
+            '& .MuiInputLabel-root.Mui-focused': {
+              color: '#D9D9D9',
+              backgroundColor: '#FF5A62',
+              padding: '1px 8px',
+              marginLeft: '-5px',
+            },
+          }}
+          slotProps={{
             textField: {
               error: !!helperText,
               helperText: helperText,
+              InputProps: {
+                endAdornment: null
+              }
             },
           }} defaultValue={defaultValue} value={value} name={name} onChange={(date) => onChange(dayjs(date).format('YYYY-MM-DD'))} label={label} {...rest} disabled={disabled} />
       </LocalizationProvider>

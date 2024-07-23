@@ -15,15 +15,16 @@ type SliderProps = {
 }
 
 const PrettoSlider = styled(Slider)({
-  height: 10,
+  color: '#FF5A62',
+  height: 3,
   '& .MuiSlider-track': {
     border: 'none',
   },
   '& .MuiSlider-thumb': {
-    height: 30,
-    width: 30,
-    backgroundColor: '#1976d2',
-    border: '2px solid currentColor',
+    height: 15,
+    width: 15,
+    backgroundColor: '#FF5A62',
+    border: '2px solid #FF5A62',
     '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
       boxShadow: 'inherit',
     },
@@ -39,7 +40,7 @@ const PrettoSlider = styled(Slider)({
     width: 40,
     height: 40,
     borderRadius: '50% 50% 50% 0',
-    backgroundColor: '#1976d2',
+    backgroundColor: '#FF5A62',
     transformOrigin: 'bottom left',
     transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
     '&::before': { display: 'none' },
@@ -49,7 +50,11 @@ const PrettoSlider = styled(Slider)({
     '& > *': {
       transform: 'rotate(45deg)',
     },
-  }
+  },
+  '& .MuiSlider-rail': {
+    color: '#333333',
+    opacity: 1,
+  },
 });
 
 const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
@@ -70,10 +75,10 @@ function UiSlider({ name, label, children, onChange, type, variant, marks, min, 
     <FormControl
       fullWidth
     >
-      <Typography id={name} gutterBottom>
+      <Typography sx={{ color: '#333333', fontSize: 16, fontWeight: '400', letterSpacing: 0.50, wordWrap: 'break-word' }} id={name} gutterBottom>
         {label}
       </Typography>
-      <HtmlTooltip
+      {/* <HtmlTooltip
         placement='bottom'
         title={
           <React.Fragment>
@@ -81,17 +86,17 @@ function UiSlider({ name, label, children, onChange, type, variant, marks, min, 
           </React.Fragment>
         }
       >
-        <PrettoSlider
-          defaultValue={min}
-          aria-labelledby={name}
-          valueLabelDisplay="on"
-          step={35}
-          marks={marks}
-          min={min}
-          max={max}
-          onChange={onChange}
-        />
-      </HtmlTooltip>
+        
+      </HtmlTooltip> */}
+      <PrettoSlider
+        defaultValue={min}
+        aria-labelledby={name}
+        valueLabelDisplay="off"
+        step={35}
+        min={min}
+        max={max}
+        onChange={onChange}
+      />
       
       {/* <Slider
         defaultValue={min}

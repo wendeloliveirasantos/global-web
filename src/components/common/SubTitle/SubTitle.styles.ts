@@ -1,3 +1,4 @@
+import { SxProps, Theme } from '@mui/material';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -35,3 +36,13 @@ export const Wrapper = styled.div`
         font-size: 20px;
     }
 `;
+
+export const boxStyle = {
+    width: '100%',
+    height: '100%',
+    color: '#333333',
+    fontSize: '14px',
+    fontWeight: 400,
+    lineHeight: '16px',
+    wordWrap: 'break-word',
+};

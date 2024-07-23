@@ -2,7 +2,9 @@ import { Container, Wrapper } from '@/components/common'
 import Loading from '@/components/common/Loading/Loading'
 import { PagamentoForm } from '@/components/common/PagamentoForm'
 import { PageTitle } from '@/components/common/PageTitle'
+import SubTitle from '@/components/common/SubTitle/SubTitle'
 import { MainLayout } from '@/components/common/layouts'
+import { Bar } from '@/components/ui/Bar'
 import { Dialog } from '@/components/ui/Dialog'
 import { STORAGE_VIAGEM_COMPRA, STORAGE_VIAGEM_COTACAO } from '@/constants'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
@@ -71,17 +73,18 @@ export default function Pagamento() {
           "cellPhone": values.contatoEmergencial
         }
       }
-      const response = await api.post("/travels/purchases", input);
-      if (response.status == 201) {
-        setCompra(JSON.stringify(response.data))
-        router.push("/seguros/viagem/concluido")
-        setLoading(false)
-      }
-      else {
-        setLoading(false)
-        setOpen(true)
-        setError(response.data.message)
-      }
+      router.push("/seguros/viagem/concluido")
+      // const response = await api.post("/travels/purchases", input);
+      // if (response.status == 201) {
+      //   setCompra(JSON.stringify(response.data))
+      //   router.push("/seguros/viagem/concluido")
+      //   setLoading(false)
+      // }
+      // else {
+      //   setLoading(false)
+      //   setOpen(true)
+      //   setError(response.data.message)
+      // }
       
     } catch (error) {
       setLoading(false)
@@ -95,12 +98,14 @@ export default function Pagamento() {
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
         <Container style={{ display: "flex" }}>
-          <PageTitle bold='Dados para' regular='pagamento' />
+          <PageTitle bold='Dados para' regular='Pagamento' />
+          <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
           <PagamentoForm
             onSubmit={onSubmit}
             amount={oferta.amount ?? 0}
           />
           <Dialog title='ERRO AO PROCESSAR PAGAMENTO' text={error} open={open} onClose={onClose}></Dialog>
+          <Bar step={75}/>
         </Container>
       </Wrapper>
     </MainLayout>

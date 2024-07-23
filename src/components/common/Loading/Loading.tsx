@@ -10,7 +10,7 @@ function Loading() {
     <S.Wrapper>
       <S.Container>
         <h1>Carregando...</h1>
-        <Loader color="#fff" loading={true} size={30} />
+        <Loader color="#ffffff" loading={true} size={32} />
       </S.Container>
     </S.Wrapper>
   )

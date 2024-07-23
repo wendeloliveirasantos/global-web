@@ -8,14 +8,18 @@ type SwitchProps = {
   onChange(value: boolean): void
   type?: any
   variant?: string
+  helperText?: string
 }
 
-function UiSwitch({ label, children, onChange, type, variant, ...rest }: SwitchProps) {
+function UiSwitch({ label, children, onChange, type, variant, helperText,...rest }: SwitchProps) {
   return (
-    <FormControl fullWidth>
+    <FormControl error={helperText != ""} fullWidth>
       <FormGroup style={{ alignContent: 'center' }}>
-        <FormControlLabel control={<Switch onChange={(e) => onChange(e.target.checked)} />} label={label} {...rest}/>
+        <FormControlLabel sx={{ m: 0, width: '100%', height: '100%', color: '#333333', fontSize: 14, fontWeight: '400', wordWrap: 'break-word' }} control={<S.MaterialUISwitch sx={{ marginRight: '18px' }} onChange={(e) => onChange(e.target.checked)} />} label={label} {...rest}/>
       </FormGroup>
+      {helperText != "" && (
+        <FormHelperText>{helperText}</FormHelperText>
+      )}
     </FormControl>
   )
 }

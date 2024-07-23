@@ -47,7 +47,20 @@ export default function TextInput({
               '& fieldset': {
                 borderRadius: '35px',
               },
-              '& .Mui-focused fieldset': {
+              '& .Mui-focused': {
+                '& fieldset': {
+                  borderColor: '#FF5A62 !important',
+                  '& legend': {
+                    visibility: 'visible',
+                    backgroundColor: '#FF5A62'
+                  },
+                },
+              },
+              '& .MuiInputLabel-root.Mui-focused': {
+                color: '#D9D9D9',
+                backgroundColor: '#FF5A62',
+                padding: '1px 8px',
+                marginLeft: '-5px',
               },
             }}
             id={name} error={helperText !== ""} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText}/>
@@ -59,7 +72,20 @@ export default function TextInput({
             '& fieldset': {
               borderRadius: '35px',
             },
-            '& .Mui-focused fieldset': {
+            '& .Mui-focused': {
+              '& fieldset': {
+                borderColor: '#FF5A62 !important',
+                '& legend': {
+                  visibility: 'visible',
+                  backgroundColor: '#FF5A62'
+                },
+              },
+            },
+            '& .MuiInputLabel-root.Mui-focused': {
+              color: '#D9D9D9',
+              backgroundColor: '#FF5A62',
+              padding: '1px 8px',
+              marginLeft: '-5px',
             },
           }}
           id={name} error={helperText !== "" && helperText !== undefined} inputProps={{ min }} variant="outlined" label={label} value={value} type={type} defaultValue={defaultValue} name={name} autoComplete="off" onChange={onChange} onBlur={onBlur} helperText={helperText} {...rest}/>

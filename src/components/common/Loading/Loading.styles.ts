@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: ${props => props.theme.colors.lightBlue};
+    background: ${props => props.theme.colors.default};
 `;
 
 export const Container = styled.div`
@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 
     h1 {
-        font-size: 37px;
+        font-size: 32px;
         margin-bottom: 30px;
         z-index: 2;
     }
@@ -39,7 +39,7 @@ export const Container = styled.div`
     }
 
     .CircularProgressbar-path {
-        stroke: ${props => props.theme.colors.darkBlue};
+        stroke: ${props => props.theme.colors.default};
         border-radius: unset;
     }
     .CircularProgressbar-trail {

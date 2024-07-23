@@ -1,3 +1,4 @@
+import { Box, Typography } from '@mui/material'
 import styled from 'styled-components'
 
 export const Card = styled.div`
@@ -11,10 +12,37 @@ export const RowInputs = styled.div`
 export const Passengers = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-bottom: 15px;
 `
 
 export const Row = styled.div`
   width: 50%;
   padding: 1%;
 `
+export const Container = styled(Box)({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginTop: '5px',
+});
+
+export const Background = styled(Box)({
+  width: 82,
+  height: 31,
+  background: 'white',
+  borderRadius: 35,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+});
+
+export const Text = styled(Typography)({
+  width: 82,
+  textAlign: 'center',
+  color: '#333333',
+  fontSize: 12,
+  fontWeight: 400,
+  lineHeight: '24px',
+  letterSpacing: '0.50px',
+  wordWrap: 'break-word',
+});

@@ -27,13 +27,13 @@ const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
   left: '50%',
-  transform: 'translate(-50%, -50%)',
+  transform: 'translate(-50%, -50%)'
 };
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.info.dark,
-    color: theme.palette.common.white,
+    backgroundColor: '#FF5A62',
+    color: theme.palette.common.white
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -41,10 +41,13 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
+   height: '42px',
   '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
+    backgroundColor: '#FFEAEB',
   },
-  // hide last border
+  '&:nth-of-type(even)': {
+    backgroundColor: '#FFD7D9',
+  },
   '&:last-child td, &:last-child th': {
     border: 0,
   },
@@ -68,11 +71,11 @@ function UiModal({ label, children, onChange, onClose, type, open, title, varian
       >
         <Fade in={open}>
           <Box sx={style}>
-            <Card sx={{ maxWidth: 900 }}>
-              <CardContent>
-                <Grid container spacing={0}>
+            <Card sx={{ maxWidth: 900, background: '#FFD7D9', borderRadius: '16px' }}>
+              <CardContent sx={{ padding: '0px', paddingBottom: '0px !important' }}>
+                <Grid container spacing={0} sx={{ padding: '16px 0px 12px 24px' }}>
                   <Grid item xs={11}>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h5" component="div" sx={{ color: '#49454F', fontSize: '22px', fontWeight: '700', wordWrap: 'break-word' }}>
                       {title}
                     </Typography>
                   </Grid>
@@ -85,7 +88,7 @@ function UiModal({ label, children, onChange, onClose, type, open, title, varian
                 <Paper sx={{ width: '100%', overflow: 'hidden' }}>
                   <TableContainer sx={{ maxHeight: 440 }}>
                     <Table stickyHeader aria-label="sticky table" size="small">
-                      <TableHead>
+                      <TableHead sx={{ height: '42px' }}>
                         <StyledTableRow>
                           <StyledTableCell>Descrição</StyledTableCell>
                           <StyledTableCell align="right">Valor</StyledTableCell>
@@ -109,9 +112,9 @@ function UiModal({ label, children, onChange, onClose, type, open, title, varian
                   </TableContainer>
                 </Paper>
               </CardContent>
-              <CardActions style={{ justifyContent: 'flex-end' }}>
+              {/* <CardActions style={{ justifyContent: 'flex-end' }}>
                 <Button onClick={onClose} size="small">Fechar</Button>
-              </CardActions>
+              </CardActions> */}
             </Card>
           </Box>
         </Fade>
