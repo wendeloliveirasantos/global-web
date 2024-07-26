@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import styled from "styled-components";
 
 export const Card = styled.div`
-  width: 400px;
 `
 
 export const Header = styled.div`

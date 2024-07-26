@@ -3,9 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.default};
   width: 100%; 
-  height: 100%; 
-  padding-left: 4px; 
-  padding-right: 4px; 
+  height: 100%;
   padding-top: 16px;
   padding-bottom: 24px;
   justify-content: flex-start; 
@@ -17,7 +15,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 32px; /* Adicione padding conforme necessário */
+  padding: 8px 0px; /* Adicione padding conforme necessário */
 `;
 
 export const Logo = styled.img`

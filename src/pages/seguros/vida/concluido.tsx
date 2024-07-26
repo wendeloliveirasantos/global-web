@@ -1,4 +1,4 @@
-import { Container } from '@/components/common'
+import { ContainerBox } from '@/components/common'
 import ConcluidoComponent from '@/components/common/concluido'
 import { MainLayout } from '@/components/common/layouts'
 import { STORAGE_RESIDENCIAL_COMPRA } from '@/constants';

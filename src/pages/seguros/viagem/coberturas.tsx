@@ -1,4 +1,4 @@
-import { Container, TravelCoverage, Wrapper } from "@/components/common";
+import { ContainerBox, TravelCoverage, Wrapper } from "@/components/common";
 import Loading from "@/components/common/Loading/Loading";
 import { PageTitle } from "@/components/common/PageTitle";
 import SubTitle from "@/components/common/SubTitle/SubTitle";
@@ -16,13 +16,13 @@ export default function Coberturas() {
   return products.length > 0 ? (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <Container style={{ display: "flex" }}>
+        <ContainerBox style={{ display: "flex" }}>
           <PageTitle bold="Escolha sua" regular="Cobertura" />
           <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
           {/* <TravelCoverage products={products} /> */}
           <CarouselPlano products={products}/>
           <Bar step={25}/>
-        </Container>
+        </ContainerBox>
         {/* <Container style={{ display: "flex" }}>
           <Stack spacing={2} direction="row">
             <Button href="/seguros/viagem/dados-basicos" variant="outlined">Refazer Busca</Button>

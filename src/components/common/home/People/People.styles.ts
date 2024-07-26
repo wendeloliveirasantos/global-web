@@ -6,15 +6,8 @@ export const InsuranceContainer = styled.div`
     margin: auto;
     display: flex;
     flex-direction: column;
-    padding: 35px 35px 35px 35px;
+    padding: 35px 0px;
     background: none;
-    @media (max-width: 1400px) {
-        max-width: 1100px;
-    }
-
-    @media (max-width: 1100px) {
-        max-width: 900px;
-    }
 `;
 
 export const StyledTitleTypography = styled(Typography)`

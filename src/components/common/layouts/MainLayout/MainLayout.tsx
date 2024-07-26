@@ -3,6 +3,7 @@ import { Header } from '../Header'
 import * as S from './MainLayout.styles'
 import { WhatsApp } from '@/components/ui/WhatsApp'
 import Footer from '../Footer/Footer'
+import { Container } from '@mui/material'
 
 type MainLayoutProps = {
   children: ReactNode

@@ -1,4 +1,4 @@
-import { Container, Wrapper } from "@/components/common";
+import { ContainerBox, Wrapper } from "@/components/common";
 import { ProspectDetailData } from "@/components/common/auto/ProspectDetailData";
 import { MainLayout } from "@/components/common/layouts";
 import Loading from "@/components/common/Loading/Loading";
@@ -65,7 +65,7 @@ export default function Offers() {
   return (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <Container>
+        <ContainerBox>
           <div style={{ maxWidth: 400, width: "100%" }}>
             <PageTitle bold="Dados" regular="do Segurado" />
             <ProspectDetailData
@@ -73,7 +73,7 @@ export default function Offers() {
               onSubmit={handleSubmit}
             />
           </div>
-        </Container>
+        </ContainerBox>
       </Wrapper>
     </MainLayout>
   );

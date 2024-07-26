@@ -1,16 +1,8 @@
+import { AppBar } from "@mui/material";
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const AppBarContainer = styled(AppBar)`
   background: ${({ theme }) => theme.colors.default};
-  width: 100%; 
-  height: 100%; 
-  padding-left: 4px; 
-  padding-right: 4px; 
-  padding-top: 8px; 
-  padding-bottom: 8px; 
-  justify-content: flex-start; 
-  align-items: center; 
-  gap: 6px;
 `;
 
 export const Container = styled.div`
@@ -28,10 +20,6 @@ export const Links = styled.ul`
   display: flex;
   align-items: center;  /* Centraliza os itens verticalmente */
   justify-content: center;
-
-  @media (max-width: 800px) {
-    display: none;
-  }
 `;
 
 export const Link = styled.li<{ onClick?: any }>`

@@ -1,4 +1,4 @@
-import { Container, Wrapper } from "@/components/common";
+import { ContainerBox, Wrapper } from "@/components/common";
 import { Offers } from "@/components/common/auto/Offers";
 import { MainLayout } from "@/components/common/layouts";
 import Loading from "@/components/common/Loading/Loading";
@@ -46,11 +46,11 @@ export default function OffersPage() {
   return (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <Container>
+        <ContainerBox>
           <div style={{ maxWidth: 400, width: "100%" }}>
             <Offers onSubmit={handleSubmit} offers={offers} />
           </div>
-        </Container>
+        </ContainerBox>
       </Wrapper>
     </MainLayout>
   );

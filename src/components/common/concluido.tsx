@@ -27,5 +27,4 @@ export default function ConcluidoComponent(props: Props) {
 }
 
 export const Card = styled.div`
-  width: 400px;
 `

@@ -3,8 +3,8 @@ import { purple } from '@mui/material/colors';
 import styled from 'styled-components';
 
 export const WelcomeContainer = styled(Box)`
-width: calc(100% - 20px); /* Ajuste o tamanho total da largura e subtraia 20 pixels para o espaço à direita */
-height: 60vh;
+width: 100%;
+height: 600px;
 padding-left: 16px;
 padding-right: 16px;
 padding-top: 8px;
@@ -19,6 +19,18 @@ background-repeat: no-repeat;
 border-radius: 28px;
 position: relative;
 background-color: #333; /* Background color */
+
+@media (max-width: 899px) {
+  height: 350px;
+}
+
+@media (max-width: 599px) {
+  height: 250px;
+}
+
+@media (max-width: 479px) {
+  height: 200px;
+}
 `;
 
 export const StyledCarouselItem = styled.li`

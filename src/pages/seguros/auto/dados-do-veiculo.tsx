@@ -1,4 +1,4 @@
-import { Container, Wrapper } from '@/components/common'
+import { ContainerBox, Wrapper } from '@/components/common'
 import { MainLayout } from '@/components/common/layouts'
 import { VehicleData } from '@/components/common/VehicleData'
 import { useAuto } from '@/context/auto'
@@ -26,9 +26,9 @@ export default function AutoDetalhes() {
     return (
         <MainLayout>
             <Wrapper style={{ flex: 1 }} background="/images/city.png">
-                <Container>
+                <ContainerBox>
                     <VehicleData onSubmit={handleSubmit} />
-                </Container>
+                </ContainerBox>
             </Wrapper>
         </MainLayout>
     )

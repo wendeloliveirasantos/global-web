@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import * as S from './Bar.styles'
-import { FormControl, Button, FormControlLabel, FormGroup, Switch, FormHelperText } from '@mui/material';
+import { FormControl, Button, FormControlLabel, FormGroup, Switch, FormHelperText, Container } from '@mui/material';
 
 type BarProps = {
   step: number

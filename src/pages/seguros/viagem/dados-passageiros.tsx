@@ -1,4 +1,4 @@
-import { Container, Wrapper } from '@/components/common'
+import { ContainerBox, Wrapper } from '@/components/common'
 import { PageTitle } from '@/components/common/PageTitle'
 import SubTitle from '@/components/common/SubTitle/SubTitle'
 import { MainLayout } from '@/components/common/layouts'
@@ -9,11 +9,11 @@ export default function DadosPassageiros() {
   return (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <Container style={{ display: "flex" }}>
+        <ContainerBox style={{ display: "flex" }}>
           <PageTitle bold="Dados" regular="dos Passageiros" />
           <SubTitle regular="Por favor informe os dados dos demais passageiros para podermos prosseguir com o seu seguro." />
           <DadosPassageiro />
-        </Container>
+        </ContainerBox>
       </Wrapper>
     </MainLayout>
   )

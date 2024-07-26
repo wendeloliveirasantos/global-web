@@ -3,7 +3,7 @@ import * as S from './Footer.styles'
 import Link from 'next/link'
 import { FaBars } from 'react-icons/fa';
 import UiDropdown from '@/components/ui/Dropdown/Dropdown';
-import { Box, Button, Icon } from '@mui/material';
+import { Box, Button, Container, Icon } from '@mui/material';
 import { useRouter } from 'next/router';
 
 export default function Footer() {
@@ -43,6 +43,7 @@ export default function Footer() {
 
   return (
     <S.Wrapper>
+      <Container maxWidth="xl">
       <S.Container>
         <Link href="/">
           <S.Logo src="/images/logo.png" />
@@ -143,6 +144,8 @@ export default function Footer() {
           ©2024 Globalcorp Corretora de Seguros Gerais Ltda. Todos os direitos reservados.
         </Box>
       </S.Container>
+      </Container>
+      
     </S.Wrapper>
   )
 }

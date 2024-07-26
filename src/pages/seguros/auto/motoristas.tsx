@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Container, Wrapper } from "@/components/common";
+import { ContainerBox, Wrapper } from "@/components/common";
 import { DriversData } from "@/components/common/auto/DriversData";
 import { MainLayout } from "@/components/common/layouts";
 import Loading from "@/components/common/Loading/Loading";
@@ -84,7 +84,7 @@ export default function Drivers() {
   return (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <Container>
+        <ContainerBox>
           <div style={{ maxWidth: 400, width: "100%" }}>
             <PageTitle bold="Dados" regular="dos Motoristas" />
             <DriversData handleChange={handleChange} removeDriver={handleRemoveDriver} addDriver={handleAddDriver} drivers={drivers} />
@@ -92,7 +92,7 @@ export default function Drivers() {
               <Button onClick={handleSubmit}>Avançar</Button>
             </div>
           </div>
-        </Container>
+        </ContainerBox>
       </Wrapper>
     </MainLayout>
   );

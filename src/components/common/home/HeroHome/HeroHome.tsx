@@ -10,7 +10,9 @@ export default function HeroHome() {
   ];
   return (
     <S.Container>
-      <Carousel items={items}/>
+      <Container maxWidth="xl">
+        <Carousel items={items}/> 
+      </Container>
     </S.Container>
   )
 }

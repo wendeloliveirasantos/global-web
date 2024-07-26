@@ -1,4 +1,4 @@
-import { Container, Wrapper } from '@/components/common'
+import { ContainerBox, Wrapper } from '@/components/common'
 import Loading from '@/components/common/Loading/Loading'
 import { PagamentoForm } from '@/components/common/PagamentoForm'
 import { PageTitle } from '@/components/common/PageTitle'
@@ -88,7 +88,7 @@ export default function Pagamento() {
   return oferta && (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <Container style={{ display: "flex" }}>
+        <ContainerBox style={{ display: "flex" }}>
           <PageTitle bold='Dados para' regular='pagamento' />
           <HybridPagamento
             onSubmit={onSubmit}
@@ -96,7 +96,7 @@ export default function Pagamento() {
             business="hibrido"
           />
           <Dialog title='ERRO AO PROCESSAR PAGAMENTO' text={error} open={open} onClose={onClose}></Dialog>
-        </Container>
+        </ContainerBox>
       </Wrapper>
     </MainLayout>
   )

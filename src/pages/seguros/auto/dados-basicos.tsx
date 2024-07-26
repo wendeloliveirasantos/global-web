@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Container, Wrapper } from '@/components/common'
+import { ContainerBox, Wrapper } from '@/components/common'
 import { DataBasic } from '@/components/common/DataBasic'
 import { MainLayout } from '@/components/common/layouts'
 import { useAuto } from '@/context/auto'
@@ -25,9 +25,9 @@ export default function AutoDetalhes() {
     return (
         <MainLayout>
             <Wrapper style={{ flex: 1 }} background="/images/city.png">
-                <Container>
+                <ContainerBox>
                     <DataBasic onSubmit={handleSubmit} />
-                </Container>
+                </ContainerBox>
             </Wrapper>
         </MainLayout>
     )

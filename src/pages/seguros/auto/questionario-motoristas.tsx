@@ -1,4 +1,4 @@
-import { Container, Wrapper } from "@/components/common";
+import { ContainerBox, Wrapper } from "@/components/common";
 import { Questionarie } from "@/components/common/auto/Questionarie";
 import { MainLayout } from "@/components/common/layouts";
 import Loading from "@/components/common/Loading/Loading";
@@ -76,7 +76,7 @@ export default function QuestionariePage() {
   return (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <Container>
+        <ContainerBox>
           <div style={{ maxWidth: 400, width: "100%" }}>
             <PageTitle bold="Questionário" regular="Motorista" />
             <div>
@@ -92,7 +92,7 @@ export default function QuestionariePage() {
               </div>
             )}
           </div>
-        </Container>
+        </ContainerBox>
       </Wrapper>
     </MainLayout>
   );

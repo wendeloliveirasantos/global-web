@@ -1,4 +1,4 @@
-import { Container, Wrapper } from "@/components/common";
+import { ContainerBox, Wrapper } from "@/components/common";
 import { MainLayout } from "@/components/common/layouts";
 import Loading from "@/components/common/Loading/Loading";
 import { PageTitle } from "@/components/common/PageTitle";
@@ -37,7 +37,7 @@ export default function ComplementaryDataInsured() {
   return (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <Container>
+        <ContainerBox>
           <form onSubmit={handleSubmit(onSubmit)} style={{ maxWidth: 400, width: "100%" }}>
             <PageTitle bold="Complemento" regular="Veículo" />
             <p style={{ color: theme.colors.lightGray }}>
@@ -77,7 +77,7 @@ export default function ComplementaryDataInsured() {
               </div>
             </div>
           </form>
-        </Container>
+        </ContainerBox>
       </Wrapper>
     </MainLayout>
   );

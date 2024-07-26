@@ -1,4 +1,4 @@
-import { Container, TravelCoverage, Wrapper } from "@/components/common";
+import { ContainerBox, TravelCoverage, Wrapper } from "@/components/common";
 import Loading from "@/components/common/Loading/Loading";
 import { PageTitle } from "@/components/common/PageTitle";
 import SubTitle from "@/components/common/SubTitle/SubTitle";
@@ -20,16 +20,16 @@ export default function Coberturas() {
   return products.length > 0 ? (
     <MainLayout>
       <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <Container>
+        <ContainerBox>
           <PageTitle bold="Escolha a" regular="sua cobertura" />
           <SubTitle regular="Temos a melhor opção do Seguro Acidentes Pessoais para você." />
           <HybridCoverage onSubmit={onSubmit} products={products} />
-        </Container>
-        <Container style={{ display: "flex" }}>
+        </ContainerBox>
+        <ContainerBox style={{ display: "flex" }}>
           <Stack spacing={2} direction="row">
             <Button href="/seguros/acidentes-pessoais/dados-basicos" variant="outlined">Refazer Busca</Button>
           </Stack>
-        </Container>
+        </ContainerBox>
       </Wrapper>
     </MainLayout>
   ) : (
