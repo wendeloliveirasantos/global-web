@@ -12,15 +12,17 @@ type CarouselProps = {
   variant?: string;
   href?: string;
   items: { src: string, alt: string }[];
+  multiplier: number;
 };
 
-function UiCarousel({ className, children, onClick, variant, href, items, ...rest }: CarouselProps) {
+function UiCarousel({ className, children, onClick, variant, href, items, multiplier, ...rest }: CarouselProps) {
   return (
     <Carousel autoPlay infiniteLoop showThumbs={false} showArrows={false} showStatus={false}>
       {items.map((item, index) => (
         <S.WelcomeContainer
           key={index}
           style={{ backgroundImage: `url(${item.src})` }}
+          multiplier={multiplier}
         >
           <S.TextContainer>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br/>

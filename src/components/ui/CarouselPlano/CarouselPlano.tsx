@@ -9,6 +9,7 @@ import { TravelCard } from '@/components/common';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { STORAGE_VIAGEM_PRODUTO } from '@/constants';
 import { useRouter } from 'next/router';
+import useWindowSize from '../UseWindowSize/UseWindowSize';
 
 type CarouselPlanoProps = {
   products: Array<Product>;
@@ -20,23 +21,17 @@ type CarouselPlanoProps = {
   href?: string;
 };
 
-const items = [
-  { src: '/images/produto-item-1.png', alt: 'Image 1', text: 'Seguro-Viagem' },
-  { src: '/images/produto-item-2.png', alt: 'Image 2', text: 'Seguro-Residencial' },
-  { src: '/images/produto-item-1.png', alt: 'Image 3', text: 'Seguro-Híbrido' },
-  { src: '/images/produto-item-2.png', alt: 'Image 4', text: 'Seguro-Empresarial' },
-  { src: '/images/produto-item-1.png', alt: 'Image 5', text: 'Seguro-Vida' },
-  { src: '/images/produto-item-2.png', alt: 'Image 6', text: 'Seguro-Acidentes-Pessoais' },
-];
-
 function UiCarouselPlano({ products, className, children, onClick, variant, href, ...rest }: CarouselPlanoProps) {
   
   const [, setProduto] = useLocalStorage(STORAGE_VIAGEM_PRODUTO, "");
   const router = useRouter();
+
+  const { width } = useWindowSize();
+  const qtdItems = width < 900 ? 1 : width < 1200 ? 2 : 3;
   
   const groupedItems: Array<Product>[] = [];
-  for (let i = 0; i < products.length; i += 3) {
-    groupedItems.push(products.slice(i, i + 3));
+  for (let i = 0; i < products.length; i += qtdItems) {
+    groupedItems.push(products.slice(i, i + qtdItems));
   }
 
   function handleSubmit(value: Product) {

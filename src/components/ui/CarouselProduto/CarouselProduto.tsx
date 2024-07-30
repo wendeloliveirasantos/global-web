@@ -4,6 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the ca
 import { Box } from '@mui/material';
 import styled from '@emotion/styled';
 import * as S from './CarouselProduto.styles'
+import useWindowSize from '../UseWindowSize/UseWindowSize';
 type CarouselProdutoProps = {
   className?: string;
   children?: React.ReactNode;
@@ -22,13 +23,17 @@ const items = [
   { src: '/images/produto-item-2.png', alt: 'Image 6', text: 'Seguro-Acidentes-Pessoais' },
 ];
 
-const groupedItems: { src: string; alt: string; text: string }[][] = [];
-for (let i = 0; i < items.length; i += 3) {
-  groupedItems.push(items.slice(i, i + 3));
-}
 
-function UiCarouselProduto({ className, children, onClick, variant, href, ...rest }: CarouselProdutoProps) {
+function UiCarouselProduto({ className, children, onClick, variant, href,...rest }: CarouselProdutoProps) {
   
+  const { width } = useWindowSize();
+  const qtdItems = width < 600 ? 2 : 3;
+
+  const groupedItems = [];
+  for (let i = 0; i < items.length; i += qtdItems) {
+    groupedItems.push(items.slice(i, i + qtdItems));
+  }
+
   return (
     <Carousel autoPlay infiniteLoop showThumbs={false} showArrows={false} showStatus={false}>
       {groupedItems.map((group, groupIndex) => (
@@ -41,6 +46,7 @@ function UiCarouselProduto({ className, children, onClick, variant, href, ...res
                 flex: 1,
                 margin: '0 5px'
               }}
+              multiplier={1.5}
             >
               <S.TextContainer>
                 {item.text}

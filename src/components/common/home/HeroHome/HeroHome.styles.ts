@@ -1,3 +1,4 @@
+import { Box, Button, ButtonProps } from "@mui/material";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -91,3 +92,25 @@ export const Welcome = styled.div`
     }
 `;
 
+export const ButtonBox = styled(Box)`
+    @media (max-width: 599px) {
+        width: 100%;
+    }
+    @media (min-width: 600px) {
+        width: 225px;
+    }
+`
+
+export const TextContainer = styled(Box)`
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 18px;
+    word-wrap: break-word
+`;
+
+export const TextBoxContainer = styled(Box)` 
+  @media (min-width: 899px) {
+    display: none;
+  }
+`

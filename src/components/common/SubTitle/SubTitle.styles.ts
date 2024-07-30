@@ -10,10 +10,6 @@ export const Wrapper = styled.div`
     strong {
         margin-right: 10px;
     }
-
-    @media (max-width: 600px) {
-        white-space: nowrap;
-    }
 `;
 
 export const boxStyle = {

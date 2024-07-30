@@ -31,18 +31,29 @@ export default function Insurance({
 
   return (
     <S.InsuranceContainer>
-      <Box sx={{ marginBottom: 6 }}>
+      <S.TextBoxContainer sx={{ marginBottom: 3 }}>
+        <S.TextContainer>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br/>
+          Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </S.TextContainer>
+        <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3 }}>
+          <S.ButtonBox>
+            <Button color='#62F4BC' textColor='#333333'>Contrate agora</Button>
+          </S.ButtonBox>
+        </Box>
+      </S.TextBoxContainer>
+      <Box sx={{ marginBottom: 3 }}>
         <S.StyledTitleTypography>
           {insuranceInformation.title}
         </S.StyledTitleTypography>
-        <S.TextInfo sx={{ marginTop: 6 }}>
+        <S.TextInfo sx={{ marginTop: 3 }}>
           {insuranceInformation.description}
         </S.TextInfo>
       </Box>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           {insuranceInformation.advantages.map((value, index) => (
-            <Grid key={index} item xs={3}>
+            <Grid key={index} item xs={12} sm={6} md={3}>
               <Item>
                 <CardSeguro titulo={value.title} texto='Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Aeneam vestibulum nulla.' items={value.items}></CardSeguro>
               </Item>
@@ -71,11 +82,9 @@ export default function Insurance({
         </Grid>
       </Box>
       <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3 }}>
-        <Box height={50} width={225}>
-          <a href={href} onClick={handleClick}>
-            <Button color='#62F4BC' textColor='#333333'>Contrate agora</Button>
-          </a>
-        </Box>
+        <S.ButtonBox>
+          <Button color='#62F4BC' textColor='#333333'>Contrate agora</Button>
+        </S.ButtonBox>
       </Box>
       
     </S.InsuranceContainer>

@@ -10,6 +10,7 @@ import { STORAGE_VIAGEM_COMPRA, STORAGE_VIAGEM_COTACAO } from '@/constants'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import useViagem from '@/hooks/useViagem'
 import api from '@/utils/api'
+import { Container } from '@mui/material'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
@@ -96,18 +97,20 @@ export default function Pagamento() {
 
   return oferta && (
     <MainLayout>
-      <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <ContainerBox style={{ display: "flex" }}>
-          <PageTitle bold='Dados para' regular='Pagamento' />
-          <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
-          <PagamentoForm
-            onSubmit={onSubmit}
-            amount={oferta.amount ?? 0}
-          />
-          <Dialog title='ERRO AO PROCESSAR PAGAMENTO' text={error} open={open} onClose={onClose}></Dialog>
-          <Bar step={75}/>
-        </ContainerBox>
-      </Wrapper>
+      <Container maxWidth="xl">
+        <Wrapper style={{ flex: 1 }} background="/images/city.png">
+          <ContainerBox style={{ display: "flex" }}>
+            <PageTitle bold='Dados para' regular='Pagamento' />
+            <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+            <PagamentoForm
+              onSubmit={onSubmit}
+              amount={oferta.amount ?? 0}
+            />
+            <Dialog title='ERRO AO PROCESSAR PAGAMENTO' text={error} open={open} onClose={onClose}></Dialog>
+            <Bar step={75}/>
+          </ContainerBox>
+        </Wrapper>
+      </Container>
     </MainLayout>
   )
 }

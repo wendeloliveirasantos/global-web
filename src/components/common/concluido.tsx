@@ -19,12 +19,23 @@ export default function ConcluidoComponent(props: Props) {
 
   return (
     <Card>
-      <Box>
-        <Button>Finalizar</Button>
+      <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3 }}>
+        <ButtonBox>
+          <Button>Finalizar</Button>
+        </ButtonBox>
       </Box>
     </Card>
   )
 }
 
 export const Card = styled.div`
+`
+
+export const ButtonBox = styled(Box)`
+    @media (max-width: 599px) {
+        width: 225px;
+    }
+    @media (min-width: 600px) {
+        width: 225px;
+    }
 `

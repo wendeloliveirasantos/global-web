@@ -1,37 +1,41 @@
-import { Box, Button, ButtonProps } from '@mui/material';
+import { Box, BoxProps, Button, ButtonProps } from '@mui/material';
 import { purple } from '@mui/material/colors';
 import styled from 'styled-components';
 
-export const WelcomeContainer = styled(Box)`
-width: 100%;
-height: 450px;
-padding-left: 16px;
-padding-right: 16px;
-padding-top: 8px;
-padding-bottom: 8px;
-display: inline-flex;
-justify-content: flex-start;
-align-items: flex-start;
-gap: 8px;
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-border-radius: 28px;
-position: relative;
-background-color: #333; /* Background color */
-
-@media (max-width: 899px) {
-  height: 250px;
+interface WelcomeContainerProps extends BoxProps {
+  multiplier: number;
 }
 
-@media (max-width: 599px) {
-  height: 200px;
-}
+export const WelcomeContainer = styled(Box)<WelcomeContainerProps>(({ multiplier }) => ({
+  width: '100%',
+  height: `${450}px`,
+  paddingLeft: 16,
+  paddingRight: 16,
+  paddingTop: 8,
+  paddingBottom: 8,
+  display: 'inline-flex',
+  justifyContent: 'flex-start',
+  alignItems: 'flex-start',
+  gap: 8,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  borderRadius: 28,
+  position: 'relative',
+  backgroundColor: '#333', // Background color
 
-@media (max-width: 479px) {
-  height: 150px;
-}
-`;
+  '@media (max-width: 899px)': {
+    height: `${250}px`,
+  },
+
+  '@media (max-width: 599px)': {
+    height: `${multiplier * 200}px`,
+  },
+
+  '@media (max-width: 479px)': {
+    height: `${multiplier * 150}px`,
+  },
+}));
 
 export const StyledCarouselItem = styled.li`
   background: ${({ theme }) => theme.colors.blue};

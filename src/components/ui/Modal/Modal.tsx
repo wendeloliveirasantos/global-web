@@ -71,9 +71,9 @@ function UiModal({ label, children, onChange, onClose, type, open, title, varian
       >
         <Fade in={open}>
           <Box sx={style}>
-            <Card sx={{ maxWidth: 900, background: '#FFD7D9', borderRadius: '16px' }}>
+            <Card sx={{ width: '100%', minWidth: '350px', background: '#FFD7D9', borderRadius: '16px' }}>
               <CardContent sx={{ padding: '0px', paddingBottom: '0px !important' }}>
-                <Grid container spacing={0} sx={{ padding: '16px 0px 12px 24px' }}>
+                <Grid container spacing={0} sx={{ padding: '16px 24px 12px 24px' }}>
                   <Grid item xs={11}>
                     <Typography gutterBottom variant="h5" component="div" sx={{ color: '#49454F', fontSize: '22px', fontWeight: '700', wordWrap: 'break-word' }}>
                       {title}

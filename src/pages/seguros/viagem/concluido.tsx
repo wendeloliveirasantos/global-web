@@ -7,6 +7,7 @@ import SubTitle from '@/components/common/SubTitle/SubTitle';
 import { Bar } from '@/components/ui/Bar';
 import { STORAGE_VIAGEM_COMPRA } from '@/constants';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { Container } from '@mui/material';
 
 export default function Concluido() {
   //const [compra] = useLocalStorage(STORAGE_VIAGEM_COMPRA, "");
@@ -15,15 +16,17 @@ export default function Concluido() {
     //   <ConcluidoComponent compra={JSON.parse("{}")} />
     // </MainLayout>
     <MainLayout>
-      <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <ContainerBox style={{ display: "flex" }}>
-          <PageTitle inverter={true} bold=" Agora é só deixar com a gente!" regular="Pronto!" />
-          <img style={{ paddingBottom: 25 }} src='/images/layer-concluido.png' width={400} alt="Custom Icon"/>
-          <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
-          <ConcluidoComponent compra={JSON.parse("{}")} />
-          <Bar step={100}/>
-        </ContainerBox>
-      </Wrapper>
+      <Container maxWidth="xl">
+        <Wrapper style={{ flex: 1 }} background="/images/city.png">
+          <ContainerBox style={{ display: "flex" }}>
+            <PageTitle inverter={true} bold=" Agora é só deixar com a gente!" regular="Pronto!" />
+            <img style={{ paddingBottom: 25 }} src='/images/layer-concluido.png' width={350} alt="Custom Icon"/>
+            <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+            <ConcluidoComponent compra={JSON.parse("{}")} />
+            <Bar step={100}/>
+          </ContainerBox>
+        </Wrapper>
+      </Container>
     </MainLayout>
   )
 }

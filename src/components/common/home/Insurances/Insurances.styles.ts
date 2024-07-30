@@ -25,3 +25,17 @@ export const ButtonBox = styled(Box)`
         width: 225px;
     }
 `
+
+export const TextContainer = styled(Box)`
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 18px;
+    word-wrap: break-word
+`;
+
+export const TextBoxContainer = styled(Box)` 
+  @media (min-width: 899px) {
+    display: none;
+  }
+`
