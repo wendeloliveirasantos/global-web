@@ -24,6 +24,10 @@ function UiCarousel({ className, children, onClick, variant, href, items, multip
           style={{ backgroundImage: `url(${item.src})` }}
           multiplier={multiplier}
         >
+          <S.TextTitleContainer>
+            Nossos<br/>
+            Seguros
+          </S.TextTitleContainer>
           <S.TextContainer>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br/>
             Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit.

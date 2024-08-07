@@ -80,3 +80,19 @@ export const TextContainer = styled(Box)`
     display: none;
   }
 `;
+
+export const TextTitleContainer = styled(Box)`
+  position: absolute;
+  top: 38px;
+  left: 47px;
+  color: white;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 62px;
+  word-wrap: break-word;
+  text-align: left;
+
+  @media (max-width: 899px) {
+    display: none;
+  }
+`;

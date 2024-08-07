@@ -5,8 +5,7 @@ import { Box, Container } from '@mui/material'
 
 export default function HeroHome() {
   const items = [
-    { src: '/images/carousel-item-1.png', alt: 'Image 1' },
-    { src: '/images/carousel-item-1.png', alt: 'Image 2' }
+    { src: '/images/nosso-seguro.png', alt: 'Image 1' }
   ];
   return (
     <S.Container>

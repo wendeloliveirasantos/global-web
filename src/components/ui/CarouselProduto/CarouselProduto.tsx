@@ -5,6 +5,8 @@ import { Box } from '@mui/material';
 import styled from '@emotion/styled';
 import * as S from './CarouselProduto.styles'
 import useWindowSize from '../UseWindowSize/UseWindowSize';
+import Link from 'next/link';
+
 type CarouselProdutoProps = {
   className?: string;
   children?: React.ReactNode;
@@ -15,12 +17,12 @@ type CarouselProdutoProps = {
 };
 
 const items = [
-  { src: '/images/produto-item-1.png', alt: 'Image 1', text: 'Seguro-Viagem' },
-  { src: '/images/produto-item-2.png', alt: 'Image 2', text: 'Seguro-Residencial' },
-  { src: '/images/produto-item-1.png', alt: 'Image 3', text: 'Seguro-Híbrido' },
-  { src: '/images/produto-item-2.png', alt: 'Image 4', text: 'Seguro-Empresarial' },
-  { src: '/images/produto-item-1.png', alt: 'Image 5', text: 'Seguro-Vida' },
-  { src: '/images/produto-item-2.png', alt: 'Image 6', text: 'Seguro-Acidentes-Pessoais' },
+  { src: '/images/produto-item-1.png', alt: 'Image 1', text: 'Seguro-Viagem', href: '' },
+  { src: '/images/produto-item-2.png', alt: 'Image 2', text: 'Seguro-Residencial', href: '' },
+  { src: '/images/produto-item-1.png', alt: 'Image 3', text: 'Seguro-Híbrido', href: '' },
+  { src: '/images/produto-item-2.png', alt: 'Image 4', text: 'Seguro-Empresarial', href: '' },
+  { src: '/images/produto-item-1.png', alt: 'Image 5', text: 'Seguro-Vida', href: '' },
+  { src: '/images/produto-item-2.png', alt: 'Image 6', text: 'Seguro-Acidentes-Pessoais', href: '' },
 ];
 
 
@@ -50,7 +52,11 @@ function UiCarouselProduto({ className, children, onClick, variant, href,...rest
             >
               <S.TextContainer>
                 {item.text}
+                <Link href="/saiba-mais">
+                  <S.StyledLink>Saiba Mais</S.StyledLink>
+                </Link>
               </S.TextContainer>
+              
             </S.WelcomeContainer>
           ))}
         </Box>

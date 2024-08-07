@@ -72,3 +72,14 @@ export const TextContainer = styled(Box)`
   text-align: left;
   right: 35%;
 `;
+
+export const StyledLink = styled.p`
+  color: white;
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: underline;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  word-wrap: break-word;
+  cursor: pointer; /* Adiciona o cursor de ponteiro */
+`;
