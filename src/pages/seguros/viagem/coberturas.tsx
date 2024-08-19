@@ -20,15 +20,9 @@ export default function Coberturas() {
           <ContainerBox style={{ display: "flex" }}>
             <PageTitle bold="Escolha sua" regular="Cobertura" />
             <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
-            {/* <TravelCoverage products={products} /> */}
-            <CarouselPlano products={products}/>
+            <CarouselPlano products={products} href="/seguros/viagem/dados-titular"/>
             <Bar step={25}/>
           </ContainerBox>
-          {/* <Container style={{ display: "flex" }}>
-            <Stack spacing={2} direction="row">
-              <Button href="/seguros/viagem/dados-basicos" variant="outlined">Refazer Busca</Button>
-            </Stack>
-          </Container> */}
         </Wrapper>
       </Container>
     </MainLayout>

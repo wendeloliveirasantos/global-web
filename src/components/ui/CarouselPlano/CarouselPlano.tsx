@@ -7,7 +7,7 @@ import * as S from './CarouselPlano.styles'
 import { Product } from '@/types/viagem';
 import { TravelCard } from '@/components/common';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { STORAGE_VIAGEM_PRODUTO } from '@/constants';
+import { STORAGE_RESIDENCIAL_PRODUTO, STORAGE_VIAGEM_PRODUTO } from '@/constants';
 import { useRouter } from 'next/router';
 import useWindowSize from '../UseWindowSize/UseWindowSize';
 
@@ -18,12 +18,13 @@ type CarouselPlanoProps = {
   onClick?(): void;
   type?: any;
   variant?: string;
-  href?: string;
+  href: string;
+  operator?: string;
 };
 
-function UiCarouselPlano({ products, className, children, onClick, variant, href, ...rest }: CarouselPlanoProps) {
+function UiCarouselPlano({ products, className, children, onClick, variant, href, operator, ...rest }: CarouselPlanoProps) {
   
-  const [, setProduto] = useLocalStorage(STORAGE_VIAGEM_PRODUTO, "");
+  const [, setProduto] = useLocalStorage(operator == null ? STORAGE_VIAGEM_PRODUTO : STORAGE_RESIDENCIAL_PRODUTO, "");
   const router = useRouter();
 
   const { width } = useWindowSize();
@@ -34,9 +35,11 @@ function UiCarouselPlano({ products, className, children, onClick, variant, href
     groupedItems.push(products.slice(i, i + qtdItems));
   }
 
+  const url = new URL(href, window.location.origin);
+
   function handleSubmit(value: Product) {
     setProduto(JSON.stringify(value));
-    router.push("/seguros/viagem/dados-titular");
+    router.push(url.toString());
   }
 
   return (
@@ -45,14 +48,6 @@ function UiCarouselPlano({ products, className, children, onClick, variant, href
         {groupedItems.map((group, groupIndex) => (
           <Box key={groupIndex} display="flex" width="100%" height="100%">
             {group.map((item, index) => (
-              // <S.WelcomeContainer
-              //   key={index}
-              //   style={{
-              //     flex: 1,
-              //     margin: '0 5px'
-              //   }}
-              // >
-              // </S.WelcomeContainer>
               <TravelCard
                 key={item.productReferenceId}
                 handleSubmit={handleSubmit}

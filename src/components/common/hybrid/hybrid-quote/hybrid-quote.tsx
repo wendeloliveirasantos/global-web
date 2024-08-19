@@ -203,6 +203,7 @@ export default function HybridQuote({ onSubmit, business }: any) {
               name="birthDate"
               min={dayjs(new Date()).format("YYYY-MM-DD")}
               helperText={birthDateError}
+              border={true}
             />
           </div> : null
         }
@@ -229,8 +230,8 @@ export default function HybridQuote({ onSubmit, business }: any) {
         </div> */}
 
         <div style={{ marginTop: 20 }}>
-          <Checkbox 
-            label="Declaro que li e concordo com a Política de Privacidade."
+          <Switch
+            label="Declaro que li e concordo com a Política de Privacidade"
             onChange={(e) => handleChange("termo", e)}
             helperText={termoError}
           />
