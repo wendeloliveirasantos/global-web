@@ -35,6 +35,9 @@ function getSrcLogo(produto: Product) {
   if (produto.operator == 'assistCard') {
     return "/images/assist_card.png";
   }
+  if (produto.operator == 'nowSys') {
+    return "/images/now_seguros.png";
+  }
 }
 
 export default function TravelCard(props: Props) {
@@ -92,12 +95,14 @@ export default function TravelCard(props: Props) {
               {produto.operator}
             </Typography>
             <S.List>
-              <li>Despesas médicas e hospitalares</li>
-              <li>Traslado médico</li>
-              <li>Morte ou Invalidez</li>
-              <li>Perda ou Atraso de Bagagem</li>
-              <li>Atraso de Voo</li>
-              <li>Assistência 24h em Português</li>
+              {produto.coverage
+                .sort((a, b) => (a.orderIndex as number) - (b.orderIndex as number))
+                .slice(0, 5)
+                .map((beneficio, index) => {
+                  return (
+                    <li key={beneficio.description}>{beneficio.description}</li>
+                  );
+              })}
             </S.List>
           </S.CompanyInfo>
         </S.Header>

@@ -4,11 +4,13 @@ import { PagamentoForm } from '@/components/common/PagamentoForm'
 import { PageTitle } from '@/components/common/PageTitle'
 import { HybridPagamento } from '@/components/common/hybrid/hybrid-pagamento'
 import { MainLayout } from '@/components/common/layouts'
+import { Bar } from '@/components/ui/Bar'
 import { Dialog } from '@/components/ui/Dialog'
 import { STORAGE_RESIDENCIAL_COMPRA, STORAGE_RESIDENCIAL_COTACAO } from '@/constants'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import useResidencial from '@/hooks/useResidencial'
 import api from '@/utils/api'
+import { Container } from '@mui/material'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
@@ -65,17 +67,18 @@ export default function Pagamento() {
           "operator": 'mastercard',
         }
       }
-      const response = await api.post("/hybrids/purchases", input);
-      if (response.status == 201) {
-        setCompra(JSON.stringify(response.data))
-        router.push("/seguros/residencial/concluido")
-        setLoading(false)
-      }
-      else {
-        setLoading(false)
-        setOpen(true)
-        setError(response.data.message)
-      }
+      router.push("/seguros/residencial/concluido")
+      // const response = await api.post("/hybrids/purchases", input);
+      // if (response.status == 201) {
+      //   setCompra(JSON.stringify(response.data))
+      //   router.push("/seguros/residencial/concluido")
+      //   setLoading(false)
+      // }
+      // else {
+      //   setLoading(false)
+      //   setOpen(true)
+      //   setError(response.data.message)
+      // }
       
     } catch (error) {
       setLoading(false)
@@ -87,17 +90,20 @@ export default function Pagamento() {
 
   return oferta && (
     <MainLayout>
-      <Wrapper style={{ flex: 1 }} background="/images/city.png">
-        <ContainerBox style={{ display: "flex" }}>
-          <PageTitle bold='Dados para' regular='pagamento' />
-          <HybridPagamento
-            onSubmit={onSubmit}
-            amount={oferta.amount ?? 0}
-            business="residencial"
-          />
-          <Dialog title='ERRO AO PROCESSAR PAGAMENTO' text={error} open={open} onClose={onClose}></Dialog>
-        </ContainerBox>
-      </Wrapper>
+      <Container maxWidth="xl">
+        <Wrapper style={{ flex: 1 }} background="/images/city.png">
+          <ContainerBox style={{ display: "flex" }}>
+            <PageTitle bold='Dados para' regular='pagamento' />
+            <HybridPagamento
+              onSubmit={onSubmit}
+              amount={oferta.amount ?? 0}
+              business="residencial"
+            />
+            <Dialog title='ERRO AO PROCESSAR PAGAMENTO' text={error} open={open} onClose={onClose}></Dialog>
+            <Bar step={75}/>
+          </ContainerBox>
+        </Wrapper>  
+      </Container>
     </MainLayout>
   )
 }

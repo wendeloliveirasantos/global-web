@@ -74,6 +74,7 @@ export const TextContainer = styled(Box)`
 `;
 
 export const StyledLink = styled.p`
+  padding-top: 8px;
   color: white;
   font-size: 11px;
   font-weight: 500;
