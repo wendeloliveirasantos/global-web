@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 4000
 
 # Comando para rodar o servidor Next.js
-CMD ["node", "server.js"]
+CMD ["npm", "run", "start:prod"]
