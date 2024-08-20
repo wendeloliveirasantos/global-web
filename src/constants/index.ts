@@ -1,7 +1,6 @@
 export const baseStorage = "@global";
 export const API_URL =
-  //process.env.API_URL ?? "https://global-api-prd-c314a925718f.herokuapp.com";
-  process.env.API_URL ?? "http://92.113.33.10:4000";
+  process.env.API_URL ?? "http://s400cgsckw0sko8oog8sskk8.92.113.33.10.sslip.io";
 
 export const STORAGE_VIAGEM_COMPRA = `${baseStorage}/viagem_compra`;
 export const STORAGE_VIAGEM_COTACAO = `${baseStorage}/viagem_cotacao`;
