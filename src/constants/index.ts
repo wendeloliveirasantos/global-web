@@ -1,6 +1,6 @@
 export const baseStorage = "@global";
 export const API_URL =
-  process.env.API_URL ?? "http://s400cgsckw0sko8oog8sskk8.92.113.33.10.sslip.io";
+  process.env.API_URL ?? "https://api.dobyseg.com.br";
 
 export const STORAGE_VIAGEM_COMPRA = `${baseStorage}/viagem_compra`;
 export const STORAGE_VIAGEM_COTACAO = `${baseStorage}/viagem_cotacao`;
