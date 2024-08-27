@@ -2,10 +2,11 @@
   "name": "global",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:4000",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "npx next -p 3000",
     "lint": "next lint",
     "static": "next build && next export"
   },
