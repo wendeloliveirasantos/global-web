@@ -6,6 +6,10 @@
 .pnp.js
 /android
 /ios
+package.json
+package-lock.json
+.env
+/src/constants
 
 # testing
 /coverage
