@@ -87,6 +87,10 @@ export default function HybridTitular({ onSubmit, business }: any) {
     }));
   }
 
+  function handleClick() {
+    router.push("/seguros/" + business + "/coberturas");
+  }
+
   function handleSubmit(e: any) {
     e.preventDefault();
     if (!cotacao) return
@@ -391,7 +395,7 @@ export default function HybridTitular({ onSubmit, business }: any) {
           <Button type="submit">Avançar</Button>
         </div>
         <div style={{ marginTop: 15 }}>
-          <Button href={"/seguros/" + business + "/coberturas"} variant="outlined">Voltar</Button>
+          <Button  onClick={handleClick} variant="outlined">Voltar</Button>
         </div>
       </form>
     </S.Card>

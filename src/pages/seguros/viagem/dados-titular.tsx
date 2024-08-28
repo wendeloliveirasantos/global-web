@@ -12,7 +12,7 @@ export default function DadosTitular() {
         <Wrapper style={{ flex: 1 }} background="/images/city.png">
           <ContainerBox style={{ display: "flex" }}>
             <PageTitle bold="Dados do" regular="Titular" />
-            <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+            <SubTitle regular="Preencha os dados do titular, que é a pessoa beneficiária do seguro contratado." />
             <TravelTitular />
             <Bar step={50}/>
           </ContainerBox>

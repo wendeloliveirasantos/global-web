@@ -101,7 +101,7 @@ export default function Pagamento() {
         <Wrapper style={{ flex: 1 }} background="/images/city.png">
           <ContainerBox style={{ display: "flex" }}>
             <PageTitle bold='Dados para' regular='Pagamento' />
-            <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+            <SubTitle regular="Verifique se as informações do seguro estão corretas. Caso necessário, você pode voltar e atualizar os dados do titular do cartão." />
             <PagamentoForm
               onSubmit={onSubmit}
               amount={oferta.amount ?? 0}

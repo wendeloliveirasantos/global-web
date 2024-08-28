@@ -2,6 +2,7 @@ import { ContainerBox, Wrapper } from '@/components/common'
 import Loading from '@/components/common/Loading/Loading'
 import { PagamentoForm } from '@/components/common/PagamentoForm'
 import { PageTitle } from '@/components/common/PageTitle'
+import SubTitle from '@/components/common/SubTitle/SubTitle'
 import { HybridPagamento } from '@/components/common/hybrid/hybrid-pagamento'
 import { MainLayout } from '@/components/common/layouts'
 import { Bar } from '@/components/ui/Bar'
@@ -94,6 +95,7 @@ export default function Pagamento() {
         <Wrapper style={{ flex: 1 }} background="/images/city.png">
           <ContainerBox style={{ display: "flex" }}>
             <PageTitle bold='Dados para' regular='pagamento' />
+            <SubTitle regular="Verifique se as informações do seguro estão corretas. Caso necessário, você pode voltar e atualizar os dados do titular do cartão." />
             <HybridPagamento
               onSubmit={onSubmit}
               amount={oferta.amount ?? 0}

@@ -21,36 +21,36 @@ export default function InsurancesHelp() {
           <Grid container spacing={1.5}>
             <Grid item xs={12} sm={6} md={4} lg={2.4}>
               <Item>
-                <CardHelp titulo='1 - Lorem Ipsum' texto='Supporting line text lorem ipsum dolor sit amet, consectetur.'></CardHelp>
+                <CardHelp titulo='Acesse o site' texto='Visite o site da Dobyseg.'></CardHelp>
               </Item>
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={2.4}>
               <Item>
-                <CardHelp titulo='2 - Lorem Ipsum' texto='Supporting line text lorem ipsum dolor sit amet, consectetur.'></CardHelp>
+                <CardHelp titulo='Escolha o seguro' texto='Selecione o tipo de seguro que você precisa.'></CardHelp>
               </Item>
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={2.4}>
               <Item>
-                <CardHelp titulo='3 - Lorem Ipsum' texto='Supporting line text lorem ipsum dolor sit amet, consectetur.'></CardHelp>
+                <CardHelp titulo='Preencha o cadastro' texto='Inclua suas informações pessoais e de contato.'></CardHelp>
               </Item>
             </Grid>
             <Grid item xs={12} sm={6} md={6} lg={2.4}>
               <Item>
-                <CardHelp titulo='4 - Lorem Ipsum' texto='Supporting line text lorem ipsum dolor sit amet, consectetur.'></CardHelp>
+                <CardHelp titulo='Receba as opções' texto='A Dobyseg apresentará as melhores opções de seguros para você.'></CardHelp>
               </Item>
             </Grid>
             <Grid item xs={12} sm={12} md={6} lg={2.4}>
               <Item>
-                <CardHelp titulo='5 - Lorem Ipsum' texto='Supporting line text lorem ipsum dolor sit amet, consectetur.'></CardHelp>
+                <CardHelp titulo='Conclua a contratação' texto='Escolha a opção que mais se adapta às suas necessidades e finalize a contratação.'></CardHelp>
               </Item>
             </Grid>
           </Grid>
         </Box>
-        <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3 }}>
+        {/* <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3 }}>
           <S.ButtonBox>
             <Button>Contrate agora</Button>
           </S.ButtonBox>
-        </Box>
+        </Box> */}
       </Container>
     </S.InsuranceContainer>
   )

@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/Card';
 import { Box, Grid } from '@mui/material'
 import { Item } from '../auto/AnswerQuestion/AnswerQuestion.styles'
 import { CardSeguro } from '@/components/ui/CardSeguro'
+import { useRouter } from 'next/router'
 
 type InsuranceInformation = {
   title: string
@@ -24,21 +25,24 @@ export default function Insurance({
   href,
   insuranceInformation
 }: InsuranceProps) {
+
+  const router = useRouter();
+  
   function handleClick() {
     removeResidencial();
     removeViagem();
+    router.push(href);
   }
 
   return (
     <S.InsuranceContainer>
       <S.TextBoxContainer sx={{ marginBottom: 3 }}>
         <S.TextContainer>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br/>
-          Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          {insuranceInformation.description}
         </S.TextContainer>
         <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3 }}>
           <S.ButtonBox>
-            <Button color='#62F4BC' textColor='#333333'>Contrate agora</Button>
+            <Button color='#62F4BC' textColor='#333333' onClick={handleClick}>Contrate agora</Button>
           </S.ButtonBox>
         </Box>
       </S.TextBoxContainer>
@@ -83,7 +87,7 @@ export default function Insurance({
       </Box>
       <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3 }}>
         <S.ButtonBox>
-          <Button color='#62F4BC' textColor='#333333'>Contrate agora</Button>
+          <Button color='#62F4BC' textColor='#333333' onClick={handleClick}>Contrate agora</Button>
         </S.ButtonBox>
       </Box>
       

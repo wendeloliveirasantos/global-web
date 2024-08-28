@@ -5,6 +5,7 @@ import { Card, CardActions, CardContent, Grid, Link, Typography } from "@mui/mat
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { STORAGE_RESIDENCIAL_COTACAO, STORAGE_RESIDENCIAL_PRODUTO, STORAGE_RESIDENCIAL_TITULAR } from "@/constants";
 import { Modal } from "@/components/ui/Modal";
+import { useRouter } from "next/router";
 
 const INITIAL_VALUE = {
   nomeTitular: "",
@@ -26,6 +27,7 @@ function formatarData(data: string) {
 }
 
 export default function PagamentoForm({ onSubmit, amount, business, isLoading }: any) {
+  const router = useRouter()
   const [formData, setFormData] = useState(INITIAL_VALUE);
   const [formErrors, setFormErrors] = useState(INITIAL_VALUE);
   const [cotacao] = useLocalStorage(STORAGE_RESIDENCIAL_COTACAO, "")
@@ -102,6 +104,10 @@ export default function PagamentoForm({ onSubmit, amount, business, isLoading }:
       ...prevFormData,
       [name]: value,
     }));
+  }
+
+  function handleClick() {
+    router.push("/seguros/" + business + "/dados-titular");
   }
 
   function handleSubmit(e: any) {
@@ -333,7 +339,7 @@ export default function PagamentoForm({ onSubmit, amount, business, isLoading }:
               <Button type="submit">Finalizar</Button>
             </div>
             <div style={{ marginTop: 16 }}>
-              <Button href={"/seguros/" + business + "/dados-titular"} variant="outlined">Voltar</Button>
+              <Button onClick={handleClick} variant="outlined">Voltar</Button>
             </div>
           </S.Group>
         </S.Row>

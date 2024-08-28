@@ -62,7 +62,7 @@ export const ContrateAgoraButton = styled(Button)<ButtonProps>`
 
 export const TextContainer = styled(Box)`
   position: absolute;
-  bottom: 16px;
+  bottom: 30px;
   left: 16px;
   color: white;
   font-size: 19px;
@@ -76,7 +76,7 @@ export const TextContainer = styled(Box)`
 export const StyledLink = styled.p`
   padding-top: 8px;
   color: white;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 500;
   text-decoration: underline;
   line-height: 16px;

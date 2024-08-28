@@ -1,6 +1,6 @@
 export const insuranceInformation = {
   title: `A Sua Jornada Segura começa aqui:`,
-  description: `Com a Dobyseg, você explora o mundo com a certeza de estar sempre protegido. Conheça nossas opções de seguros-viagem.`,
+  description: `Proteção completa para suas viagens, garantindo tranquilidade e segurança em qualquer destino.`,
   advantages: [
     {
       title: `Opção 1`,

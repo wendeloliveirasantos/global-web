@@ -1,9 +1,9 @@
 export const insuranceInformation = {
   title: `Seguro de Vida`,
-  description: `Seguro que visa proteger financeiramente aqueles que são mais importantes você, no caso de sua ausência.`,
+  description: `Garante segurança financeira para seus entes queridos, cuidando de quem é importante para você.`,
   advantages: [
     {
-      title: `Seguro de Vida`,
+      title: `Opção 1`,
       description: `Coberturas`,
       items: [
         `Cobertura em caso de Morte Qualquer Causa (Natural ou Acidental)`,
@@ -13,6 +13,39 @@ export const insuranceInformation = {
       ],
       more: `Mais informações você encontra nas Condições Gerais do seguro de vida.`
     },
+    {
+      title: `Opção 2`,
+      description: `Coberturas`,
+      items: [
+        `Cobertura em caso de Morte Qualquer Causa (Natural ou Acidental)`,
+        `Serviço de Assistência Funeral Familiar de até R$ 5.000,00`,
+        `Assinatura mensal do seguro`,
+        `Você escolhe o valor do seu seguro`,
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro de vida.`
+    },
+    {
+      title: `Opção 3`,
+      description: `Coberturas`,
+      items: [
+        `Cobertura em caso de Morte Qualquer Causa (Natural ou Acidental)`,
+        `Serviço de Assistência Funeral Familiar de até R$ 5.000,00`,
+        `Assinatura mensal do seguro`,
+        `Você escolhe o valor do seu seguro`,
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro de vida.`
+    },
+    {
+      title: `Opção 4`,
+      description: `Coberturas`,
+      items: [
+        `Cobertura em caso de Morte Qualquer Causa (Natural ou Acidental)`,
+        `Serviço de Assistência Funeral Familiar de até R$ 5.000,00`,
+        `Assinatura mensal do seguro`,
+        `Você escolhe o valor do seu seguro`,
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro de vida.`
+    }
     // {
     //   title: `Colisão`,
     //   description: `Se envolver em uma batida já é algo que dá um susto, então a gente não precisa levar outro só 

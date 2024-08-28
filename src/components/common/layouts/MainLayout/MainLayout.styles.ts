@@ -5,6 +5,7 @@ const Wrapper = styled.div`
     background-color: #D9D9D9;
 `
 
-const Main = styled.div``
+const Main = styled.div`
+`
 
 export { Wrapper, Main }

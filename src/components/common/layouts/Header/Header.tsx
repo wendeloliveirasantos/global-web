@@ -16,9 +16,19 @@ import { colors, Icon } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import * as S from './Header.styles'
+import UiDropdown from '@/components/ui/Dropdown/Dropdown';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
-const pages = ['Quem Somos', 'Nossos Seguros', 'Dúvidas Frequentes'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pagesMenu = [ {nome: 'Nossos Seguros', acao: true},
+  {nome: 'Quem Somos', acao: false},
+  {nome: 'Dúvidas Frequentes', acao: false}
+];
+const pages = [ {nome: 'Dúvidas Frequentes', acao: false},
+                {nome: 'Quem Somos', acao: false},
+                {nome: 'Nossos Seguros', acao: true}
+              ];
+const settings = ['Minha Conta'];
 
 export default function Header() {
 
@@ -33,6 +43,10 @@ export default function Header() {
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<{ [key: string]: HTMLElement | null }>({});
+  const open = Boolean(anchorEl);
+  const router = useRouter();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -47,6 +61,38 @@ export default function Header() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>, key: string) => {
+    setAnchorEl((prev) => ({
+      ...prev,
+      [key]: event.currentTarget,
+    }));
+  };
+
+  const handleClickMenu = (event: React.MouseEvent<HTMLLIElement>, key: string) => {
+    setAnchorEl((prev) => ({
+      ...prev,
+      [key]: event.currentTarget,
+    }));
+  };
+
+  const handleClose = (key: string, item: { nome: string, href: string }) => {
+    router.push(item.href);
+    setAnchorEl((prev) => ({
+      ...prev,
+      [key]: null,
+    }));
+  };
+  
+  const handleMenuToggle = () => {
+    setMenuOpen(!isMenuOpen);
+
+    if (!isMenuOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
   };
 
   return (
@@ -135,12 +181,13 @@ export default function Header() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              {pagesMenu.map((page) => (
+                <MenuItem key={page.nome} onClick={(event) => { if (page.acao) handleClickMenu(event, page.nome); }}>
                   <Typography 
                     textAlign="center">
-                      {page}
+                      {page.nome}
                   </Typography>
+                  <UiDropdown anchorEl={anchorEl[page.nome]} open={Boolean(anchorEl[page.nome])} onClose={(item) => handleClose(page.nome, item)}  itens={seguros}></UiDropdown>
                 </MenuItem>
               ))}
             </Menu>
@@ -166,8 +213,8 @@ export default function Header() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row-reverse', paddingRight: '16px' }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.nome}
+                onClick={(event) => { if (page.acao) handleClick(event, page.nome); }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 <Typography 
@@ -176,8 +223,9 @@ export default function Header() {
                   fontWeight="500"
                   lineHeight="24px"
                   letterSpacing="0.5px"
-                  textTransform="capitalize">{page}
+                  textTransform="capitalize">{page.nome}
                 </Typography>
+                <UiDropdown anchorEl={anchorEl[page.nome]} open={Boolean(anchorEl[page.nome])} onClose={(item) => handleClose(page.nome, item)}  itens={seguros}></UiDropdown>
               </Button>
             ))}
           </Box>

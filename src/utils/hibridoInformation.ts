@@ -1,12 +1,57 @@
 export const insuranceInformation = {
   title: `Seguro Híbrido`,
-  description: `Oferece proteção aos imóveis destinados à
-                moradia e que também abrigam pequenos e
-                médios estabelecimentos empresariais,
-                situados no mesmo local.`,
+  description: `Ideal para imóveis que servem como residência e negócio, oferecendo proteção completa para ambas as funções no mesmo local.`,
   advantages: [
     {
-      title: `Seguro Híbrido`,
+      title: `Opção 1`,
+      description: `Coberturas`,
+      items: [
+        `Incêndio e Explosão`,
+        `Queda de Raio`,
+        `Danos Elétricos`,
+        `Roubo e Furto Mediante Arrombamento`,
+        `Queda de Aeronave e Impacto de Veículos`,
+        `Implosão`,
+        `Fumaça`,
+        `Vendaval, Furacão, Ciclone, Tornado e Granizo`,
+        `Assistência Emergencial 24h`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro híbrido.`
+    },
+    {
+      title: `Opção 2`,
+      description: `Coberturas`,
+      items: [
+        `Incêndio e Explosão`,
+        `Queda de Raio`,
+        `Danos Elétricos`,
+        `Roubo e Furto Mediante Arrombamento`,
+        `Queda de Aeronave e Impacto de Veículos`,
+        `Implosão`,
+        `Fumaça`,
+        `Vendaval, Furacão, Ciclone, Tornado e Granizo`,
+        `Assistência Emergencial 24h`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro híbrido.`
+    },
+    {
+      title: `Opção 3`,
+      description: `Coberturas`,
+      items: [
+        `Incêndio e Explosão`,
+        `Queda de Raio`,
+        `Danos Elétricos`,
+        `Roubo e Furto Mediante Arrombamento`,
+        `Queda de Aeronave e Impacto de Veículos`,
+        `Implosão`,
+        `Fumaça`,
+        `Vendaval, Furacão, Ciclone, Tornado e Granizo`,
+        `Assistência Emergencial 24h`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro híbrido.`
+    },
+    {
+      title: `Opção 4`,
       description: `Coberturas`,
       items: [
         `Incêndio e Explosão`,

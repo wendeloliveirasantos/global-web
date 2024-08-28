@@ -1,12 +1,57 @@
 export const insuranceInformation = {
   title: `Seguro Empresarial`,
-  description: `Oferece proteção ao imóvel, estrutura
-                física e conteúdo, de pequenos e médios
-                estabelecimentos empresariais nas
-                diversas atividades.`,
+  description: `Proteção essencial para pequenos e médios negócios, cobrindo tanto o imóvel quanto seu conteúdo.`,
   advantages: [
     {
-      title: `Seguro Empresarial`,
+      title: `Opção 1`,
+      description: `Coberturas`,
+      items: [
+        `Incêndio e Explosão`,
+        `Queda de Raio`,
+        `Danos Elétricos`,
+        `Roubo e Furto Mediante Arrombamento`,
+        `Queda de Aeronave e Impacto de Veículos`,
+        `Implosão`,
+        `Fumaça`,
+        `Vendaval, Furacão, Ciclone, Tornado e Granizo`,
+        `Assistência Emergencial 24h`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro empresarial.`
+    },
+    {
+      title: `Opção 2`,
+      description: `Coberturas`,
+      items: [
+        `Incêndio e Explosão`,
+        `Queda de Raio`,
+        `Danos Elétricos`,
+        `Roubo e Furto Mediante Arrombamento`,
+        `Queda de Aeronave e Impacto de Veículos`,
+        `Implosão`,
+        `Fumaça`,
+        `Vendaval, Furacão, Ciclone, Tornado e Granizo`,
+        `Assistência Emergencial 24h`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro empresarial.`
+    },
+    {
+      title: `Opção 3`,
+      description: `Coberturas`,
+      items: [
+        `Incêndio e Explosão`,
+        `Queda de Raio`,
+        `Danos Elétricos`,
+        `Roubo e Furto Mediante Arrombamento`,
+        `Queda de Aeronave e Impacto de Veículos`,
+        `Implosão`,
+        `Fumaça`,
+        `Vendaval, Furacão, Ciclone, Tornado e Granizo`,
+        `Assistência Emergencial 24h`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro empresarial.`
+    },
+    {
+      title: `Opção 4`,
       description: `Coberturas`,
       items: [
         `Incêndio e Explosão`,

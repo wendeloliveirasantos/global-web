@@ -21,7 +21,7 @@ export default function Concluido() {
           <ContainerBox style={{ display: "flex" }}>
             <PageTitle inverter={true} bold=" Agora é só deixar com a gente!" regular="Pronto!" />
             <img style={{ paddingBottom: 25 }} src='/images/layer-concluido.png' width={350} alt="Custom Icon"/>
-            <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+            <SubTitle regular="Após concluir a contratação, você receberá um e-mail com o voucher do seguro, permitindo o uso imediato da cobertura adquirida. Ficou com alguma dúvida? Conte com a gente!" />
             <ConcluidoComponent compra={JSON.parse("{}")} />
             <Bar step={100}/>
           </ContainerBox>

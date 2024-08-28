@@ -21,7 +21,7 @@ export default function DadosBasicos() {
         <Wrapper style={{ flex: 1 }} background="/images/city.png">
           <ContainerBox style={{ display: "flex" }}>
             <PageTitle bold="Faça uma" regular="cotação" />
-            <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+            <SubTitle regular="Insira suas informações de cadastro para receber as melhores opções de seguro disponíveis." />
             <HybridQuote onSubmit={onSubmit} business="hibrido"/>
             <Bar step={0}/>
           </ContainerBox>

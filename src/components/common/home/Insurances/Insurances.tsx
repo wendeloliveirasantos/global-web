@@ -21,31 +21,31 @@ export default function Insurances() {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6} md={3} >
               <Item>
-                <Card titulo='Vantagem 1' texto='Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Aeneam vestibulum nulla.'></Card>
+                <Card titulo='Segurança e Confiabilidade' texto='A Dobyseg trabalha com as melhores seguradoras, garantindo a proteção que você precisa.'></Card>
               </Item>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <Item>
-                <Card titulo='Vantagem 2' texto='Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Aeneam vestibulum nulla.'></Card>
+                <Card titulo='Facilidade' texto='Todo o processo pode ser feito de forma prática e rápida, diretamente pelo celular.'></Card>
               </Item>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <Item>
-                <Card titulo='Vantagem 3' texto='Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Aeneam vestibulum nulla.'></Card>
+                <Card titulo='Rapidez' texto='Contrate seu seguro de maneira rápida, sem complicações.'></Card>
               </Item>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <Item>
-                <Card titulo='Vantagem 4' texto='Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Aeneam vestibulum nulla.'></Card>
+                <Card titulo='Melhores Ofertas' texto='Encontre as melhores opções de seguros que se adaptam às suas necessidades.'></Card>
               </Item>
             </Grid>
           </Grid>
         </Box>
-        <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3 }}>
+        {/* <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3 }}>
           <S.ButtonBox>
             <Button>Contrate agora</Button>
           </S.ButtonBox>
-        </Box>
+        </Box> */}
       </S.InsuranceContainer>
     </Container>
   )

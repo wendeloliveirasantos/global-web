@@ -1,9 +1,57 @@
 export const insuranceInformation = {
   title: `Seguro Residencial`,
-  description: `Oferece proteção aos imóveis, estrutura física e conteúdo, destinados à moradia.`,
+  description: `Proteção abrangente para sua residência, cobrindo tanto a estrutura física quanto os bens de valor no interior do imóvel, garantindo segurança e tranquilidade para o seu patrimônio.`,
   advantages: [
     {
-      title: `Seguro Residencial`,
+      title: `Opção 1`,
+      description: `Coberturas`,
+      items: [
+        `Incêndio e Explosão`,
+        `Queda de Raio`,
+        `Danos Elétricos`,
+        `Roubo e Furto Mediante Arrombamento`,
+        `Queda de Aeronave e Impacto de Veículos`,
+        `Implosão`,
+        `Fumaça`,
+        `Vendaval, Furacão, Ciclone, Tornado e Granizo`,
+        `Assistência Emergencial 24h`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro residencial.`
+    },
+    {
+      title: `Opção 2`,
+      description: `Coberturas`,
+      items: [
+        `Incêndio e Explosão`,
+        `Queda de Raio`,
+        `Danos Elétricos`,
+        `Roubo e Furto Mediante Arrombamento`,
+        `Queda de Aeronave e Impacto de Veículos`,
+        `Implosão`,
+        `Fumaça`,
+        `Vendaval, Furacão, Ciclone, Tornado e Granizo`,
+        `Assistência Emergencial 24h`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro residencial.`
+    },
+    {
+      title: `Opção 3`,
+      description: `Coberturas`,
+      items: [
+        `Incêndio e Explosão`,
+        `Queda de Raio`,
+        `Danos Elétricos`,
+        `Roubo e Furto Mediante Arrombamento`,
+        `Queda de Aeronave e Impacto de Veículos`,
+        `Implosão`,
+        `Fumaça`,
+        `Vendaval, Furacão, Ciclone, Tornado e Granizo`,
+        `Assistência Emergencial 24h`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro residencial.`
+    },
+    {
+      title: `Opção 4`,
       description: `Coberturas`,
       items: [
         `Incêndio e Explosão`,

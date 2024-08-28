@@ -92,6 +92,10 @@ export default function TravelTitular() {
     return calculatedAge == cotacaoObj.passengers[0].age;
   }
 
+  function handleClick() {
+    router.push("/seguros/viagem/coberturas");
+  }
+
   function handleSubmit(e: any) {
     e.preventDefault();
     if (!cotacao) return
@@ -385,7 +389,7 @@ export default function TravelTitular() {
           <Button type="submit">Avançar</Button>
         </div>
         <div style={{ marginTop: 15 }}>
-          <Button href="/seguros/viagem/coberturas" variant="outlined">Voltar</Button>
+          <Button onClick={handleClick} variant="outlined">Voltar</Button>
         </div>
       </form>
     </S.Card>

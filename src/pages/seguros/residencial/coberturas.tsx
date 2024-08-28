@@ -25,7 +25,7 @@ export default function Coberturas() {
         <Wrapper style={{ flex: 1 }} background="/images/city.png">
           <ContainerBox style={{ display: "flex" }}>
             <PageTitle bold="Escolha sua" regular="Cobertura" />
-            <SubTitle regular="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vestibulum nulla eu ultrices vulputate. Etiam viverra ante ut dui congue, a tincidunt lectus posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+            <SubTitle regular="Selecione a cobertura que melhor atende às suas necessidades. Se precisar revisar, você pode retornar à tela anterior a qualquer momento." />
             <CarouselPlano products={products} operator="nowSys" href="/seguros/residencial/dados-titular"/>
             <Bar step={25}/>
           </ContainerBox>

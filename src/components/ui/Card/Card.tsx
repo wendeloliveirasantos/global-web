@@ -19,9 +19,7 @@ function UiCard({ titulo, texto, ...rest }: CardProps) {
             <S.StyledTitleTypography sx={{ mb: 1.5 }}>
               {titulo}
             </S.StyledTitleTypography>
-            <S.StyledItemTypography>
-              {texto}
-            </S.StyledItemTypography>
+            <S.StyledItemTypography dangerouslySetInnerHTML={{ __html: texto }} />
           </div>
         </Box>
       </CardContent>

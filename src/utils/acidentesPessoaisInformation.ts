@@ -1,9 +1,39 @@
 export const insuranceInformation = {
   title: `Seguro Acidentes Pessoais`,
-  description: `Oferece indenização financeira ao segurado ou ao seu beneficiário caso ele sofra um acidente e fique inválido ou venha a falecer.`,
+  description: `Oferece indenização em caso de acidentes, protegendo você e seus beneficiários em situações imprevistas.`,
   advantages: [
     {
-      title: `Seguro Acidentes Pessoais`,
+      title: `Opção 1`,
+      description: `Coberturas`,
+      items: [
+        `Morte Acidental`,
+        `Invalidez Permanente Total ou Parcial por Acidente`,
+        `Assistência Funeral Familiar`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro de vida.`
+    },
+    {
+      title: `Opção 2`,
+      description: `Coberturas`,
+      items: [
+        `Morte Acidental`,
+        `Invalidez Permanente Total ou Parcial por Acidente`,
+        `Assistência Funeral Familiar`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro de vida.`
+    },
+    {
+      title: `Opção 3`,
+      description: `Coberturas`,
+      items: [
+        `Morte Acidental`,
+        `Invalidez Permanente Total ou Parcial por Acidente`,
+        `Assistência Funeral Familiar`
+      ],
+      more: `Mais informações você encontra nas Condições Gerais do seguro de vida.`
+    },
+    {
+      title: `Opção 4`,
       description: `Coberturas`,
       items: [
         `Morte Acidental`,

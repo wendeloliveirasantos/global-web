@@ -5,6 +5,7 @@ import { Card, CardActions, CardContent, Grid, Link, Typography } from "@mui/mat
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { STORAGE_VIAGEM_COTACAO, STORAGE_VIAGEM_PRODUTO, STORAGE_VIAGEM_TITULAR } from "@/constants";
 import { Modal } from "@/components/ui/Modal";
+import { useRouter } from "next/router";
 
 const INITIAL_VALUE = {
   nomeTitular: "",
@@ -45,6 +46,7 @@ function obterLabelPorValor(value: string): string | undefined {
 }
 
 export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
+  const router = useRouter()
   const [formData, setFormData] = useState(INITIAL_VALUE);
   const [formErrors, setFormErrors] = useState(INITIAL_VALUE);
   const [cotacao] = useLocalStorage(STORAGE_VIAGEM_COTACAO, "")
@@ -127,6 +129,10 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
       ...prevFormData,
       [name]: value,
     }));
+  }
+
+  function handleClick() {
+    router.push("/seguros/viagem/dados-titular");
   }
 
   function handleSubmit(e: any) {
@@ -390,7 +396,7 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
               <Button type="submit">Finalizar</Button>
             </div>
             <div style={{ marginTop: 16 }}>
-              <Button href="/seguros/viagem/dados-titular" variant="outlined">Voltar</Button>
+              <Button onClick={handleClick} variant="outlined">Voltar</Button>
             </div>
           </S.Group>
         </S.Row>

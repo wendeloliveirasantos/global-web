@@ -17,12 +17,12 @@ type CarouselProdutoProps = {
 };
 
 const items = [
-  { src: '/images/produto-item-1.png', alt: 'Image 1', text: 'Seguro-Viagem', href: '' },
-  { src: '/images/produto-item-2.png', alt: 'Image 2', text: 'Seguro-Residencial', href: '' },
-  { src: '/images/produto-item-1.png', alt: 'Image 3', text: 'Seguro-Híbrido', href: '' },
-  { src: '/images/produto-item-2.png', alt: 'Image 4', text: 'Seguro-Empresarial', href: '' },
-  { src: '/images/produto-item-1.png', alt: 'Image 5', text: 'Seguro-Vida', href: '' },
-  { src: '/images/produto-item-2.png', alt: 'Image 6', text: 'Seguro-Acidentes-Pessoais', href: '' },
+  { src: '/images/nosso-seguro.png', alt: 'Image 1', text: 'Seguro Acidentes Pessoais', href: '/seguros/acidentes-pessoais/detalhes' },
+  { src: '/images/produto-item-1.png', alt: 'Image 2', text: 'Seguro Viagem', href: '/seguros/viagem/detalhes' },
+  { src: '/images/produto-item-4.png', alt: 'Image 3', text: 'Seguro Residencial', href: '/seguros/residencial/detalhes' },
+  { src: '/images/produto-item-3.jpeg', alt: 'Image 4', text: 'Seguro Híbrido', href: '/seguros/hibrido/detalhes' },
+  { src: '/images/nosso-seguro.png', alt: 'Image 5', text: 'Seguro Vida', href: '/seguros/vida/detalhes' },
+  { src: '/images/produto-item-3.jpeg', alt: 'Image 6', text: 'Seguro Empresarial', href: '/seguros/empresarial/detalhes' },
 ];
 
 
@@ -52,7 +52,7 @@ function UiCarouselProduto({ className, children, onClick, variant, href,...rest
             >
               <S.TextContainer>
                 {item.text}
-                <Link href="/saiba-mais">
+                <Link href={item.href}>
                   <S.StyledLink>Saiba Mais</S.StyledLink>
                 </Link>
               </S.TextContainer>
