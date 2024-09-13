@@ -73,7 +73,7 @@ export default function ComplementaryDataInsured() {
                 required
               />
               <div style={{ marginTop: 30 }}>
-                <Button type="submit">Avançar</Button>
+                <Button color="#FF5A62" type="submit">Avançar</Button>
               </div>
             </div>
           </form>

@@ -74,18 +74,18 @@ export default function Pagamento() {
           "cellPhone": values.contatoEmergencial
         }
       }
-      router.push("/seguros/viagem/concluido")
-      // const response = await api.post("/travels/purchases", input);
-      // if (response.status == 201) {
-      //   setCompra(JSON.stringify(response.data))
-      //   router.push("/seguros/viagem/concluido")
-      //   setLoading(false)
-      // }
-      // else {
-      //   setLoading(false)
-      //   setOpen(true)
-      //   setError(response.data.message)
-      // }
+      
+      const response = await api.post("/travels/purchases", input);
+      if (response.status == 201) {
+        setCompra(JSON.stringify(response.data))
+        router.push("/seguros/viagem/concluido")
+        setLoading(false)
+      }
+      else {
+        setLoading(false)
+        setOpen(true)
+        setError(response.data.message)
+      }
       
     } catch (error) {
       setLoading(false)

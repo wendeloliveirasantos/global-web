@@ -26,7 +26,7 @@ export default function Error() {
         <h3>Ops...</h3>
         <p>Ocorreu um erro do nosso lado.</p>
         <div style={{ width: "100%", marginTop: 20 }}>
-          <Button onClick={() => router.push("/")}>Voltar</Button>
+          <Button color="#FF5A62" textColor="#FF5A62" onClick={() => router.push("/")}>Voltar</Button>
         </div>
       </div>
     </Wrapper>

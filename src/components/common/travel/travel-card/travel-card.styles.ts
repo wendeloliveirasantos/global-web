@@ -49,6 +49,7 @@ export const Container = styled(Box)({
 });
 
 export const Card = styled(Box)({
+  maxWidth: '375px',
   background: 'white',
   borderRadius: 24,
   flexDirection: 'column',

@@ -58,7 +58,7 @@ export default function DriverData({ onSubmit, initialValues }: DriverDataProps)
           <TextInput type="number" label="Quantos?" name="referencePoint" />
         )}
         <div style={{ marginTop: 40 }}>
-          <Button>Avançar</Button>
+          <Button color="#FF5A62">Avançar</Button>
         </div>
       </form>
     </S.Wrapper>

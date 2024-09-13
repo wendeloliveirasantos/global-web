@@ -215,10 +215,10 @@ export default function DadosPassageiro() {
         <S.Row>
           <S.Group>
             <div style={{ marginTop: 20 }}>
-              <Button type="submit">Avançar</Button>
+              <Button color="#FF5A62" type="submit">Avançar</Button>
             </div>
             <div style={{ marginTop: 20 }}>
-              <Button onClick={handleBack} variant="outlined">Voltar</Button>
+              <Button color="#FF5A62" textColor="#FF5A62" onClick={handleBack} variant="outlined">Voltar</Button>
             </div>
           </S.Group>
         </S.Row>

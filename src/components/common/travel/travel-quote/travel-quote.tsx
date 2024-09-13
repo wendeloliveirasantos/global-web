@@ -104,6 +104,7 @@ export default function TravelQuote() {
   const [phoneError, setPhoneError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [destinationError, setDestinationError] = useState("");
+  const [passengerError, setPassengerError] = useState("");
   const [startDateError, setStartDateError] = useState("");
   const [endDateError, setEndDateError] = useState("");
   const [termoError, setTermoError] = useState("");
@@ -154,6 +155,7 @@ export default function TravelQuote() {
     setPhoneError("");
     setEmailError("");
     setDestinationError("");
+    setPassengerError("");
     setStartDateError("");
     setEndDateError("");
     setTermoError("");
@@ -177,7 +179,7 @@ export default function TravelQuote() {
     }
 
     if (!values.email) {
-      setEmailError("Por favor, insira o telefone");
+      setEmailError("Por favor, insira o e-mail");
       hasError = true;
     }
 
@@ -186,6 +188,11 @@ export default function TravelQuote() {
       hasError = true;
     }
 
+    if (!passengers.length) {
+      setPassengerError("Por favor, escolha a quantidade");
+      hasError = true;
+    }
+    
     if (!values.startDate) {
       setStartDateError("Por favor, selecione a data de saída");
       hasError = true;
@@ -303,7 +310,7 @@ export default function TravelQuote() {
             onChange={(v) => addPassengers(+v)}
             label="Número de passageiros"
             options={quantPass}
-            helperText={destinationError}
+            helperText={passengerError}
           />
         </div>
 
@@ -403,7 +410,7 @@ export default function TravelQuote() {
         </div>
         
         <div style={{ marginTop: 30 }}>
-          <Button type="submit">Avançar</Button>
+          <Button color="#FF5A62" type="submit">Avançar</Button>
         </div>
       </form>
     </S.Card>

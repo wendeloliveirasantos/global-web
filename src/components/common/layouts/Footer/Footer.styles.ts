@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  background: ${({ theme }) => theme.colors.default};
+  background: ${({ theme }) => theme.colors.blueGray};
   width: 100%; 
   height: 100%;
   padding-top: 16px;
@@ -37,7 +37,7 @@ export const Link = styled.li<{ onClick?: any }>`
   align-items: center;  /* Centraliza os itens verticalmente */
   a:link,
   a:visited {
-    color: ${(props) => props.theme.colors.white};
+    color: #333333;
     text-decoration: none;
   }
 `;
@@ -60,7 +60,7 @@ export const User = styled.div`
     background: ${(props) => props.theme.colors.lightBlue};
 
     svg path {
-      fill: ${(props) => props.theme.colors.white};
+      fill: #333333;
     }
   }
 
@@ -113,7 +113,7 @@ export const LoginMenu = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: ${(props) => props.theme.colors.white};
+  color: #333333;
   display: none;
 
   h1 {
@@ -144,7 +144,7 @@ export const LoginMenu = styled.div`
   #link {
     text-decoration: underline;
     font-size: 14px;
-    color: ${(props) => props.theme.colors.white};
+    color: #333333;
   }
 
   @media (max-width: 800px) {
@@ -182,7 +182,7 @@ export const RegisterLink = styled.a`
   justify-content: space-between;
   margin-top: 20px;
   font-size: 18px;
-  color: ${(props) => props.theme.colors.white};
+  color: #333333;
   text-decoration: none;
 
   img {
@@ -198,7 +198,7 @@ export const Close = styled.div`
   display: none;
 
   span {
-    color: ${(props) => props.theme.colors.white};
+    color: #333333;
     font-size: 14px;
     text-decoration: underline;
     margin-right: 10px;
@@ -223,7 +223,7 @@ export const MenuHeader = styled.div`
   justify-content: flex-start;
   padding-left: 30px;
   font-size: 14px;
-  color: ${(props) => props.theme.colors.darkBlue};
+  color: #333333;
 
   @media (max-width: 400px) {
     height: 31px;
@@ -242,7 +242,7 @@ export const MenuIcon = styled.div`
   }
 
   svg {
-    color: ${(props) => props.theme.colors.darkBlue};
+    color: #333333;
     @media (min-width: 768px) {
       display: none;
     }
@@ -271,7 +271,7 @@ export const MenuItem = styled.div`
   padding: 0 30px;
   align-items: center;
   justify-content: space-between;
-  color: ${(props) => props.theme.colors.white};
+  color: #333333;
   text-decoration: none;
   cursor: pointer;
 

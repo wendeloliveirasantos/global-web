@@ -46,7 +46,7 @@ export default function Footer() {
       <Container maxWidth="xl">
       <S.Container>
         <Link href="/">
-          <S.Logo src="/images/logo.png" />
+          <S.Logo src="/images/logo-footer.png" />
         </Link>
         <S.Links>
           <S.Link>
@@ -70,7 +70,7 @@ export default function Footer() {
       <S.Menu isOpen={isMenuOpen}>
         <S.MenuItem onClick={() => setMenuOpen(false)}>
           <Link href="/seguros/viagem/detalhes">
-            <span style={{ color: "#FFFFFF", fontWeight: "bold" }}>Seguro Viagem</span>
+            <span style={{ color: "#333333", fontWeight: "bold" }}>Seguro Viagem</span>
           </Link>
         </S.MenuItem>
       </S.Menu>
@@ -79,7 +79,7 @@ export default function Footer() {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            color: 'white',
+            color: '#333333',
             fontSize: '18px',
             fontWeight: 700,
             lineHeight: '20px',
@@ -98,7 +98,7 @@ export default function Footer() {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            color: 'white',
+            color: '#333333',
             fontSize: '18px',
             fontWeight: 400,
             lineHeight: '20px',
@@ -117,7 +117,7 @@ export default function Footer() {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            color: 'white',
+            color: '#333333',
             fontSize: '18px',
             fontWeight: 400,
             lineHeight: '20px',
@@ -133,7 +133,7 @@ export default function Footer() {
         <Box
           sx={{
             textAlign: 'right',
-            color: 'white',
+            color: '#333333',
             fontSize: '14px',
             fontWeight: 400,
             lineHeight: '20px',

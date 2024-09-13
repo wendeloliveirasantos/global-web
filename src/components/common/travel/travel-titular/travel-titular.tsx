@@ -154,7 +154,7 @@ export default function TravelTitular() {
     if (!formData.email) {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
-        email: "Por favor, insira o email",
+        email: "Por favor, insira o e-mail",
       }));
       hasError = true;
     }
@@ -386,10 +386,10 @@ export default function TravelTitular() {
         </S.Row>
 
         <div style={{ marginTop: 20 }}>
-          <Button type="submit">Avançar</Button>
+          <Button color="#FF5A62" type="submit">Avançar</Button>
         </div>
         <div style={{ marginTop: 15 }}>
-          <Button onClick={handleClick} variant="outlined">Voltar</Button>
+          <Button color="#FF5A62" textColor="#FF5A62" onClick={handleClick} variant="outlined">Voltar</Button>
         </div>
       </form>
     </S.Card>

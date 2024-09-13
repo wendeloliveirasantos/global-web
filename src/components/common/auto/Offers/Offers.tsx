@@ -37,7 +37,7 @@ export default function Offers({ offers, onSubmit }: OffersProps) {
               </S.Coverage>
             ))}
           </S.Coverages>
-          <S.Button onClick={() => onSubmit(offer)}>Selecionar</S.Button>
+          <S.Button color="#FF5A62" onClick={() => onSubmit(offer)}>Selecionar</S.Button>
         </S.Card>
       ))}
     </S.Offers>

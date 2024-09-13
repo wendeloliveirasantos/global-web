@@ -88,7 +88,7 @@ export default function QuestionariePage() {
             />
             {answers.length === questions.length && (
               <div style={{ marginTop: 40 }}>
-                <Button onClick={handleSubmit}>Avançar</Button>
+                <Button color="#FF5A62" onClick={handleSubmit}>Avançar</Button>
               </div>
             )}
           </div>

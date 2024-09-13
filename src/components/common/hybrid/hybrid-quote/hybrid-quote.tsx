@@ -113,7 +113,7 @@ export default function HybridQuote({ onSubmit, business }: any) {
     }
 
     if (!values.email) {
-      setEmailError("Por favor, insira o telefone");
+      setEmailError("Por favor, insira o e-mail");
       hasError = true;
     }
 
@@ -238,7 +238,7 @@ export default function HybridQuote({ onSubmit, business }: any) {
         </div>
         
         <div style={{ marginTop: 20 }}>
-          <Button type="submit">Avançar</Button>
+          <Button color="#FF5A62" type="submit">Avançar</Button>
         </div>
       </form>
     </S.Card>

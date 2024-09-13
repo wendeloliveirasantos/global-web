@@ -114,7 +114,7 @@ export default function VehicleData({ onSubmit }: VehicleDataProps) {
       )}
         {postalCode?.length === 9 && (
           <div style={{ marginTop: 40 }}>
-            <Button type="submit">Avançar</Button>
+            <Button color="#FF5A62" type="submit">Avançar</Button>
           </div>
         )}
       </form>

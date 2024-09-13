@@ -41,7 +41,7 @@ function UiCarousel({ className, children, onClick, variant, items, multiplier, 
             A Dobyseg é uma corretora de seguros 100% digital, com mais de 10 anos de experiência. <br/>
             Oferecemos atendimento personalizado em todas as etapas, da contratação ao pós-vendas, sempre com as melhores seguradoras do mercado.
           </S.TextContainer>
-          {item.href != null ? <S.ContrateAgoraButton variant="outlined" onClick={ () => handleClick(item) }>Contrate agora</S.ContrateAgoraButton> : null}
+          {item.href != null ? <S.ContrateAgoraButton variant="contained" onClick={ () => handleClick(item) }>Contrate agora</S.ContrateAgoraButton> : null}
         </S.WelcomeContainer>
       ))}
     </Carousel>

@@ -68,18 +68,18 @@ export default function Pagamento() {
           "operator": 'mastercard',
         }
       }
-      router.push("/seguros/hibrido/concluido")
-      // const response = await api.post("/hybrids/purchases", input);
-      // if (response.status == 201) {
-      //   setCompra(JSON.stringify(response.data))
-      //   router.push("/seguros/hibrido/concluido")
-      //   setLoading(false)
-      // }
-      // else {
-      //   setLoading(false)
-      //   setOpen(true)
-      //   setError(response.data.message)
-      // }
+      
+      const response = await api.post("/hybrids/purchases", input);
+      if (response.status == 201) {
+        setCompra(JSON.stringify(response.data))
+        router.push("/seguros/hibrido/concluido")
+        setLoading(false)
+      }
+      else {
+        setLoading(false)
+        setOpen(true)
+        setError(response.data.message)
+      }
       
     } catch (error) {
       setLoading(false)

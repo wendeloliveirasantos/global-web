@@ -46,11 +46,15 @@ export const ContrateAgoraButton = styled(Button)<ButtonProps>`
   bottom: 39px;
   right: 66px;
   text-transform: math-auto;
-  color: white !important;
-  border: 1px solid white !important;
+  color: #FFFFFF !important;
+  background-color: #00349B !important;
   &:hover: {
-    border: 1px solid white !important;
-    color: white !important;
+    background-color: #00349B !important;
+    color: #FFFFFF !important;
+  },
+  &:active: {
+    background-color: #00349B !important;
+    color: #FFFFFF !important;
   };
 
   font-size: 18px;

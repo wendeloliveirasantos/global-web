@@ -62,7 +62,7 @@ export default function HybridCard(props: Props) {
     //   <S.Link onClick={onChange}>Veja o detalhe de sua cobertura</S.Link>
     //   <Modal open={open} title="Coberturas" onClose={onClose} descriptions={produto.coverage} businessName="hibrido"></Modal>
     //   <div style={{ marginTop: 20 }}>
-    //     <Button onClick={() => handleSubmit(produto)}>Selecionar</Button>
+    //     <Button color="#FF5A62" onClick={() => handleSubmit(produto)}>Selecionar</Button>
     //   </div>
     // </S.Wrapper>
     <S.Container>
@@ -119,7 +119,7 @@ export default function HybridCard(props: Props) {
         <S.SeeMore onClick={onChange}>Veja mais detalhes de sua cobertura</S.SeeMore>
         <Modal open={open} title="Coberturas" onClose={onClose} descriptions={produto.coverage} businessName="viagem"></Modal>
         <Box padding="14px 20px 21px 20px" width={"100%"}>
-          <Button onClick={() => handleSubmit(produto)}>Selecionar</Button>
+          <Button color="#FF5A62" onClick={() => handleSubmit(produto)}>Selecionar</Button>
         </Box>
       </S.Card>
     </S.Container>

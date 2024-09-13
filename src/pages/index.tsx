@@ -10,7 +10,7 @@ export default function Home() {
       <Insurances />
       <AboutUsHome />
       <InsurancesHelp />
-      <People />
+      {/* <People /> */}
     </MainLayout>
   )
 }
