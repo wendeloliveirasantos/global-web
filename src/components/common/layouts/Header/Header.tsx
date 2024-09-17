@@ -20,13 +20,14 @@ import UiDropdown from '@/components/ui/Dropdown/Dropdown';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-const pagesMenu = [ {nome: 'Nossos Seguros', acao: true},
+const pagesMenu = [ 
   {nome: 'Quem Somos', acao: false},
+  {nome: 'Nossos Seguros', acao: true},
   {nome: 'Dúvidas Frequentes', acao: false}
 ];
 const pages = [ {nome: 'Dúvidas Frequentes', acao: false},
-                {nome: 'Quem Somos', acao: false},
-                {nome: 'Nossos Seguros', acao: true}
+                {nome: 'Nossos Seguros', acao: true},
+                {nome: 'Quem Somos', acao: false}
               ];
 const settings = ['Minha Conta'];
 

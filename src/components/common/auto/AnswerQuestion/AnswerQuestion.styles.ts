@@ -16,12 +16,14 @@ export const Content = styled.div`
 `
 
 export const Item = styled.div`
-  color: ${props => props.theme.colors.textColor};
+  color: ${(props) => props.theme.colors.textColor};
   display: flex;
+  flex-direction: column; /* Empilha o conteúdo verticalmente */
   align-items: center;
-  margin-bottom: 0.5rem;
   justify-content: center;
-`
+  height: 100%; /* Garante que o item ocupe a altura total */
+  margin-bottom: 0.5rem;
+`;
 
 export const Check = styled.div<{ checked: boolean }>`
   border: 1px solid ${props => props.theme.colors.textColor};

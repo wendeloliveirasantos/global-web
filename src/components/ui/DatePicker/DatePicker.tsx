@@ -16,6 +16,7 @@ type DatePickerProps = {
   maxLength?: number
   required?: boolean
   onChange(date: string | number | null): void
+  onBlur?: () => void
   type?: string
   defaultValue?: string | number
   min?: any
@@ -34,6 +35,7 @@ export default function UiDatePicker({
   register,
   required = false,
   onChange,
+  onBlur,
   defaultValue,
   helperText,
   min,
@@ -104,7 +106,8 @@ export default function UiDatePicker({
               helperText: helperText,
               InputProps: {
                 endAdornment: null
-              }
+              },
+              onBlur: onBlur
             },
           }} defaultValue={defaultValue} value={value} name={name} onChange={(date) => onChange(dayjs(date).format('YYYY-MM-DD'))} label={label} {...rest} disabled={disabled} />
       </LocalizationProvider>

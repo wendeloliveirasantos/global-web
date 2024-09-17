@@ -12,6 +12,7 @@ type SliderProps = {
   marks?: { value: number; label: string; }[]
   min?: number
   max?: number
+  value?: number
 }
 
 const PrettoSlider = styled(Slider)({
@@ -70,7 +71,7 @@ const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
   },
 }));
 
-function UiSlider({ name, label, children, onChange, type, variant, marks, min, max, ...rest }: SliderProps) {
+function UiSlider({ name, label, children, onChange, type, variant, marks, min, max, value, ...rest }: SliderProps) {
   return (
     <FormControl
       fullWidth
@@ -89,7 +90,7 @@ function UiSlider({ name, label, children, onChange, type, variant, marks, min, 
         
       </HtmlTooltip> */}
       <PrettoSlider
-        defaultValue={min}
+        defaultValue={value}
         aria-labelledby={name}
         valueLabelDisplay="off"
         step={35}

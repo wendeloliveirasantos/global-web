@@ -26,7 +26,7 @@ export const Container = styled(Box)({
 });
 
 export const Background = styled(Box)({
-  width: 82,
+  width: 150,
   height: 31,
   background: 'white',
   borderRadius: 35,
@@ -36,7 +36,7 @@ export const Background = styled(Box)({
 });
 
 export const Text = styled(Typography)({
-  width: 82,
+  width: 150,
   textAlign: 'center',
   color: '#333333',
   fontSize: 12,
