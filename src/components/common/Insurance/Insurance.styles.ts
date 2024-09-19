@@ -10,7 +10,7 @@ export const InsuranceContainer = styled.div`
 `;
 
 export const StyledTitleTypography = styled(Typography)`
-    color: white;
+    color: #333333;
     font-size: 32px;
     font-weight: 700;
     line-height: 30px;
@@ -25,7 +25,7 @@ export const Text = styled.p`
 
 
 export const TextInfo = styled(Typography)`
-    color: white;
+    color: #333333;
     font-size: 18px;
     font-weight: 500;
     line-height: 18px;
@@ -62,7 +62,7 @@ export const ContrateAgoraButton = styled(Button)<ButtonProps>`
 `;
 
 export const TextContainer = styled(Box)`
-    color: white;
+    color: #333333;
     font-size: 18px;
     font-weight: 500;
     line-height: 18px;

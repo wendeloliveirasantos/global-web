@@ -27,7 +27,8 @@ export default function useOfertasViagem(): HookReturn {
       range: cotacao.rangePremio
     };
     const response = await api.post("/travels/quotes", input);
-    setProducts(response.data);
+    const sortedProducts = response.data.sort((a: { amount: number; }, b: { amount: number; }) => a.amount - b.amount);
+    setProducts(sortedProducts);
   }
 
   useEffect(() => {

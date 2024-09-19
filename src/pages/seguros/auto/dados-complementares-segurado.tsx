@@ -93,7 +93,7 @@ export default function ComplementaryDataInsured() {
                 ]}
               />
               <div style={{ marginTop: 30 }}>
-                <Button onClick={() => handleInput()}>Avançar</Button>
+                <Button color="#FF5A62" onClick={() => handleInput()}>Avançar</Button>
               </div>
             </div>
           </div>

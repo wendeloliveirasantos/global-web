@@ -12,6 +12,7 @@ type SliderProps = {
   marks?: { value: number; label: string; }[]
   min?: number
   max?: number
+  value?: number
 }
 
 const PrettoSlider = styled(Slider)({
@@ -62,15 +63,17 @@ const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
 ))(({ theme }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
     alignItems: 'center',
-    backgroundColor: '#f5f5f9',
-    color: 'rgba(0, 0, 0, 0.87)',
+    backgroundColor: '#FFFFFF',
+    borderRadius: '24px',
+    color: '#333333',
     maxWidth: 220,
-    fontSize: theme.typography.pxToRem(12),
-    border: '1px solid #dadde9',
+    fontSize: '17px',
+    padding: '16px 16px',
+    border: '1px solid #E5E5E5',
   },
 }));
 
-function UiSlider({ name, label, children, onChange, type, variant, marks, min, max, ...rest }: SliderProps) {
+function UiSlider({ name, label, children, onChange, type, variant, marks, min, max, value, ...rest }: SliderProps) {
   return (
     <FormControl
       fullWidth
@@ -78,25 +81,24 @@ function UiSlider({ name, label, children, onChange, type, variant, marks, min, 
       <Typography sx={{ color: '#333333', fontSize: 16, fontWeight: '400', letterSpacing: 0.50, wordWrap: 'break-word' }} id={name} gutterBottom>
         {label}
       </Typography>
-      {/* <HtmlTooltip
-        placement='bottom'
+      <HtmlTooltip
+        placement='top'
         title={
           <React.Fragment>
-            <Typography color="inherit">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at maximus leo, sit amet bibendum orci.</Typography>
+            <Typography color="inherit">O produto garante o pagamento de indenização ao segurado.</Typography>
           </React.Fragment>
         }
       >
-        
-      </HtmlTooltip> */}
-      <PrettoSlider
-        defaultValue={min}
-        aria-labelledby={name}
-        valueLabelDisplay="off"
-        step={35}
-        min={min}
-        max={max}
-        onChange={onChange}
-      />
+        <PrettoSlider
+          defaultValue={value}
+          aria-labelledby={name}
+          valueLabelDisplay="off"
+          step={35}
+          min={min}
+          max={max}
+          onChange={onChange}
+        />
+      </HtmlTooltip>
       
       {/* <Slider
         defaultValue={min}

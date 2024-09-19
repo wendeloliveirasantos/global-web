@@ -336,10 +336,10 @@ export default function PagamentoForm({ onSubmit, amount, business, isLoading }:
         <S.Row>
           <S.Group>
             <div>
-              <Button type="submit">Finalizar</Button>
+              <Button color="#FF5A62" type="submit">Finalizar</Button>
             </div>
             <div style={{ marginTop: 16 }}>
-              <Button onClick={handleClick} variant="outlined">Voltar</Button>
+              <Button color="#FF5A62" textColor="#FF5A62" onClick={handleClick} variant="outlined">Voltar</Button>
             </div>
           </S.Group>
         </S.Row>

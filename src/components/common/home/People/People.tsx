@@ -13,8 +13,8 @@ export default function PeopleHelp() {
     <S.InsuranceContainer>
       <Container maxWidth="xl">
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={1.5}>
-            <Grid item xs={12} sm={6} md={3}>
+          <Grid container spacing={1.5} sx={{ marginBottom: 6, marginTop: 6 }}>
+            {/* <Grid item xs={12} sm={6} md={3}>
               <Item>
                 <CardPeople titulo='Nome Sobrenome' texto='Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Aeneam vestibulum nulla.' src='/images/people-1.png'></CardPeople>
               </Item>
@@ -33,7 +33,7 @@ export default function PeopleHelp() {
               <Item>
                 <CardPeople titulo='Nome Sobrenome' texto='Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Aeneam vestibulum nulla.' src='/images/people-4.png'></CardPeople>
               </Item>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Box>
       </Container>

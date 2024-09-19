@@ -4,8 +4,9 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 100%;
     height: 100%;
-    padding: 5px 0px 35px 0px;
-    background-color: ${props => props.theme.colors.default};
+    padding: 10px 0px 35px 0px;
+    background: #EFF2F0;
+    box-shadow: 0px 4px 4px 0px #00000040;
 `;
 
 export const WelcomeContainer = styled.div`
@@ -102,7 +103,7 @@ export const ButtonBox = styled(Box)`
 `
 
 export const TextContainer = styled(Box)`
-    color: white;
+    color: #333333;
     font-size: 18px;
     font-weight: 500;
     line-height: 18px;

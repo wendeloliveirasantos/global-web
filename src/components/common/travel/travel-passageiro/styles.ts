@@ -4,7 +4,7 @@ export const WrapperStep = styled.div`
   text-align: -webkit-center;
 `
 export const Wrapper = styled.div`
-  width: 500px;
+  max-width: 480px;
 `
 
 export const Description = styled.p`

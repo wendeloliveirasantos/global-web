@@ -104,7 +104,7 @@ function UiModal({ label, children, onChange, onClose, type, open, title, varian
                             <StyledTableCell component="th" scope="row">
                               {row.description}
                             </StyledTableCell>
-                            {businessName == 'viagem' ? <StyledTableCell align="right">{row.amount}</StyledTableCell> : <StyledTableCell align="right">{formatCurrency(+row.amount)}</StyledTableCell>} 
+                            {businessName == 'universal' ? <StyledTableCell align="right">{row.amount}</StyledTableCell> : <StyledTableCell align="right">{'R$ ' + formatCurrency(+row.amount)}</StyledTableCell>} 
                           </StyledTableRow>
                         ))}
                       </TableBody>

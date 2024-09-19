@@ -44,21 +44,24 @@ function UiCarouselPlano({ products, className, children, onClick, variant, href
 
   return (
     <Box sx={{ width: '100%', height: '100%' }}>
-      <Carousel showThumbs={true} showArrows={true} showStatus={false}>
-        {groupedItems.map((group, groupIndex) => (
-          <Box key={groupIndex} display="flex" width="100%" height="100%">
-            {group.map((item, index) => (
-              <TravelCard
-                key={item.productReferenceId}
-                handleSubmit={handleSubmit}
-                produto={item}
-              />
+      <S.CarouselWrapper>
+        <S.StyledCarousel>
+          <Carousel showThumbs={true} showArrows={true} showStatus={false}>
+            {groupedItems.map((group, groupIndex) => (
+              <Box key={groupIndex} display="flex" width="100%" height="100%">
+                {group.map((item, index) => (
+                  <TravelCard
+                    key={item.productReferenceId}
+                    handleSubmit={handleSubmit}
+                    produto={item}
+                  />
+                ))}
+              </Box>
             ))}
-          </Box>
-        ))}
-      </Carousel>
+          </Carousel>
+        </S.StyledCarousel>
+      </S.CarouselWrapper>
     </Box>
-    
   );
 }
 

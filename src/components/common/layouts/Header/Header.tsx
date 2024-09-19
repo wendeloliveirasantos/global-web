@@ -20,13 +20,14 @@ import UiDropdown from '@/components/ui/Dropdown/Dropdown';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-const pagesMenu = [ {nome: 'Nossos Seguros', acao: true},
+const pagesMenu = [ 
   {nome: 'Quem Somos', acao: false},
+  {nome: 'Nossos Seguros', acao: true},
   {nome: 'Dúvidas Frequentes', acao: false}
 ];
 const pages = [ {nome: 'Dúvidas Frequentes', acao: false},
-                {nome: 'Quem Somos', acao: false},
-                {nome: 'Nossos Seguros', acao: true}
+                {nome: 'Nossos Seguros', acao: true},
+                {nome: 'Quem Somos', acao: false}
               ];
 const settings = ['Minha Conta'];
 
@@ -179,10 +180,13 @@ export default function Header() {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
+                '& .MuiPaper-root': {
+                  backgroundColor: '#233896', // Cor de fundo do Menu
+                }
               }}
             >
               {pagesMenu.map((page) => (
-                <MenuItem key={page.nome} onClick={(event) => { if (page.acao) handleClickMenu(event, page.nome); }}>
+                <MenuItem key={page.nome} onClick={(event) => { if (page.acao) handleClickMenu(event, page.nome); }} sx={{ color: '#FFFFFF' }}>
                   <Typography 
                     textAlign="center">
                       {page.nome}
@@ -210,7 +214,7 @@ export default function Header() {
           >
             <img src="/images/logo.png" height={31} alt="Logo" />
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row-reverse', paddingRight: '16px' }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, flexDirection: 'row-reverse' }}>
             {pages.map((page) => (
               <Button
                 key={page.nome}
@@ -230,11 +234,11 @@ export default function Header() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              {/* <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <img alt="Remy Sharp" src="/images/icon-user.png" style={{ width: '25px', height: '25px' }} />
-              </IconButton> */}
+              </IconButton>
                <IconButton
               size="large"
               edge="end"
@@ -268,7 +272,7 @@ export default function Header() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box> */}
         </Toolbar>
       </Container>
     </S.AppBarContainer>

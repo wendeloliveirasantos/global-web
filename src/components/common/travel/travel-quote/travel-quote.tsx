@@ -89,7 +89,7 @@ export default function TravelQuote() {
     startDate: null,
     endDate: null,
     termo: false,
-    rangePremio: 0
+    rangePremio: 30
   });
   const [passengers, setPassengers] = useState<Array<{ age: number | null }>>(
     []
@@ -104,6 +104,7 @@ export default function TravelQuote() {
   const [phoneError, setPhoneError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [destinationError, setDestinationError] = useState("");
+  const [passengerError, setPassengerError] = useState("");
   const [startDateError, setStartDateError] = useState("");
   const [endDateError, setEndDateError] = useState("");
   const [termoError, setTermoError] = useState("");
@@ -142,8 +143,55 @@ export default function TravelQuote() {
     });
   }
 
+  const validateDate = (date: any) => {
+    let hasError = false; // Variável de controle para erro
+
+    if (!values.startDate) {
+      setStartDateError("Por favor, selecione a data de saída");
+      hasError = true;
+      return hasError;
+    }
+
+    if (!values.endDate) {
+      setEndDateError("Por favor, selecione a data de retorno");
+      hasError = true;
+      return hasError;
+    }
+
+    const selectedDate = dayjs(values.startDate); // Converte a data selecionada
+
+    if (!selectedDate.isValid()) {
+      setStartDateError("Data inválida");
+      hasError = true;
+      return hasError;
+    }
+
+    const today = dayjs().startOf('day'); // Define a data de hoje como o início do dia atual
+
+    if (!selectedDate.isAfter(today)) { // Verifica se a data é posterior a hoje
+      setStartDateError("Selecione uma data posterior ao dia de hoje");
+      hasError = true;
+      return hasError;
+    }
+
+    setStartDateError('');
+    return hasError; // Data válida
+  };
+  // Função para lidar com a mudança de valores
   function handleChange(name: string, value: string | number | null | undefined | boolean | number[]) {
+    // Atualiza o estado normalmente para todos os campos
     setValues((prevState) => ({ ...prevState, [name]: value }));
+  }
+
+  // Função para lidar com a validação no evento blur (quando o campo perde o foco)
+  function handleBlur(name: string) {
+    const value = values[name as keyof ValuesProps]; // Pega o valor do campo
+    if (name === 'startDate') {
+      const errorMessage = validateDate(value); // Valida a data
+    }
+    if (name === 'endDate') {
+      const errorMessage = validateDate(value); // Valida a data
+    }
   }
 
   function handleSubmit(e: any) {
@@ -154,6 +202,7 @@ export default function TravelQuote() {
     setPhoneError("");
     setEmailError("");
     setDestinationError("");
+    setPassengerError("");
     setStartDateError("");
     setEndDateError("");
     setTermoError("");
@@ -177,7 +226,7 @@ export default function TravelQuote() {
     }
 
     if (!values.email) {
-      setEmailError("Por favor, insira o telefone");
+      setEmailError("Por favor, insira o e-mail");
       hasError = true;
     }
 
@@ -186,14 +235,15 @@ export default function TravelQuote() {
       hasError = true;
     }
 
-    if (!values.startDate) {
-      setStartDateError("Por favor, selecione a data de saída");
+    if (!passengers.length) {
+      setPassengerError("Por favor, escolha a quantidade");
       hasError = true;
     }
+    
+    if (validateDate(values.startDate)) {
+    }
 
-    if (!values.endDate) {
-      setEndDateError("Por favor, selecione a data de retorno");
-      hasError = true;
+    if (validateDate(values.endDate)) {
     }
 
     if (!values.termo) {
@@ -303,7 +353,7 @@ export default function TravelQuote() {
             onChange={(v) => addPassengers(+v)}
             label="Número de passageiros"
             options={quantPass}
-            helperText={destinationError}
+            helperText={passengerError}
           />
         </div>
 
@@ -338,27 +388,29 @@ export default function TravelQuote() {
             <div style={{alignSelf: 'stretch', paddingTop: 18, paddingBottom: 16, paddingLeft: 24, paddingRight: 24, justifyContent: 'flex-start', alignItems: 'flex-start', gap: 12, display: 'inline-flex'}}>
               <div style={{ width: "100%" }}>
                 <DatePicker
-                  onChange={(e) => handleChange("startDate", e)}
+                  onChange={(e) => handleChange('startDate', e)} // Atualiza o estado com o valor da data
+                  onBlur={() => handleBlur('startDate')} // Executa a validação no evento blur
                   label="Ida"
                   type="date"
                   name="startDate"
-                  min={dayjs(new Date()).format("YYYY-MM-DD")}
-                  helperText={startDateError}
+                  value={values.startDate} // Controla o valor da data
+                  helperText={startDateError} // Mostra a mensagem de erro, se houver
                 />
               </div>
               <div style={{ width: "100%" }}>
                 <DatePicker
                   onChange={(e) => handleChange("endDate", e)}
+                  onBlur={() => handleBlur('endDate')}
                   label="Retorno"
                   type="date"
                   name="endDate"
-                  min={dayjs(new Date()).format("YYYY-MM-DD")}
+                  value={values.endDate}
                   helperText={endDateError}
                 /> 
               </div>
             </div>
             <div style={{alignSelf: 'stretch', paddingTop: 8, paddingBottom: 12, paddingLeft: 12, paddingRight: 12, justifyContent: 'space-between', alignItems: 'flex-start', display: 'inline-flex'}}>
-                <div style={{flex: '1 1 0', height: 40, justifyContent: 'flex-end', alignItems: 'flex-end', gap: 8, display: 'flex'}}>
+                {/* <div style={{flex: '1 1 0', height: 40, justifyContent: 'flex-end', alignItems: 'flex-end', gap: 8, display: 'flex'}}>
                     <div style={{height: 40, borderRadius: 100, overflow: 'hidden', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex'}}>
                         <div style={{alignSelf: 'stretch', flex: '1 1 0', paddingLeft: 12, paddingRight: 12, paddingTop: 10, paddingBottom: 10, justifyContent: 'center', alignItems: 'center', gap: 8, display: 'inline-flex'}}>
                             <div style={{textAlign: 'center', color: '#FF5A62', fontSize: 14, fontWeight: '500', lineHeight: 20, letterSpacing: 0.10, wordWrap: 'break-word'}}>Cancelar</div>
@@ -369,7 +421,7 @@ export default function TravelQuote() {
                             <div style={{textAlign: 'center', color: '#FF5A62', fontSize: 14, fontWeight: '500', lineHeight: 20, letterSpacing: 0.10, wordWrap: 'break-word'}}>OK</div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
 
@@ -382,6 +434,7 @@ export default function TravelQuote() {
               marks={marks}
               min={0}
               max={1000}
+              value={values.rangePremio}
               label="Selecione o valor da cobertura:"
               onChange={(e, v) => handleChange("rangePremio", v)}
             />
@@ -390,7 +443,10 @@ export default function TravelQuote() {
 
         <S.Container>
           <S.Background>
-            <S.Text>${values.rangePremio}</S.Text>
+            <S.Text>
+              {values.rangePremio * 1000 <= 30000 ? "EUR" : "USD"}{" "}
+              {new Intl.NumberFormat('pt-BR', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(values.rangePremio * 1000)}
+            </S.Text>
           </S.Background>
         </S.Container>
           
@@ -403,7 +459,7 @@ export default function TravelQuote() {
         </div>
         
         <div style={{ marginTop: 30 }}>
-          <Button type="submit">Avançar</Button>
+          <Button color="#FF5A62" type="submit">Avançar</Button>
         </div>
       </form>
     </S.Card>

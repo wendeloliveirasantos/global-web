@@ -77,7 +77,7 @@ export default function TravelCard(props: Props) {
     //   <S.Link onClick={onChange}>Veja o detalhe de sua cobertura</S.Link>
     //   <Modal open={open} title="Coberturas" onClose={onClose} descriptions={produto.coverage} businessName="viagem"></Modal>
     //   <div style={{ marginTop: 20 }}>
-    //     <Button onClick={() => handleSubmit(produto)}>Selecionar</Button>
+    //     <Button color="#FF5A62" onClick={() => handleSubmit(produto)}>Selecionar</Button>
     //   </div>
     // </S.Wrapper>
 
@@ -100,7 +100,7 @@ export default function TravelCard(props: Props) {
                 .slice(0, 5)
                 .map((beneficio, index) => {
                   return (
-                    <li key={beneficio.description}>{beneficio.description}</li>
+                    <li style={{textAlign: 'left'}} key={beneficio.description}>{beneficio.description}</li>
                   );
               })}
             </S.List>
@@ -115,7 +115,7 @@ export default function TravelCard(props: Props) {
             <S.PriceHighlight fontSize={32}>{formatCurrency(+produto.amount).split(',')[0]}</S.PriceHighlight>
             <S.PriceHighlight fontSize={16}>,</S.PriceHighlight>
             <S.PriceHighlight fontSize={20}>{formatCurrency(+produto.amount).split(',')[1]}</S.PriceHighlight>
-            <S.PriceText>/mês</S.PriceText>
+            {produto.operator == 'nowSys' ? <S.PriceText>/mês</S.PriceText> : null}
           </S.CoveragePrice>
         </S.CoverageDetails>
         <Box padding="0px 0">
@@ -127,7 +127,9 @@ export default function TravelCard(props: Props) {
                 <Box key={beneficio.description}>
                   <S.DetailItem>
                     <Typography color="#333333" fontSize={14} fontWeight={700}>{beneficio.description}:<br /></Typography>
-                    <Typography color="#FF5A62" fontSize={14} fontWeight={700}>{beneficio.amount}</Typography>
+                    {produto.operator == 'nowSys' ? 
+                    <Typography color="#FF5A62" fontSize={14} fontWeight={700}>{'R$ ' + formatCurrency(+beneficio.amount)}</Typography> : 
+                    <Typography color="#FF5A62" fontSize={14} fontWeight={700}>{beneficio.amount}</Typography>}
                   </S.DetailItem>
                   { index !== 2 && <Divider /> }
                 </Box>
@@ -135,9 +137,9 @@ export default function TravelCard(props: Props) {
           })}
         </Box>
         <S.SeeMore onClick={onChange}>Veja mais detalhes de sua cobertura</S.SeeMore>
-        <Modal open={open} title="Coberturas" onClose={onClose} descriptions={produto.coverage} businessName="viagem"></Modal>
+        <Modal open={open} title="Coberturas" onClose={onClose} descriptions={produto.coverage} businessName={produto.operator}></Modal>
         <Box padding="14px 20px 21px 20px" width={"100%"}>
-          <Button onClick={() => handleSubmit(produto)}>Selecionar</Button>
+          <Button color="#FF5A62" onClick={() => handleSubmit(produto)}>Selecionar</Button>
         </Box>
       </S.Card>
     </S.Container>

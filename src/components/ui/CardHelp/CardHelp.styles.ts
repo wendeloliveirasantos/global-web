@@ -24,7 +24,6 @@ export const StyledCard = styled(Card)`
   border-radius: 24px; 
   flex-direction: column; 
   justify-content: center;
-  align-items: center; 
   display: inline-flex;
   box-shadow: none;
 `;

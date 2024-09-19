@@ -41,7 +41,7 @@ export default function DataBasic({ onSubmit }: DataBasicProps) {
           required
         />
         <div style={{ marginTop: 40 }}>
-          <Button type="submit">Avançar</Button>
+          <Button color="#FF5A62" type="submit">Avançar</Button>
         </div>
       </form>
     </S.Wrapper>

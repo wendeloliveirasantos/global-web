@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Typography } from '@mui/material';
+import { Box, Card, Typography } from '@mui/material';
 import styled from 'styled-components';
 
 export const StyledTitleTypography = styled(Typography)`
@@ -11,22 +11,22 @@ export const StyledTitleTypography = styled(Typography)`
 `;
 
 export const StyledItemTypography = styled(Typography)`
-    color: '#333333';
-    fontSize: 18;
-    fontWeight: '400';
-    lineHeight: 24;
-    wordWrap: 'break-word'
+  color: #333333;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  word-wrap: break-word;
 `;
 
 export const StyledCard = styled(Card)`
   width: 100%;
-  height: 100%;
+  height: 100%; /* Garante que o Card ocupe toda a altura disponível */
   border-radius: 24px;
-  border: 1px #FF5A62 solid;
+  border: 1px solid #ff5a62;
+  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  display: inline-flex;
   box-shadow: none;
   background: none;
 `;

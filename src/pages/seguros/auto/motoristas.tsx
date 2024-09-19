@@ -89,7 +89,7 @@ export default function Drivers() {
             <PageTitle bold="Dados" regular="dos Motoristas" />
             <DriversData handleChange={handleChange} removeDriver={handleRemoveDriver} addDriver={handleAddDriver} drivers={drivers} />
             <div style={{ marginTop: 40 }}>
-              <Button onClick={handleSubmit}>Avançar</Button>
+              <Button color="#FF5A62" onClick={handleSubmit}>Avançar</Button>
             </div>
           </div>
         </ContainerBox>

@@ -23,9 +23,18 @@ function UiDropdown({ onClose, itens, anchorEl, open, ...rest }: DropdownProps) 
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
+        sx={{
+          '& .MuiPaper-root': {
+            backgroundColor: '#233896', // Cor de fundo do Menu
+          }
+        }}
       >
         {itens?.map((item, index) => (
-          <MenuItem key={index} onClick={() => handleItemClick(item)}>
+          <MenuItem
+            key={index}
+            onClick={() => handleItemClick(item)}
+            sx={{ color: '#FFFFFF' }} // Cor do texto do MenuItem
+          >
             {item.nome}
           </MenuItem>
         ))}
