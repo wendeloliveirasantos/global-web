@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material'
 import styled from 'styled-components'
 
 export const Card = styled.div`
+  max-width: 480px;
 `
 
 export const RowInputs = styled.div`
