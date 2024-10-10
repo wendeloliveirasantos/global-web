@@ -42,7 +42,7 @@ export default function Insurance({
         </S.TextContainer>
         <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3 }}>
           <S.ButtonBox>
-            <Button color='#FF5A62' textColor='#FFFFFF' onClick={handleClick}>Contrate agora</Button>
+            <Button color='#233896' textColor='#FFFFFF' onClick={handleClick}>Contrate agora</Button>
           </S.ButtonBox>
         </Box>
       </S.TextBoxContainer>
@@ -87,7 +87,7 @@ export default function Insurance({
       </Box>
       <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3, marginBottom: 2 }}>
         <S.ButtonBox>
-          <Button color='#FF5A62' textColor='#FFFFFF' onClick={handleClick}>Contrate agora</Button>
+          <Button color='#233896' textColor='#FFFFFF' onClick={handleClick}>Contrate agora</Button>
         </S.ButtonBox>
       </Box>
       

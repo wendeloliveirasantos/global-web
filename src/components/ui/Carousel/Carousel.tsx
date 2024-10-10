@@ -13,7 +13,7 @@ type CarouselProps = {
   onClick?(): void;
   type?: any;
   variant?: string;
-  items: { src: string, alt: string, text: string, href: string }[];
+  items: { src: string, alt: string, text: string, href: string, position: number }[];
   multiplier: number;
 };
 
@@ -34,6 +34,7 @@ function UiCarousel({ className, children, onClick, variant, items, multiplier, 
           key={index}
           style={{ backgroundImage: `url(${item.src})` }}
           multiplier={multiplier}
+          backgroundPosition={item.position}
         >
           {item.text !== '' ?
             <S.TextTitleContainer dangerouslySetInnerHTML={{ __html: item.text }} /> : null}

@@ -316,7 +316,7 @@ export default function PagamentoForm({ onSubmit, amount, business, isLoading }:
             <TextInput mask="999" onChange={(e) => handleChange("cvv", e.target.value.replace(/\D/g, ''))} name="cvv" label="CVV" helperText={formErrors.cvv}/>
           </S.Group>
         </S.Row>
-        <S.Row>
+        {/* <S.Row>
           <S.Group>
             <Select
               value={formData.parcelas}
@@ -332,7 +332,7 @@ export default function PagamentoForm({ onSubmit, amount, business, isLoading }:
               ]}
             />
           </S.Group>
-        </S.Row>
+        </S.Row> */}
         <S.Row>
           <S.Group>
             <div>

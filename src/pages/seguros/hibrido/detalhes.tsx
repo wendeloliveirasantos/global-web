@@ -10,7 +10,7 @@ import { styled } from 'styled-components'
 
 export default function AutoDetalhes() {
     const items = [
-        { src: '/images/produto-item-3.jpeg', alt: 'Image 4', text: 'Seguro <br/> Híbrido', href: '/seguros/hibrido/detalhes' },
+        { src: '/images/produto-item-3.png', alt: 'Image 4', text: 'Seguro <br/> Híbrido', href: '/seguros/hibrido/detalhes', position: 20 },
     ];
     return (
         <MainLayout>

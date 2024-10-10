@@ -91,7 +91,7 @@ export default function TravelQuote() {
     termo: false,
     rangePremio: 30
   });
-  const [passengers, setPassengers] = useState<Array<{ age: number | null }>>(
+  const [passengers, setPassengers] = useState<Array<{ name: string | null; age: number | null }>>(
     []
   );
   const [destinyTerm, setDestinationTerm] = useState<string>("");
@@ -109,6 +109,9 @@ export default function TravelQuote() {
   const [endDateError, setEndDateError] = useState("");
   const [termoError, setTermoError] = useState("");
   const [passengerAgeErrors, setPassengerAgeErrors] = useState<Array<string>>(
+    []
+  );
+  const [passengerNameErrors, setPassengerNameErrors] = useState<Array<string>>(
     []
   );
 
@@ -129,10 +132,19 @@ export default function TravelQuote() {
     let array = [];
     for (let i = 0; i < quantity; i++) {
       array.push({
+        name: null,
         age: null,
       });
     }
     setPassengers(array);
+  }
+
+  function handleName(v: string, i: number) {
+    setPassengers((prevState) => {
+      const newArray = [...prevState];
+      newArray[i].name = v;
+      return newArray;
+    });
   }
 
   function handleAge(v: number, i: number) {
@@ -207,6 +219,7 @@ export default function TravelQuote() {
     setEndDateError("");
     setTermoError("");
     setPassengerAgeErrors([]);
+    setPassengerNameErrors([]);
 
     let hasError = false;
 
@@ -261,10 +274,15 @@ export default function TravelQuote() {
       }
     }
 
+    const nameErrors: string[] = [];
     const ageErrors: string[] = [];
 
     passengers.forEach((passenger, idx) => {
-      if (!passenger.age || isNaN(passenger.age) || passenger.age <= 0) {
+      if (!passenger.name || passenger.name == "") {
+        nameErrors[idx] = "Por favor, insira um nome valido";
+        hasError = true;
+      }
+      if (!passenger.age || isNaN(passenger.age) || passenger.age <= 0 || passenger.age >= 85) {
         ageErrors[idx] = "Por favor, insira uma idade válida";
         hasError = true;
       }
@@ -272,6 +290,7 @@ export default function TravelQuote() {
 
     if (!passengers.length) return
 
+    setPassengerNameErrors(nameErrors);
     setPassengerAgeErrors(ageErrors);
 
     if (hasError) {
@@ -288,7 +307,7 @@ export default function TravelQuote() {
         startDate: values.startDate?.toString(),
         from: values.from,
         to: values.to,
-        passengers: passengers.map((r) => ({ age: r.age ?? 0 })),
+        passengers: passengers.map((r) => ({ name: r.name ?? "", age: r.age ?? 0 })),
         termo: values.termo,
         rangePremio: values.to == "9;BR" ? 500000 : values.rangePremio
       })
@@ -360,15 +379,24 @@ export default function TravelQuote() {
         <S.Passengers>
           {passengers.map((passenger, idx) => {
             return (
-              <S.Row key={idx}>
-                <TextInput
-                  min={0}
-                  type="number"
-                  onChange={(e) => handleAge(+e.target.value, idx)}
-                  name="age"
-                  label={`Idade do pass. ${idx + 1}`}
-                  helperText={passengerAgeErrors[idx]}
-                />
+              <S.Row key={idx} style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <TextInput
+                    type="text"
+                    onChange={(e) => handleName(e.target.value, idx)}
+                    name="name"
+                    label={`Nome do pass. ${idx + 1}`}
+                    helperText={passengerNameErrors[idx]} // Validação opcional
+                  />
+                  <TextInput
+                    min={0}
+                    type="number"
+                    onChange={(e) => handleAge(+e.target.value, idx)}
+                    name="age"
+                    label={`Idade do pass. ${idx + 1}`}
+                    helperText={passengerAgeErrors[idx]} // Validação opcional
+                  />
+                </div>
               </S.Row>
             );
           })}

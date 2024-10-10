@@ -18,7 +18,7 @@ export const WelcomeContainer = styled(Box)<WelcomeContainerProps>(({ multiplier
   alignItems: 'flex-start',
   gap: 8,
   backgroundSize: 'cover',
-  backgroundPosition: 'center',
+  backgroundPosition: 'center bottom',
   backgroundRepeat: 'no-repeat',
   borderRadius: 28,
   position: 'relative',

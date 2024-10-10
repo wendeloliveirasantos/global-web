@@ -244,7 +244,7 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
           <S.PriceContainer>
             <S.PriceText sx={{ paddingRight: 1}}>R$ </S.PriceText>
             <S.PriceValue>{formatarValor(amount)} </S.PriceValue>
-            <S.PriceText sx={{ paddingLeft: 1}}>/mês</S.PriceText>
+            <S.PriceText sx={{ paddingLeft: 1}}></S.PriceText>
           </S.PriceContainer>
           <Grid container spacing={3}>
             <Grid item xs={5}>
@@ -254,7 +254,7 @@ export default function PagamentoForm({ onSubmit, amount, isLoading }: any) {
             </Grid>
             <Grid item xs={7}>
               <S.TypographyText>
-                R$ {formatarValor(amount)} /mês
+                R$ {formatarValor(amount)}
               </S.TypographyText>
             </Grid>
           </Grid>
