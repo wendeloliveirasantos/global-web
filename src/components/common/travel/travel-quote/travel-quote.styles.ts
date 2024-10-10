@@ -16,8 +16,8 @@ export const Passengers = styled.div`
 `
 
 export const Row = styled.div`
-  width: 50%;
-  padding: 1%;
+  width: 100%;
+  padding: 1% 0%;
 `
 export const Container = styled(Box)({
   display: 'flex',

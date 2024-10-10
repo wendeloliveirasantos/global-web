@@ -163,7 +163,7 @@ export default function HybridTitular({ onSubmit, business }: any) {
       hasError = true;
     }
 
-    if (!formData.birthDate) {
+    if (business != "empresarial" && !formData.birthDate) {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
         birthDate: "Por favor, insira a data de nascimento",
@@ -307,6 +307,7 @@ export default function HybridTitular({ onSubmit, business }: any) {
           </S.Group>
         </S.Row>
 
+        { business != "empresarial" ?
         <S.Row>
           <S.Group>
             <DatePicker
@@ -321,8 +322,8 @@ export default function HybridTitular({ onSubmit, business }: any) {
               border={true}
             />
           </S.Group>
-        </S.Row>
-
+        </S.Row> : null
+        }
         <S.Row>
           <S.Group style={{ paddingRight: "8px" }}>
             <TextInput

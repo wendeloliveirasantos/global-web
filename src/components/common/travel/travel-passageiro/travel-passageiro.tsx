@@ -34,18 +34,24 @@ export default function DadosPassageiro() {
   useEffect(() => {
     if (existCotacao) {
       const cotacao = JSON.parse(existCotacao);
-      setPassageiros(
-        cotacao.passengers?.slice(1).map((r: any) => ({
-          firstName: "",
-          lastName: "",
-          document: "",
-          gender: "",
-          birthDate: "",
-          age: r.age,
-        }))
-      );
+      const newPassageiros = cotacao.passengers?.slice(1).map((r: any) => ({
+        firstName: r.name,
+        lastName: "", 
+        document: "",
+        gender: "",
+        birthDate: "",
+        age: r.age,
+      }));
+      setPassageiros(newPassageiros);
     }
   }, [existCotacao]);
+  
+  useEffect(() => {
+    // Só atualiza o formData se passageiros e passageiroSelecionado forem válidos
+    if (passageiros.length > 0 && passageiros[passageiroSelecionado]) {
+      setFormData(passageiros[passageiroSelecionado]);
+    }
+  }, [passageiros, passageiroSelecionado]);
 
   if (!existCotacao) return <>Carregando...</>;
 
@@ -78,7 +84,6 @@ export default function DadosPassageiro() {
     const currentDate = dayjs();
     const parsedBirthDate = dayjs(birthDate, 'YYYY-MM-DD');
     const calculatedAge = currentDate.diff(parsedBirthDate, 'years');
-    console.log(age);
     return calculatedAge == age;
   }
 
@@ -134,8 +139,8 @@ export default function DadosPassageiro() {
       }));
       hasError = true;
     }
+    formData.firstName = passageiros[passageiroSelecionado].firstName;
     formData.age = passageiros[passageiroSelecionado].age;
-    console.log(formData);
     if (formData.birthDate && !validateAge(formData.birthDate, parseInt(formData.age))) {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
@@ -151,6 +156,7 @@ export default function DadosPassageiro() {
     //handleNext();
 
     setFormData(INITIAL_VALUE);
+    formData.firstName = passageiros[passageiroSelecionado].firstName;
     formData.age = passageiros[passageiroSelecionado].age;
     passageiros[passageiroSelecionado] = formData;
     setPassageiroSelecionado(passageiroSelecionado + 1);
@@ -163,20 +169,26 @@ export default function DadosPassageiro() {
     
     router.push(`/seguros/viagem/pagamento`);
   }
-
+  
   return (
-    <S.Wrapper>
+    <S.Card>
       <S.Description>{`Passageiro ${passageiroSelecionado + 1 + 1}`}</S.Description>
       <form onSubmit={handleSubmit}>
         <S.Row>
-          <S.Group>
-          <TextInput name="firstName" label="Nome" defaultValue={passageiros[0].firstName} value={formData.firstName} onChange={(e) => handleChange("firstName", e.target.value)} helperText={formErrors.firstName}/>
+          <S.Group style={{ paddingRight: "8px" }}>
+            <TextInput
+              name="firstName"
+              label="Nome"
+              value={formData?.firstName || ""}  // Usa "|| ''" para garantir que não será undefined
+              onChange={(e) => handleChange("firstName", e.target.value)}
+              helperText={formErrors.firstName}
+            />
           </S.Group>
-          <S.Group>
+          <S.Group style={{ paddingLeft: "8px" }}>
             <TextInput
               name="lastName"
               label="Sobrenome"
-              value={formData.lastName}
+              value={formData?.lastName || ""}  // Mesma abordagem para evitar undefined
               onChange={(e) => handleChange("lastName", e.target.value)}
               helperText={formErrors.lastName}
             />
@@ -184,11 +196,11 @@ export default function DadosPassageiro() {
         </S.Row>
         <S.Row>
           <S.Group>
-          <TextInput name="document" label="CPF" mask="999.999.999-99" value={formData.document} onChange={(e) => handleChange("document", e.target.value.replace(/\D/g, ''))} helperText={formErrors.document}/>
+            <TextInput name="document" label="CPF" mask="999.999.999-99" value={formData.document} onChange={(e) => handleChange("document", e.target.value.replace(/\D/g, ''))} helperText={formErrors.document}/>
           </S.Group>
         </S.Row>
         <S.Row>
-          <S.Group>
+          <S.Group style={{ paddingRight: "8px" }}>
             <Select
               options={[
                 { value: "female", label: "Feminino" },
@@ -200,7 +212,7 @@ export default function DadosPassageiro() {
               helperText={formErrors.gender}
             />
           </S.Group>
-          <S.Group>
+          <S.Group style={{ paddingLeft: "8px" }}>
             <DatePicker
               onChange={(e) => handleChange("birthDate", e)}
               label="Data de Nascimento"
@@ -209,20 +221,17 @@ export default function DadosPassageiro() {
               value={formData.birthDate}
               min={dayjs(new Date()).format("YYYY-MM-DD")}
               helperText={formErrors.birthDate}
+              border={true}
             />
           </S.Group>
         </S.Row>
-        <S.Row>
-          <S.Group>
-            <div style={{ marginTop: 20 }}>
-              <Button color="#FF5A62" type="submit">Avançar</Button>
-            </div>
-            <div style={{ marginTop: 20 }}>
-              <Button color="#FF5A62" textColor="#FF5A62" onClick={handleBack} variant="outlined">Voltar</Button>
-            </div>
-          </S.Group>
-        </S.Row>
+        <div style={{ marginTop: 20 }}>
+          <Button color="#FF5A62" type="submit">Avançar</Button>
+        </div>
+        <div style={{ marginTop: 15 }}>
+          <Button color="#FF5A62" textColor="#FF5A62" onClick={handleBack} variant="outlined">Voltar</Button>
+        </div>
       </form>
-    </S.Wrapper>
+    </S.Card>
   );
 }

@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 interface WelcomeContainerProps extends BoxProps {
   multiplier: number;
+  backgroundPosition: number;
 }
 
-export const WelcomeContainer = styled(Box)<WelcomeContainerProps>(({ multiplier }) => ({
+export const WelcomeContainer = styled(Box)<WelcomeContainerProps>(({ multiplier, backgroundPosition }) => ({
   width: '100%',
   height: `${600}px`,
   paddingLeft: 16,
@@ -18,7 +19,7 @@ export const WelcomeContainer = styled(Box)<WelcomeContainerProps>(({ multiplier
   alignItems: 'flex-start',
   gap: 8,
   backgroundSize: 'cover',
-  backgroundPosition: 'center',
+  backgroundPosition: `center ${backgroundPosition}%`,
   backgroundRepeat: 'no-repeat',
   borderRadius: 28,
   position: 'relative',

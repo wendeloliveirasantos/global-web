@@ -88,7 +88,6 @@ export default function TravelTitular() {
     const currentDate = dayjs();
     const parsedBirthDate = dayjs(birthDate, 'YYYY-MM-DD');
     const calculatedAge = currentDate.diff(parsedBirthDate, 'years');
-    console.log(calculatedAge);
     return calculatedAge == cotacaoObj.passengers[0].age;
   }
 

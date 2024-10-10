@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Button } from '../ui'
 import { useRouter } from 'next/router'
@@ -11,18 +11,21 @@ type Props = {
 export default function ConcluidoComponent(props: Props) {
   const { compra } = props
   const router = useRouter()
+  let url: string | null = null;
+
+  useEffect(() => {
+    url = compra.urlVoucher != null ? compra.urlVoucher : compra.EmissoesResponseAPI != null ? compra.EmissoesResponseAPI[0].UrlEvoucher : null;
+  });
 
   const handleButtonClick = () => {
-    console.log(compra);
-    const url = compra.urlVoucher != null ? compra.urlVoucher : compra.EmissoesResponseAPI[0].UrlEvoucher;
-    window.open(url, '_blank');
+    url != null ? window.open(url, '_blank') : router.push("/");
   };
 
   return (
     <Card>
       <Box display="flex" alignItems="center" justifyContent="center" sx={{ marginTop: 3 }}>
         <ButtonBox>
-          <Button color="#FF5A62" onClick={handleButtonClick}>Baixa seu voucher</Button>
+          <Button color="#FF5A62" onClick={handleButtonClick}>{ url != null ? 'Baixa seu voucher' : 'Finalizar' }</Button>
         </ButtonBox>
       </Box>
     </Card>
