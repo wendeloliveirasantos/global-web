@@ -1,11 +1,11 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.app',
-  appName: 'global-web',
+  appId: 'com.dobyseg.app',
+  appName: 'dobyseg',
   webDir: 'out',
   server: {
-    androidScheme: 'https'
+    androidScheme: 'http'
   }
 };
 

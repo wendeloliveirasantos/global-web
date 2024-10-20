@@ -11,7 +11,7 @@ import { DatePicker } from "@/components/ui/DatePicker";
 import { Switch } from "@/components/ui/Switch";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Slider } from "@/components/ui/Slider";
-import { Grid } from "@mui/material";
+import { FormHelperText, Grid, Link, Typography } from "@mui/material";
 type ValuesProps = {
   firstName: string,
   lastName: string,
@@ -229,12 +229,27 @@ export default function HybridQuote({ onSubmit, business }: any) {
           />
         </div> */}
 
-        <div style={{ marginTop: 20 }}>
-          <Switch
-            label="Declaro que li e concordo com a Política de Privacidade"
-            onChange={(e) => handleChange("termo", e)}
-            helperText={termoError}
-          />
+        <div style={{ display: 'flex', flexDirection: 'column', marginTop: 20 }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Switch
+              label=""
+              onChange={(e) => handleChange("termo", e)}
+            />
+            <Typography variant="body2" sx={{ color: '#333', fontSize: '16px', fontWeight: 400 }}>
+              Declaro que li e concordo com a{' '}
+              <Link
+                href="/seguros/politica-privacidade"
+                target="_blank"
+                sx={{ fontWeight: 700, color: '#333', textDecoration: 'underline' }}
+              >
+                Política de Privacidade
+              </Link>.
+            </Typography>
+          </div>
+
+          {termoError && (
+            <FormHelperText sx={{ paddingLeft: 2 }} error>{termoError}</FormHelperText>
+          )}
         </div>
         
         <div style={{ marginTop: 20 }}>

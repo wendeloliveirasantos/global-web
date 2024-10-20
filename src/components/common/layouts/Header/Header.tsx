@@ -132,7 +132,7 @@ export default function Header() {
     //   </S.Menu>
     // </S.Wrapper>
 
-    <S.AppBarContainer position="static">
+    <S.AppBarContainer position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
