@@ -13,7 +13,7 @@ type SwitchProps = {
 
 function UiSwitch({ label, children, onChange, type, variant, helperText,...rest }: SwitchProps) {
   return (
-    <FormControl error={helperText != ""} fullWidth>
+    <FormControl error={helperText != ""}>
       <FormGroup style={{ alignContent: 'center' }}>
         <FormControlLabel sx={{ m: 0, width: '100%', height: '100%', color: '#333333', fontSize: 14, fontWeight: '400', wordWrap: 'break-word' }} control={<S.MaterialUISwitch sx={{ marginRight: '18px' }} onChange={(e) => onChange(e.target.checked)} />} label={label} {...rest}/>
       </FormGroup>
