@@ -1,0 +1,8 @@
+{
+	"appId": "com.dobyseg.app",
+	"appName": "dobyseg",
+	"webDir": "out",
+	"server": {
+		"androidScheme": "https"
+	}
+}
