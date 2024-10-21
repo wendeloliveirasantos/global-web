@@ -4,8 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-/android
-/ios
 package.json
 package-lock.json
 .env
@@ -16,7 +14,6 @@ package-lock.json
 
 # next.js
 /.next/
-/out/
 
 # production
 /build
